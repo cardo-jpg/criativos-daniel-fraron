@@ -3,856 +3,686 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Criativos — Daniel Fraron | Cardo Marketing</title>
+<title>Brief Criativos — Daniel Fraron | Cardo Marketing</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  :root {
-    --navy: #0a0f1e;
-    --navy2: #0f1628;
-    --card-bg: #141c30;
-    --border: #1e2d50;
-    --accent-triad: #f97316;
-    --accent-quitar: #ef4444;
-    --accent-perpetuo: #8b5cf6;
-    --text: #e2e8f0;
-    --text-muted: #64748b;
-    --text-dim: #94a3b8;
-    --white: #ffffff;
-  }
-
-  body {
-    background: var(--navy);
-    color: var(--text);
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    min-height: 100vh;
-    padding: 40px 20px 80px;
-  }
-
-  /* HEADER */
-  .header {
-    text-align: center;
-    margin-bottom: 60px;
-  }
-  .header .badge {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 12px;
-  }
-  .header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .header p {
-    font-size: 14px;
-    color: var(--text-muted);
-  }
-
-  /* SECTION */
-  .section {
-    max-width: 1100px;
-    margin: 0 auto 80px;
-  }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-  .section-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .section-header h2 {
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--white);
-  }
-  .section-header .meta {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-left: auto;
-  }
-
-  /* GRID */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
-    gap: 24px;
-  }
-
-  /* AD CARD */
-  .ad-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-
-  /* VISUAL */
-  .ad-visual {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1/1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
-    text-align: center;
-    overflow: hidden;
-  }
-  .ad-visual::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.12;
-  }
-
-  /* triad */
-  .triad .ad-visual { background: linear-gradient(135deg, #1a0a00, #2d1500); }
-  .triad .ad-visual::before { background: radial-gradient(circle at 70% 30%, #f97316, transparent 60%); opacity: 0.3; }
-  .triad .section-dot, .triad-tag { background: var(--accent-triad); }
-  .triad .hook-tag { background: rgba(249,115,22,0.15); color: var(--accent-triad); border-color: rgba(249,115,22,0.3); }
-  .triad .cta-btn { background: var(--accent-triad); }
-  .triad .label { color: var(--accent-triad); }
-
-  /* quitar */
-  .quitar .ad-visual { background: linear-gradient(135deg, #1a0000, #2d0505); }
-  .quitar .ad-visual::before { background: radial-gradient(circle at 30% 70%, #ef4444, transparent 60%); opacity: 0.3; }
-  .quitar .section-dot, .quitar-tag { background: var(--accent-quitar); }
-  .quitar .hook-tag { background: rgba(239,68,68,0.15); color: var(--accent-quitar); border-color: rgba(239,68,68,0.3); }
-  .quitar .cta-btn { background: var(--accent-quitar); }
-  .quitar .label { color: var(--accent-quitar); }
-
-  /* perpetuo */
-  .perpetuo .ad-visual { background: linear-gradient(135deg, #0d0a1a, #1a1030); }
-  .perpetuo .ad-visual::before { background: radial-gradient(circle at 50% 40%, #8b5cf6, transparent 60%); opacity: 0.3; }
-  .perpetuo .section-dot, .perpetuo-tag { background: var(--accent-perpetuo); }
-  .perpetuo .hook-tag { background: rgba(139,92,246,0.15); color: var(--accent-perpetuo); border-color: rgba(139,92,246,0.3); }
-  .perpetuo .cta-btn { background: var(--accent-perpetuo); }
-  .perpetuo .label { color: var(--accent-perpetuo); }
-
-  /* account bar */
-  .account-bar {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .account-avatar {
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 800;
-    color: white;
-    flex-shrink: 0;
-  }
-  .account-name {
-    font-size: 11px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.9);
-  }
-  .account-badge {
-    font-size: 9px;
-    color: rgba(255,255,255,0.5);
-  }
-  .sponsored {
-    margin-left: auto;
-    font-size: 9px;
-    color: rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.08);
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-
-  /* hook text on visual */
-  .visual-hook {
-    font-size: 17px;
-    font-weight: 800;
-    color: #ffffff;
-    line-height: 1.3;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
-    position: relative;
-    z-index: 1;
-    max-width: 240px;
-  }
-  .visual-sub {
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    margin-top: 8px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ad body */
-  .ad-body {
-    padding: 20px;
-  }
-  .ad-label {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .ad-number {
-    font-size: 10px;
-    color: var(--text-muted);
-    float: right;
-  }
-
-  .hook-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid;
-    margin-bottom: 12px;
-  }
-
-  .copy-block {
-    margin-bottom: 16px;
-  }
-  .copy-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-  }
-  .copy-text {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--text-dim);
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-  }
-  .copy-text strong {
-    color: var(--text);
-  }
-
-  .cta-btn {
-    display: block;
-    width: 100%;
-    text-align: center;
-    padding: 11px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    color: white;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.3px;
-    margin-top: 4px;
-  }
-
-  /* COPY SECTION (full copy below cards) */
-  .full-copy {
-    max-width: 1100px;
-    margin: 0 auto 80px;
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-  }
-  .full-copy-header {
-    padding: 20px 24px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .full-copy-header h3 {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--white);
-  }
-  .full-copy-header p {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-left: auto;
-  }
-  .copy-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .copy-table th {
-    background: rgba(255,255,255,0.03);
-    padding: 10px 16px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    text-align: left;
-    border-bottom: 1px solid var(--border);
-  }
-  .copy-table td {
-    padding: 14px 16px;
-    font-size: 13px;
-    color: var(--text-dim);
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-    line-height: 1.6;
-  }
-  .copy-table tr:last-child td { border-bottom: none; }
-  .copy-table td:first-child {
-    font-weight: 700;
-    color: var(--text);
-    white-space: nowrap;
-    width: 130px;
-  }
-  .tag {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 4px;
-    color: white;
-    margin-left: 6px;
-    vertical-align: middle;
-  }
-
-  /* FORMAT PILLS */
-  .format-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
-  }
-  .pill {
-    font-size: 10px;
-    font-weight: 600;
-    padding: 3px 8px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.06);
-    border: 1px solid var(--border);
-    color: var(--text-muted);
-  }
-
-  /* divider */
-  .divider { height: 1px; background: var(--border); margin: 0; }
-
-  /* NOTE */
-  .note {
-    max-width: 1100px;
-    margin: 0 auto 40px;
-    background: rgba(249,115,22,0.05);
-    border: 1px solid rgba(249,115,22,0.2);
-    border-radius: 10px;
-    padding: 14px 18px;
-    font-size: 13px;
-    color: var(--text-dim);
-    line-height: 1.6;
-  }
-  .note strong { color: #f97316; }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#060c1a;
+  --navy2:#0b1428;
+  --card:#111927;
+  --card2:#0f1520;
+  --border:#1a2640;
+  --border2:#1e2d4a;
+  --text:#dde6f0;
+  --muted:#4a6080;
+  --dim:#8a9bb8;
+  --white:#fff;
+  --orange:#f97316;
+  --red:#ef4444;
+  --purple:#7c3aed;
+  --purple-light:#a78bfa;
+  --green:#22c55e;
+}
+body{background:var(--navy);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;min-height:100vh;padding-bottom:100px}
+.page-header{background:var(--navy2);border-bottom:1px solid var(--border);padding:28px 40px;display:flex;align-items:center;justify-content:space-between}
+.page-header .logo{font-size:13px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange)}
+.page-header .meta{text-align:right;font-size:12px;color:var(--muted);line-height:1.7}
+.page-header .meta strong{color:var(--dim)}
+.nav{display:flex;gap:6px;padding:20px 40px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.nav a{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:20px;border:1px solid var(--border2);color:var(--muted);text-decoration:none}
+.nav a.orange{border-color:rgba(249,115,22,.4);color:#f97316}
+.nav a.red{border-color:rgba(239,68,68,.4);color:#ef4444}
+.nav a.purple{border-color:rgba(124,58,237,.4);color:#a78bfa}
+.section{padding:60px 40px}
+.section+.section{border-top:1px solid var(--border)}
+.section-label{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.section-label span{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.section-title{font-size:26px;font-weight:800;color:var(--white);margin-bottom:4px}
+.section-sub{font-size:13px;color:var(--muted);margin-bottom:36px}
+.brand-strip{display:flex;gap:12px;margin-bottom:40px;flex-wrap:wrap}
+.brand-chip{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;min-width:130px}
+.bc-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.bc-val{font-size:13px;font-weight:700;color:var(--text)}
+.color-row{display:flex;gap:6px;margin-top:4px}
+.color-swatch{width:24px;height:24px;border-radius:6px;border:1px solid rgba(255,255,255,.08)}
+.font-preview{font-size:18px;font-weight:900;letter-spacing:-0.5px;line-height:1}
+.ads-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:32px}
+.ad-unit{}
+.ad-unit-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.ad-unit-label .tag{padding:2px 8px;border-radius:4px;font-size:9px;color:white}
+.phone-wrap{display:flex;gap:16px;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap}
+.phone{width:200px;flex-shrink:0;background:#0a0a0a;border-radius:34px;padding:8px;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 30px 70px rgba(0,0,0,.7),0 0 0 6px #0f0f0f;position:relative}
+.phone-camera{position:absolute;top:14px;left:50%;transform:translateX(-50%);width:9px;height:9px;background:#111;border-radius:50%;box-shadow:0 0 0 1px rgba(255,255,255,.06);z-index:10}
+.phone-inner{background:#fff;border-radius:26px;overflow:hidden}
+.ig-status{background:#fafafa;display:flex;justify-content:space-between;align-items:center;padding:8px 12px 4px;font-size:9px;font-weight:700;color:#111}
+.ig-status .icons{display:flex;gap:4px;align-items:center}
+.sig{display:flex;gap:2px;align-items:flex-end}
+.sig-bar{width:3px;border-radius:1px;background:#111}
+.ig-account{background:#fafafa;display:flex;align-items:center;gap:7px;padding:6px 10px;border-bottom:1px solid #f0f0f0}
+.ig-avatar{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:900;color:white;flex-shrink:0}
+.ig-name-wrap{flex:1;min-width:0}
+.ig-name{font-size:9px;font-weight:700;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ig-sponsored{font-size:8px;color:#8e8e8e}
+.ig-more{font-size:14px;color:#8e8e8e;line-height:1;padding:0 2px}
+.ad-img{width:100%;aspect-ratio:1/1;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+/* TC01 */
+.tc01-img{background:#100b00}
+.tc01-stripe{position:absolute;width:200%;height:55%;background:linear-gradient(135deg,transparent,rgba(249,115,22,.18),transparent);top:20%;left:-50%;transform:rotate(-12deg)}
+.tc01-img .headline{font-size:15px;font-weight:900;color:#f97316;text-transform:uppercase;letter-spacing:-0.3px;position:relative;z-index:2;line-height:1.1;text-shadow:0 0 30px rgba(249,115,22,.4)}
+.tc01-img .sub{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);margin-top:4px;position:relative;z-index:2}
+.tc01-check{position:absolute;bottom:12px;left:12px;right:12px;background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.3);border-radius:6px;padding:6px 10px;font-size:9px;font-weight:700;color:#4ade80;display:flex;align-items:center;gap:5px}
+/* TC02 */
+.tc02-img{background:#0a0a0a}
+.tc02-above{font-size:9px;color:var(--muted);margin-bottom:8px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.tc02-cpf{font-size:28px;font-weight:900;color:rgba(255,255,255,.12);letter-spacing:4px;position:relative;padding:6px 16px}
+.tc02-cross{position:absolute;width:130%;height:3px;background:var(--red);top:50%;left:-15%;transform:rotate(-12deg);border-radius:2px}
+.tc02-below{font-size:19px;font-weight:900;color:white;margin-top:10px;letter-spacing:-0.5px}
+.tc02-belowsub{font-size:9px;color:rgba(255,255,255,.4);margin-top:4px}
+/* TC03 */
+.tc03-img{background:#0d0a00}
+.tc03-cars{display:flex;gap:6px;margin-bottom:14px;position:relative;z-index:2}
+.tc03-car{width:26px;height:18px;border-radius:3px 3px 2px 2px;border:2px solid}
+.tc03-car.available{border-color:#f97316}
+.tc03-num{font-size:36px;font-weight:900;color:white;line-height:1;position:relative;z-index:2}
+.tc03-num span{color:#f97316}
+.tc03-label{font-size:10px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;position:relative;z-index:2}
+.tc03-city{position:absolute;bottom:10px;font-size:8px;color:rgba(255,255,255,.3);letter-spacing:1px}
+/* QF01 */
+.qf01-img{background:linear-gradient(180deg,#1a0000,#0d0000)}
+.qf01-warning{width:44px;height:44px;border:3px solid rgba(239,68,68,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:900;color:var(--red);margin-bottom:10px;position:relative;z-index:2}
+.qf01-img .headline{font-size:14px;font-weight:900;color:white;line-height:1.2;position:relative;z-index:2}
+.qf01-img .danger{font-size:10px;font-weight:700;color:rgba(239,68,68,.8);margin-top:4px;position:relative;z-index:2}
+.qf01-divider{width:40px;height:2px;background:rgba(239,68,68,.4);margin:10px auto;position:relative;z-index:2}
+.qf01-img .solution{font-size:11px;font-weight:700;color:rgba(255,255,255,.7);position:relative;z-index:2}
+.qf01-img .solution strong{color:white}
+/* QF02 */
+.qf02-img{background:#0a0a0a;display:flex;flex-direction:row !important;align-items:stretch}
+.qf02-left,.qf02-right{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 8px;text-align:center}
+.qf02-left{background:rgba(239,68,68,.08);border-right:1px solid rgba(255,255,255,.05)}
+.qf02-right{background:rgba(34,197,94,.05)}
+.qf02-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;margin-bottom:6px;color:white}
+.qf02-icon.bad{background:rgba(239,68,68,.25);color:#ef4444}
+.qf02-icon.good{background:rgba(34,197,94,.2);color:#22c55e}
+.qf02-label{font-size:8px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+.qf02-left .qf02-label{color:rgba(239,68,68,.7)}
+.qf02-right .qf02-label{color:rgba(34,197,94,.8)}
+.qf02-desc{font-size:8px;color:rgba(255,255,255,.45);line-height:1.4}
+/* QF03 */
+.qf03-img{background:#0d0000}
+.qf03-img .headline{font-size:14px;font-weight:900;color:white;margin-bottom:12px;position:relative;z-index:2;line-height:1.2}
+.qf03-img .headline span{color:var(--red)}
+.qf03-list{position:relative;z-index:2;text-align:left;display:flex;flex-direction:column;gap:4px}
+.qf03-item{display:flex;align-items:flex-start;gap:5px;font-size:8px;color:rgba(255,255,255,.65)}
+.qf03-item .ck{color:#22c55e;font-size:9px;flex-shrink:0}
+.qf03-city{margin-top:12px;font-size:8px;color:rgba(255,255,255,.25);letter-spacing:1px;position:relative;z-index:2}
+/* PP01 */
+.pp01-img{background:linear-gradient(145deg,#0d0918,#140d2a)}
+.pp01-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(124,58,237,.25),transparent 70%)}
+.pp01-img .headline{font-size:13px;font-weight:300;color:rgba(255,255,255,.55);line-height:1.5;position:relative;z-index:2;max-width:140px}
+.pp01-img .headline strong{font-size:15px;font-weight:900;color:white;display:block;margin-top:6px;line-height:1.2}
+/* PP02 */
+.pp02-img{background:linear-gradient(145deg,#0a0814,#120a20)}
+.pp02-img::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(124,58,237,.2),transparent 70%)}
+.pp02-q1{font-size:10px;color:rgba(255,255,255,.4);font-weight:400;position:relative;z-index:2}
+.pp02-ans1{font-size:16px;font-weight:900;color:var(--purple-light);position:relative;z-index:2;margin:4px 0;letter-spacing:-0.3px}
+.pp02-q2{font-size:10px;color:rgba(255,255,255,.4);font-weight:400;position:relative;z-index:2}
+.pp02-ans2{font-size:14px;font-weight:900;color:rgba(255,255,255,.4);position:relative;z-index:2;margin-top:4px;text-decoration:line-through;text-decoration-color:rgba(255,255,255,.2)}
+.ig-actions{background:#fafafa;padding:8px 12px 6px;display:flex;justify-content:space-between;align-items:center}
+.ig-actions .left{display:flex;gap:10px;align-items:center}
+.ig-icon{font-size:14px}
+.ig-cta-wrap{padding:0 10px 8px;background:#fafafa}
+.ig-cta{display:block;width:100%;text-align:center;padding:7px;border-radius:6px;font-size:9px;font-weight:800;color:white;letter-spacing:.5px}
+.story-wrap{width:110px;flex-shrink:0}
+.story-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;text-align:center}
+.story-phone{background:#0a0a0a;border-radius:20px;padding:5px;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 20px 40px rgba(0,0,0,.6)}
+.story-inner{border-radius:16px;overflow:hidden;aspect-ratio:9/16;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:12px;text-align:center}
+.story-bar{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.15)}
+.story-bar-fill{height:100%;width:60%;background:rgba(255,255,255,.7);border-radius:2px}
+.ad-copy-block{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px;flex:1;min-width:0}
+.acb-section{margin-bottom:10px}
+.acb-section:last-child{margin-bottom:0}
+.acb-label{font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.acb-text{font-size:12px;color:var(--dim);line-height:1.6}
+.acb-text strong{color:var(--text)}
+.cta-pill{display:inline-block;font-size:10px;font-weight:800;padding:4px 12px;border-radius:20px;color:white;margin-top:2px}
+.format-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.fmt{font-size:9px;font-weight:600;padding:3px 8px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid var(--border2);color:var(--muted)}
+/* REFERENCES */
+.ref-section{padding:60px 40px;border-top:1px solid var(--border)}
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.ref-card{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+.ref-card-header{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px}
+.ref-card-header h3{font-size:14px;font-weight:700;color:var(--white)}
+.ref-card-body{padding:18px}
+.ref-item{margin-bottom:16px}
+.ref-item:last-child{margin-bottom:0}
+.ref-item-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.ref-item-body{font-size:12px;color:var(--dim);line-height:1.7}
+.ref-item-body strong{color:var(--text);font-weight:700}
+.ref-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
+.ref-pill{font-size:10px;font-weight:600;padding:3px 10px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--dim)}
+.avoid-list,.do-list{margin-top:6px;display:flex;flex-direction:column;gap:4px}
+.avoid-item,.do-item{font-size:11px;line-height:1.5;display:flex;gap:6px;align-items:flex-start}
+.avoid-item::before{content:'✗';color:var(--red);font-size:10px;flex-shrink:0;margin-top:2px}
+.do-item::before{content:'✓';color:var(--green);font-size:10px;flex-shrink:0;margin-top:2px}
+.avoid-item{color:rgba(239,68,68,.7)}
+.do-item{color:rgba(34,197,94,.8)}
+.moodboard{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.mood-block{border-radius:8px;padding:10px 14px;font-size:11px;font-weight:700;color:white;min-width:80px;text-align:center;line-height:1.2}
+/* CHECKLIST */
+.checklist-section{padding:60px 40px;border-top:1px solid var(--border)}
+.checklist-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.checklist-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.checklist-card-header{padding:12px 16px;border-bottom:1px solid var(--border);font-size:12px;font-weight:700;color:var(--white)}
+.checklist-card-body{padding:12px 16px}
+.check-item{display:flex;align-items:flex-start;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:11px;color:var(--dim);line-height:1.5}
+.check-item:last-child{border-bottom:none}
+.check-box{width:14px;height:14px;border-radius:3px;border:1px solid var(--border2);flex-shrink:0;margin-top:1px}
+.page-footer{padding:30px 40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted)}
+@media(max-width:700px){
+  .page-header,.nav,.section,.ref-section,.checklist-section,.page-footer{padding-left:20px;padding-right:20px}
+  .phone-wrap{flex-direction:column}
+  .story-wrap{width:100%;display:flex;align-items:center;flex-direction:column}
+}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="badge">Cardo Marketing · Cliente Daniel Fraron</div>
-  <h1>Prévias de Criativos</h1>
-  <p>Triad Capital · Quitar Financiamento · Perpétuo (Paternidade)</p>
+<div class="page-header">
+  <div>
+    <div class="logo">Cardo Marketing</div>
+    <div style="font-size:18px;font-weight:800;color:var(--white);margin-top:4px">Brief de Criativos</div>
+    <div style="font-size:12px;color:var(--muted);margin-top:2px">Daniel Formehl Fraron · Triad Invest Capital LTDA</div>
+  </div>
+  <div class="meta">
+    <strong>Verba total:</strong> R$ 2.500/mês<br>
+    <strong>Região:</strong> Blumenau · Vale · Litoral SC<br>
+    <strong>Atualizado:</strong> Junho 2026
+  </div>
 </div>
 
-<!-- ============================================================ -->
-<!--  TRIAD CAPITAL                                               -->
-<!-- ============================================================ -->
-<div class="section triad">
-  <div class="section-header">
-    <div class="section-dot" style="background:#f97316"></div>
-    <h2>Triad Capital — Aluguel para motorista de app</h2>
-    <div class="meta">@triadxcapital · R$20/dia · Blumenau + Vale + Litoral</div>
-  </div>
-
-  <div class="grid">
-
-    <!-- AD 1 -->
-    <div class="ad-card triad">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#f97316">TC</div>
-          <div>
-            <div class="account-name">triadxcapital</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"Carro parado = dia perdido.<br>Aqui você tem substituto."</div>
-        <div class="visual-sub">Triad Capital · Blumenau</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 01 <span class="ad-number">#TC01</span></div>
-        <div class="hook-tag">Carro reserva incluso</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            Trabalha com Uber mas quando o carro vai pra manutenção você fica parado?<br><br>
-            Na <strong>Triad Capital</strong> você tem carro reserva. Sem dia perdido. Sem desculpa.<br><br>
-            Contrato flexível, suporte completo e <strong>sem consulta de CPF</strong>.<br><br>
-            Carros disponíveis agora em Blumenau e região.
-          </div>
-        </div>
-        <button class="cta-btn">Quero saber mais</button>
-      </div>
-    </div>
-
-    <!-- AD 2 -->
-    <div class="ad-card triad">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#f97316">TC</div>
-          <div>
-            <div class="account-name">triadxcapital</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"Nome sujo?<br>Aqui você ainda pode trabalhar."</div>
-        <div class="visual-sub">Sem consulta de CPF · Pré-pago</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 02 <span class="ad-number">#TC02</span></div>
-        <div class="hook-tag">Sem barreira de crédito</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            A maioria das locadoras consulta seu CPF e te manda embora.<br><br>
-            A <strong>Triad Capital</strong> não. Cobramos de forma pré-paga e sem burocracia.<br><br>
-            Se você quer trabalhar com Uber e não encontra locadora, a gente tem vaga. <strong>Sem análise de crédito. Sem enrolação.</strong><br><br>
-            Blumenau e região.
-          </div>
-        </div>
-        <button class="cta-btn">Falar com a Triad</button>
-      </div>
-    </div>
-
-    <!-- AD 3 -->
-    <div class="ad-card triad">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#f97316">TC</div>
-          <div>
-            <div class="account-name">triadxcapital</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"5 carros disponíveis hoje em Blumenau."</div>
-        <div class="visual-sub">Vagas limitadas · Começe essa semana</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 03 <span class="ad-number">#TC03</span></div>
-        <div class="hook-tag">Escassez + local</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            Se você trabalha com aplicativo ou quer começar, <strong>temos vagas abertas agora</strong>.<br><br>
-            ✓ Contrato flexível<br>
-            ✓ Manutenção inclusa<br>
-            ✓ Carro reserva se parar<br>
-            ✓ Sem consulta de CPF<br><br>
-            Fale com a gente e comece <strong>essa semana</strong>.
-          </div>
-        </div>
-        <button class="cta-btn">Garantir minha vaga</button>
-      </div>
-    </div>
-
-  </div><!-- /grid -->
-</div><!-- /section triad -->
-
-
-<!-- ============================================================ -->
-<!--  QUITAR FINANCIAMENTO                                        -->
-<!-- ============================================================ -->
-<div class="section quitar">
-  <div class="section-header">
-    <div class="section-dot" style="background:#ef4444"></div>
-    <h2>Quitar Financiamento — Compra de veículos com dívida</h2>
-    <div class="meta">@quitarfinanciamentocarro · SC · WhatsApp direto</div>
-  </div>
-
-  <div class="grid">
-
-    <!-- AD 1 -->
-    <div class="ad-card quitar">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#ef4444">QF</div>
-          <div>
-            <div class="account-name">quitarfinanciamentocarro</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"Parcelas atrasadas? O banco pode tomar seu carro e você ainda ficar com a dívida."</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 01 <span class="ad-number">#QF01</span></div>
-        <div class="hook-tag">Medo de perda + saída real</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            Muita gente perde o carro financiado e ainda continua devendo pro banco.<br><br>
-            Se você está com parcelas atrasadas e com medo de perder o veículo, <strong>a gente compra de você</strong>.<br><br>
-            Quitamos a dívida diretamente com o banco. <strong>Você sai com o nome limpo.</strong><br><br>
-            Nada de golpe. Transferido pro nosso nome. Feito do jeito certo.<br><br>
-            Atendemos em Blumenau e região do Vale e Litoral.
-          </div>
-        </div>
-        <button class="cta-btn">Quero resolver agora</button>
-      </div>
-    </div>
-
-    <!-- AD 2 -->
-    <div class="ad-card quitar">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#ef4444">QF</div>
-          <div>
-            <div class="account-name">quitarfinanciamentocarro</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"Cuidado com quem 'compra seu carro financiado' sem quitar a dívida."</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 02 <span class="ad-number">#QF02</span></div>
-        <div class="hook-tag">Contraste · Confiança</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            Tem empresa que compra seu carro e some. <strong>Você fica sem o carro e ainda com a dívida.</strong><br><br>
-            Não é assim que trabalhamos.<br><br>
-            Compramos → negociamos com o banco → quitamos a dívida → transferimos pro nosso nome.<br><br>
-            Processo 100% correto e documentado.<br><br>
-            Se seu carro está alienado e você precisa de uma saída real, fale com a gente agora.
-          </div>
-        </div>
-        <button class="cta-btn">Falar com a equipe</button>
-      </div>
-    </div>
-
-    <!-- AD 3 -->
-    <div class="ad-card quitar">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#ef4444">QF</div>
-          <div>
-            <div class="account-name">quitarfinanciamentocarro</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"Carro alienado com dívida em aberto? A gente compra."</div>
-        <div class="visual-sub">Blumenau · Vale · Litoral SC</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 03 <span class="ad-number">#QF03</span></div>
-        <div class="hook-tag">Direto ao ponto</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            Compramos veículos com financiamento em aberto em Blumenau e região.<br><br>
-            ✓ Negociamos a dívida com o banco<br>
-            ✓ Quitamos o financiamento<br>
-            ✓ Transferimos pra nosso nome<br>
-            ✓ Você recebe o valor e sai sem dívida<br><br>
-            <strong>Simples assim. Manda uma mensagem agora.</strong>
-          </div>
-        </div>
-        <button class="cta-btn">Enviar mensagem</button>
-      </div>
-    </div>
-
-  </div><!-- /grid -->
-</div><!-- /section quitar -->
-
-
-<!-- ============================================================ -->
-<!--  PERPÉTUO — PATERNIDADE                                     -->
-<!-- ============================================================ -->
-<div class="section perpetuo">
-  <div class="section-header">
-    <div class="section-dot" style="background:#8b5cf6"></div>
-    <h2>Perpétuo — Paternidade</h2>
-    <div class="meta">@danielfraron7 · Low profile · Construção de audiência</div>
-  </div>
-
-  <div class="grid">
-
-    <!-- AD 1 -->
-    <div class="ad-card perpetuo">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#8b5cf6">D</div>
-          <div>
-            <div class="account-name">danielfraron7</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"Você trabalha muito pra dar tudo pro seu filho. E tá perdendo ele assim mesmo."</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 01 <span class="ad-number">#PP01</span></div>
-        <div class="hook-tag">Provocação de identidade</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            A maioria dos pais empresários sabe dar dinheiro. Poucos sabem dar presença do jeito certo.<br><br>
-            Não é sobre tempo — é sobre método.<br><br>
-            Criei dois filhos com uma abordagem diferente. Sem violência, sem gritos. Com resultado real.<br><br>
-            <strong>Se você quer ser a referência na vida do seu filho, começa por aqui.</strong>
-          </div>
-        </div>
-        <button class="cta-btn">Quero saber mais</button>
-      </div>
-    </div>
-
-    <!-- AD 2 -->
-    <div class="ad-card perpetuo">
-      <div class="ad-visual">
-        <div class="account-bar">
-          <div class="account-avatar" style="background:#8b5cf6">D</div>
-          <div>
-            <div class="account-name">danielfraron7</div>
-            <div class="account-badge">Patrocinado</div>
-          </div>
-          <div class="sponsored">Anúncio</div>
-        </div>
-        <div class="visual-hook">"Seu filho vai te lembrar como pai presente ou como pai de sucesso ausente?"</div>
-      </div>
-      <div class="ad-body">
-        <div class="ad-label label">Criativo 02 <span class="ad-number">#PP02</span></div>
-        <div class="hook-tag">Dor silenciosa do empresário</div>
-        <div class="copy-block">
-          <div class="copy-label">Texto do anúncio</div>
-          <div class="copy-text">
-            Essa pergunta me travou.<br><br>
-            Eu tinha resultado nos negócios e estava falhando como pai.<br><br>
-            Mudei a abordagem. Mudou tudo.<br><br>
-            Hoje meu filho me tem como referência — não de medo, mas de respeito e admiração.<br><br>
-            <strong>Se você sente que está perdendo a conexão com seu filho, isso aqui é pra você.</strong>
-          </div>
-        </div>
-        <button class="cta-btn">Ver mais</button>
-      </div>
-    </div>
-
-  </div><!-- /grid -->
-</div><!-- /section perpetuo -->
-
-
-<!-- ============================================================ -->
-<!--  TABELA COMPLETA DE COPIES                                  -->
-<!-- ============================================================ -->
-<div class="full-copy">
-  <div class="full-copy-header">
-    <div class="section-dot" style="background:#f97316;width:8px;height:8px;border-radius:50%;flex-shrink:0"></div>
-    <h3>Copy completa — Triad Capital</h3>
-    <p>Para o gestor de tráfego</p>
-  </div>
-  <table class="copy-table">
-    <tr>
-      <th>Campo</th>
-      <th>#TC01 — Carro reserva</th>
-      <th>#TC02 — Nome sujo</th>
-      <th>#TC03 — 5 vagas</th>
-    </tr>
-    <tr>
-      <td>Texto imagem</td>
-      <td>Carro parado = dia perdido. Aqui você tem substituto.</td>
-      <td>Nome sujo? Aqui você ainda pode trabalhar.</td>
-      <td>5 carros disponíveis hoje em Blumenau.</td>
-    </tr>
-    <tr>
-      <td>Headline</td>
-      <td>Carro reserva incluso na Triad Capital</td>
-      <td>Sem consulta de CPF. Sem burocracia.</td>
-      <td>Vagas abertas para motoristas de app</td>
-    </tr>
-    <tr>
-      <td>Texto principal</td>
-      <td>Trabalha com Uber mas quando o carro vai pra manutenção você fica parado? Na Triad Capital você tem carro reserva. Sem dia perdido. Sem desculpa. Contrato flexível, suporte completo e sem consulta de CPF. Carros disponíveis agora em Blumenau e região.</td>
-      <td>A maioria das locadoras consulta seu CPF e te manda embora. A Triad Capital não. Cobramos de forma pré-paga e sem burocracia. Se você quer trabalhar com Uber e não encontra locadora, a gente tem vaga. Sem análise de crédito. Sem enrolação. Blumenau e região.</td>
-      <td>Se você trabalha com aplicativo ou quer começar, temos vagas abertas agora. ✓ Contrato flexível ✓ Manutenção inclusa ✓ Carro reserva se parar ✓ Sem consulta de CPF. Fale com a gente e comece essa semana.</td>
-    </tr>
-    <tr>
-      <td>CTA</td>
-      <td>Quero saber mais</td>
-      <td>Falar com a Triad</td>
-      <td>Garantir minha vaga</td>
-    </tr>
-    <tr>
-      <td>Formato</td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Reels 15s</span><span class="pill">Feed Quadrado</span>
-        </div>
-      </td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Story</span><span class="pill">Feed Quadrado</span>
-        </div>
-      </td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Story</span><span class="pill">Carrossel</span>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Destino CTA</td>
-      <td colspan="3" style="color:#64748b;font-style:italic">WhatsApp direto → Daniel atende o comercial</td>
-    </tr>
-  </table>
+<div class="nav">
+  <a href="#triad" class="orange">Triad Capital</a>
+  <a href="#quitar" class="red">Quitar Financiamento</a>
+  <a href="#perpetuo" class="purple">Perpétuo</a>
+  <a href="#referencias">Referências</a>
+  <a href="#producao">Produção</a>
 </div>
 
-<div class="full-copy" style="margin-top:24px">
-  <div class="full-copy-header">
-    <div class="section-dot" style="background:#ef4444;width:8px;height:8px;border-radius:50%;flex-shrink:0"></div>
-    <h3>Copy completa — Quitar Financiamento</h3>
-    <p>Para o gestor de tráfego</p>
+<!-- TRIAD -->
+<div class="section" id="triad">
+  <div class="section-label"><div class="dot" style="background:#f97316"></div><span>Frente 01</span></div>
+  <div class="section-title">Triad Capital — Aluguel de veículos</div>
+  <div class="section-sub">@triadxcapital · R$20/dia · Público: motoristas de app 27+ · Sem CPF · Pré-pago</div>
+  <div class="brand-strip">
+    <div class="brand-chip"><div class="bc-label">Paleta</div><div class="color-row"><div class="color-swatch" style="background:#f97316"></div><div class="color-swatch" style="background:#0d0900"></div><div class="color-swatch" style="background:#ffffff"></div><div class="color-swatch" style="background:#22c55e"></div></div></div>
+    <div class="brand-chip"><div class="bc-label">Tom</div><div class="bc-val">Direto · Sem mimimi · Urbano</div></div>
+    <div class="brand-chip"><div class="bc-label">Tipografia</div><div class="font-preview" style="color:#f97316">BOLD<br><span style="font-weight:300;font-size:14px;color:#555">light</span></div></div>
+    <div class="brand-chip"><div class="bc-label">Públicos</div><div class="bc-val" style="font-size:11px">Uber drivers · Trocando locadora · Nome sujo</div></div>
   </div>
-  <table class="copy-table">
-    <tr>
-      <th>Campo</th>
-      <th>#QF01 — Medo + alívio</th>
-      <th>#QF02 — Contraste/confiança</th>
-      <th>#QF03 — Direto ao ponto</th>
-    </tr>
-    <tr>
-      <td>Texto imagem</td>
-      <td>Parcelas atrasadas? O banco pode tomar seu carro e você ainda ficar com a dívida.</td>
-      <td>Cuidado com quem "compra seu carro financiado" sem quitar a dívida.</td>
-      <td>Carro alienado com dívida em aberto? A gente compra.</td>
-    </tr>
-    <tr>
-      <td>Headline</td>
-      <td>A gente compra e quita. Você sai com o nome limpo.</td>
-      <td>Processo 100% correto. Sem golpe.</td>
-      <td>Compra de veículos financiados em Blumenau</td>
-    </tr>
-    <tr>
-      <td>Texto principal</td>
-      <td>Muita gente perde o carro financiado e ainda continua devendo pro banco. Se você está com parcelas atrasadas e com medo de perder o veículo, a gente compra de você. Quitamos a dívida diretamente com o banco. Você sai com o nome limpo. Nada de golpe. Transferido pro nosso nome. Feito do jeito certo. Atendemos em Blumenau e região do Vale e Litoral.</td>
-      <td>Tem empresa que compra seu carro e some. Você fica sem o carro e ainda com a dívida. Não é assim que trabalhamos. Compramos → negociamos com o banco → quitamos a dívida → transferimos pro nosso nome. Processo 100% correto e documentado. Se seu carro está alienado e você precisa de uma saída real, fale com a gente agora.</td>
-      <td>Compramos veículos com financiamento em aberto em Blumenau e região. ✓ Negociamos a dívida com o banco ✓ Quitamos o financiamento ✓ Transferimos pra nosso nome ✓ Você recebe o valor e sai sem dívida. Simples assim. Manda uma mensagem agora.</td>
-    </tr>
-    <tr>
-      <td>CTA</td>
-      <td>Quero resolver agora</td>
-      <td>Falar com a equipe</td>
-      <td>Enviar mensagem</td>
-    </tr>
-    <tr>
-      <td>Formato</td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Story vertical</span><span class="pill">Reels 20s</span>
+  <div class="ads-grid">
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 01 <span class="tag" style="background:#f97316">#TC01</span> Carro reserva</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status"><span>9:41</span><div class="icons"><div class="sig"><div class="sig-bar" style="height:5px"></div><div class="sig-bar" style="height:8px"></div><div class="sig-bar" style="height:11px"></div></div><span style="font-size:9px">5G</span></div></div>
+            <div class="ig-account"><div class="ig-avatar" style="background:#f97316">TC</div><div class="ig-name-wrap"><div class="ig-name">triadxcapital</div><div class="ig-sponsored">Patrocinado</div></div><div class="ig-more">···</div></div>
+            <div class="ad-img tc01-img">
+              <div class="tc01-stripe"></div>
+              <div class="headline">CARRO<br>PARADO</div>
+              <div class="sub">= DIA PERDIDO</div>
+              <div class="tc01-check">✓ Aqui você tem carro substituto</div>
+            </div>
+            <div class="ig-actions"><div class="left"><span class="ig-icon">♡</span><span class="ig-icon" style="font-size:12px">💬</span><span class="ig-icon">↗</span></div><span class="ig-icon">🔖</span></div>
+            <div class="ig-cta-wrap"><div class="ig-cta" style="background:#f97316">Quero saber mais →</div></div>
+          </div>
         </div>
-      </td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Feed Quadrado</span><span class="pill">Story</span>
+        <div class="story-wrap">
+          <div class="story-label">Story / Reels</div>
+          <div class="story-phone"><div class="story-inner tc01-img"><div class="tc01-stripe"></div><div class="story-bar"><div class="story-bar-fill"></div></div><div class="headline" style="font-size:11px">CARRO PARADO<br>= DIA PERDIDO</div><div class="sub" style="font-size:8px;margin-top:4px">Triad tem substituto.</div></div></div>
         </div>
-      </td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Feed</span><span class="pill">Story</span>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da imagem</div><div class="acb-text">"Carro parado = dia perdido. Aqui você tem substituto."</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">Trabalha com Uber mas quando o carro vai pra manutenção você fica parado?<br><br>Na <strong>Triad Capital</strong> você tem <strong>carro reserva</strong>. Sem dia perdido. Sem desculpa.<br><br>Contrato flexível, suporte completo e <strong>sem consulta de CPF</strong>.<br><br>Carros disponíveis agora em Blumenau e região.</div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#f97316">Quero saber mais</div></div>
+          <div class="acb-section"><div class="acb-label">Formato</div><div class="format-row"><span class="fmt">Feed 1:1</span><span class="fmt">Reels 15s</span><span class="fmt">Story</span></div></div>
         </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Destino CTA</td>
-      <td colspan="3" style="color:#64748b;font-style:italic">WhatsApp direto → conversão rápida (comportamento impulsivo)</td>
-    </tr>
-  </table>
+      </div>
+    </div>
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 02 <span class="tag" style="background:#f97316">#TC02</span> Nome sujo</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status"><span>9:41</span><div class="icons"><div class="sig"><div class="sig-bar" style="height:5px"></div><div class="sig-bar" style="height:8px"></div><div class="sig-bar" style="height:11px"></div></div><span style="font-size:9px">5G</span></div></div>
+            <div class="ig-account"><div class="ig-avatar" style="background:#f97316">TC</div><div class="ig-name-wrap"><div class="ig-name">triadxcapital</div><div class="ig-sponsored">Patrocinado</div></div><div class="ig-more">···</div></div>
+            <div class="ad-img tc02-img">
+              <div class="tc02-above">LOCADORAS TE REJEITAM?</div>
+              <div class="tc02-cpf">C P F<div class="tc02-cross"></div></div>
+              <div class="tc02-below">AQUI NÃO.</div>
+              <div class="tc02-belowsub">Pré-pago · Sem análise de crédito</div>
+            </div>
+            <div class="ig-actions"><div class="left"><span class="ig-icon">♡</span><span class="ig-icon" style="font-size:12px">💬</span><span class="ig-icon">↗</span></div><span class="ig-icon">🔖</span></div>
+            <div class="ig-cta-wrap"><div class="ig-cta" style="background:#f97316">Falar com a Triad →</div></div>
+          </div>
+        </div>
+        <div class="story-wrap">
+          <div class="story-label">Story / Feed</div>
+          <div class="story-phone"><div class="story-inner tc02-img"><div class="story-bar"><div class="story-bar-fill"></div></div><div class="tc02-above" style="font-size:7px">NOME SUJO?</div><div class="tc02-cpf" style="font-size:18px">C P F<div class="tc02-cross"></div></div><div class="tc02-below" style="font-size:14px">AQUI NÃO.</div></div></div>
+        </div>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da imagem</div><div class="acb-text">"Nome sujo? Aqui você ainda pode trabalhar."</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">A maioria das locadoras consulta seu CPF e te manda embora.<br><br>A <strong>Triad Capital</strong> não. Cobramos de forma <strong>pré-paga</strong> e sem burocracia.<br><br>Se você quer trabalhar com Uber e não encontra locadora, a gente tem vaga. <strong>Sem análise de crédito. Sem enrolação.</strong><br><br>Blumenau e região.</div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#f97316">Falar com a Triad</div></div>
+          <div class="acb-section"><div class="acb-label">Formato</div><div class="format-row"><span class="fmt">Story</span><span class="fmt">Feed 1:1</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 03 <span class="tag" style="background:#f97316">#TC03</span> Escassez</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status"><span>9:41</span><div class="icons"><div class="sig"><div class="sig-bar" style="height:5px"></div><div class="sig-bar" style="height:8px"></div><div class="sig-bar" style="height:11px"></div></div><span style="font-size:9px">5G</span></div></div>
+            <div class="ig-account"><div class="ig-avatar" style="background:#f97316">TC</div><div class="ig-name-wrap"><div class="ig-name">triadxcapital</div><div class="ig-sponsored">Patrocinado</div></div><div class="ig-more">···</div></div>
+            <div class="ad-img tc03-img">
+              <div class="tc03-cars"><div class="tc03-car available"></div><div class="tc03-car available"></div><div class="tc03-car available"></div><div class="tc03-car available"></div><div class="tc03-car available"></div></div>
+              <div class="tc03-num"><span>5</span> VAGAS</div>
+              <div class="tc03-label">Abertas agora</div>
+              <div class="tc03-city">Blumenau · Vale · Litoral</div>
+            </div>
+            <div class="ig-actions"><div class="left"><span class="ig-icon">♡</span><span class="ig-icon" style="font-size:12px">💬</span><span class="ig-icon">↗</span></div><span class="ig-icon">🔖</span></div>
+            <div class="ig-cta-wrap"><div class="ig-cta" style="background:#f97316">Garantir minha vaga →</div></div>
+          </div>
+        </div>
+        <div class="story-wrap">
+          <div class="story-label">Story</div>
+          <div class="story-phone"><div class="story-inner tc03-img"><div class="story-bar"><div class="story-bar-fill"></div></div><div class="tc03-cars" style="margin-bottom:8px"><div class="tc03-car available"></div><div class="tc03-car available"></div><div class="tc03-car available"></div></div><div class="tc03-num" style="font-size:22px"><span>5</span></div><div class="tc03-label" style="font-size:7px">VAGAS ABERTAS</div></div></div>
+        </div>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da imagem</div><div class="acb-text">"5 carros disponíveis hoje em Blumenau."</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">Se você trabalha com aplicativo ou quer começar, <strong>temos vagas abertas agora</strong>.<br><br>✓ Contrato flexível<br>✓ Manutenção inclusa<br>✓ Carro reserva se parar<br>✓ Sem consulta de CPF<br><br>Fale com a gente e comece <strong>essa semana</strong>.</div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#f97316">Garantir minha vaga</div></div>
+          <div class="acb-section"><div class="acb-label">Formato</div><div class="format-row"><span class="fmt">Story</span><span class="fmt">Carrossel</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="full-copy" style="margin-top:24px">
-  <div class="full-copy-header">
-    <div class="section-dot" style="background:#8b5cf6;width:8px;height:8px;border-radius:50%;flex-shrink:0"></div>
-    <h3>Copy completa — Perpétuo / Paternidade</h3>
-    <p>Para o gestor de tráfego</p>
+<!-- QUITAR -->
+<div class="section" id="quitar">
+  <div class="section-label"><div class="dot" style="background:#ef4444"></div><span>Frente 02</span></div>
+  <div class="section-title">Quitar Financiamento — Compra de veículos com dívida</div>
+  <div class="section-sub">@quitarfinanciamentocarro · Público: 23–40 anos · Classe B/C · Gatilho: medo de perda + impulsivo</div>
+  <div class="brand-strip">
+    <div class="brand-chip"><div class="bc-label">Paleta</div><div class="color-row"><div class="color-swatch" style="background:#ef4444"></div><div class="color-swatch" style="background:#0a0000"></div><div class="color-swatch" style="background:#ffffff"></div><div class="color-swatch" style="background:#22c55e"></div></div></div>
+    <div class="brand-chip"><div class="bc-label">Tom</div><div class="bc-val">Urgente · Confiável · Honesto</div></div>
+    <div class="brand-chip"><div class="bc-label">Diferencial</div><div class="bc-val" style="font-size:11px;color:#22c55e">Quita a dívida de verdade<br><span style="color:var(--muted)">Transfere pro próprio nome</span></div></div>
+    <div class="brand-chip"><div class="bc-label">Gatilho</div><div class="bc-val" style="font-size:11px">Medo do leilão<br>Medo do nome sujo</div></div>
   </div>
-  <table class="copy-table">
-    <tr>
-      <th>Campo</th>
-      <th>#PP01 — Identidade</th>
-      <th>#PP02 — Dor silenciosa</th>
-    </tr>
-    <tr>
-      <td>Texto imagem</td>
-      <td>Você trabalha muito pra dar tudo pro seu filho. E tá perdendo ele assim mesmo.</td>
-      <td>Seu filho vai te lembrar como pai presente ou como pai de sucesso ausente?</td>
-    </tr>
-    <tr>
-      <td>Headline</td>
-      <td>Ser pai não é instinto. É método.</td>
-      <td>O método que mudou minha relação com meu filho.</td>
-    </tr>
-    <tr>
-      <td>Texto principal</td>
-      <td>A maioria dos pais empresários sabe dar dinheiro. Poucos sabem dar presença do jeito certo. Não é sobre tempo — é sobre método. Criei dois filhos com uma abordagem diferente. Sem violência, sem gritos. Com resultado real. Se você quer ser a referência na vida do seu filho, começa por aqui.</td>
-      <td>Essa pergunta me travou. Eu tinha resultado nos negócios e estava falhando como pai. Mudei a abordagem. Mudou tudo. Hoje meu filho me tem como referência — não de medo, mas de respeito e admiração. Se você sente que está perdendo a conexão com seu filho, isso aqui é pra você.</td>
-    </tr>
-    <tr>
-      <td>CTA</td>
-      <td>Quero saber mais</td>
-      <td>Ver mais</td>
-    </tr>
-    <tr>
-      <td>Formato</td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Reels (voz off)</span><span class="pill">Story texto</span>
+  <div class="ads-grid">
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 01 <span class="tag" style="background:#ef4444">#QF01</span> Medo + alívio</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status"><span>9:41</span><div class="icons"><div class="sig"><div class="sig-bar" style="height:5px"></div><div class="sig-bar" style="height:8px"></div><div class="sig-bar" style="height:11px"></div></div><span style="font-size:9px">5G</span></div></div>
+            <div class="ig-account"><div class="ig-avatar" style="background:#ef4444">QF</div><div class="ig-name-wrap"><div class="ig-name">quitarfinanciamentocarro</div><div class="ig-sponsored">Patrocinado</div></div><div class="ig-more">···</div></div>
+            <div class="ad-img qf01-img">
+              <div class="qf01-warning">!</div>
+              <div class="headline">PARCELAS<br>ATRASADAS?</div>
+              <div class="danger">O banco pode agir hoje.</div>
+              <div class="qf01-divider"></div>
+              <div class="solution"><strong>A gente compra</strong> e quita<br>a dívida no banco.</div>
+            </div>
+            <div class="ig-actions"><div class="left"><span class="ig-icon">♡</span><span class="ig-icon" style="font-size:12px">💬</span><span class="ig-icon">↗</span></div><span class="ig-icon">🔖</span></div>
+            <div class="ig-cta-wrap"><div class="ig-cta" style="background:#ef4444">Quero resolver agora →</div></div>
+          </div>
         </div>
-      </td>
-      <td>
-        <div class="format-pills">
-          <span class="pill">Feed</span><span class="pill">Story texto</span>
+        <div class="story-wrap">
+          <div class="story-label">Story / Reels</div>
+          <div class="story-phone"><div class="story-inner qf01-img"><div class="story-bar"><div class="story-bar-fill"></div></div><div class="qf01-warning" style="width:32px;height:32px;font-size:15px;margin-bottom:6px">!</div><div class="headline" style="font-size:10px">PARCELAS<br>ATRASADAS?</div><div class="qf01-divider" style="margin:6px auto"></div><div class="solution" style="font-size:8px">A gente compra e quita.</div></div></div>
         </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Produção</td>
-      <td colspan="2" style="color:#64748b;font-style:italic">Low profile: texto na tela + voz do Daniel. Sem necessidade de aparecer no vídeo. Fundo simples ou b-roll de lifestyle.</td>
-    </tr>
-  </table>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da imagem</div><div class="acb-text">"Parcelas atrasadas? O banco pode tomar seu carro e você ainda ficar com a dívida."</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">Muita gente perde o carro financiado e ainda continua devendo pro banco.<br><br>Se você está com parcelas atrasadas e com medo de perder o veículo, <strong>a gente compra de você</strong>.<br><br>Quitamos a dívida diretamente com o banco. <strong>Você sai com o nome limpo.</strong><br><br>Nada de golpe. Transferido pro nosso nome. Feito do jeito certo.<br><br>Atendemos em Blumenau, Vale do Itajaí e Litoral SC.</div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#ef4444">Quero resolver agora</div></div>
+          <div class="acb-section"><div class="acb-label">Formato</div><div class="format-row"><span class="fmt">Story vertical</span><span class="fmt">Reels 20s</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 02 <span class="tag" style="background:#ef4444">#QF02</span> Contraste</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status"><span>9:41</span><div class="icons"><div class="sig"><div class="sig-bar" style="height:5px"></div><div class="sig-bar" style="height:8px"></div><div class="sig-bar" style="height:11px"></div></div><span style="font-size:9px">5G</span></div></div>
+            <div class="ig-account"><div class="ig-avatar" style="background:#ef4444">QF</div><div class="ig-name-wrap"><div class="ig-name">quitarfinanciamentocarro</div><div class="ig-sponsored">Patrocinado</div></div><div class="ig-more">···</div></div>
+            <div class="ad-img qf02-img">
+              <div class="qf02-left"><div class="qf02-icon bad">✗</div><div class="qf02-label">Outros</div><div class="qf02-desc">Compram e somem. Dívida fica no seu nome.</div></div>
+              <div class="qf02-right"><div class="qf02-icon good">✓</div><div class="qf02-label">Quitar</div><div class="qf02-desc">Quitamos com o banco. Você sai limpo.</div></div>
+            </div>
+            <div class="ig-actions"><div class="left"><span class="ig-icon">♡</span><span class="ig-icon" style="font-size:12px">💬</span><span class="ig-icon">↗</span></div><span class="ig-icon">🔖</span></div>
+            <div class="ig-cta-wrap"><div class="ig-cta" style="background:#ef4444">Falar com a equipe →</div></div>
+          </div>
+        </div>
+        <div class="story-wrap">
+          <div class="story-label">Feed / Story</div>
+          <div class="story-phone"><div class="story-inner qf02-img" style="flex-direction:row;padding:0"><div class="story-bar"><div class="story-bar-fill"></div></div><div class="qf02-left" style="font-size:.8em"><div class="qf02-icon bad" style="width:22px;height:22px;font-size:11px">✗</div><div class="qf02-label" style="font-size:6px">OUTROS</div><div class="qf02-desc" style="font-size:7px">Somem com seu carro</div></div><div class="qf02-right" style="font-size:.8em"><div class="qf02-icon good" style="width:22px;height:22px;font-size:11px">✓</div><div class="qf02-label" style="font-size:6px">QUITAR</div><div class="qf02-desc" style="font-size:7px">Quita de verdade</div></div></div></div>
+        </div>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da imagem</div><div class="acb-text">"Cuidado com quem 'compra seu carro financiado' sem quitar a dívida."</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">Tem empresa que compra seu carro e some. <strong>Você fica sem o carro e ainda com a dívida.</strong><br><br>Não é assim que trabalhamos.<br><br>Compramos → negociamos com o banco → quitamos a dívida → transferimos pro nosso nome.<br><br>Processo 100% correto e documentado.<br><br>Se seu carro está alienado e você precisa de uma saída real, fala com a gente agora.</div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#ef4444">Falar com a equipe</div></div>
+          <div class="acb-section"><div class="acb-label">Formato</div><div class="format-row"><span class="fmt">Feed 1:1</span><span class="fmt">Story</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 03 <span class="tag" style="background:#ef4444">#QF03</span> Direto</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status"><span>9:41</span><div class="icons"><div class="sig"><div class="sig-bar" style="height:5px"></div><div class="sig-bar" style="height:8px"></div><div class="sig-bar" style="height:11px"></div></div><span style="font-size:9px">5G</span></div></div>
+            <div class="ig-account"><div class="ig-avatar" style="background:#ef4444">QF</div><div class="ig-name-wrap"><div class="ig-name">quitarfinanciamentocarro</div><div class="ig-sponsored">Patrocinado</div></div><div class="ig-more">···</div></div>
+            <div class="ad-img qf03-img">
+              <div class="headline"><span>CARRO</span> ALIENADO<br>COM DÍVIDA?</div>
+              <div class="qf03-list"><div class="qf03-item"><span class="ck">✓</span>Negociamos com o banco</div><div class="qf03-item"><span class="ck">✓</span>Quitamos o financiamento</div><div class="qf03-item"><span class="ck">✓</span>Transferimos pra nosso nome</div><div class="qf03-item"><span class="ck">✓</span>Você sai sem dívida</div></div>
+              <div class="qf03-city">Blumenau · Vale · Litoral SC</div>
+            </div>
+            <div class="ig-actions"><div class="left"><span class="ig-icon">♡</span><span class="ig-icon" style="font-size:12px">💬</span><span class="ig-icon">↗</span></div><span class="ig-icon">🔖</span></div>
+            <div class="ig-cta-wrap"><div class="ig-cta" style="background:#ef4444">Enviar mensagem →</div></div>
+          </div>
+        </div>
+        <div class="story-wrap">
+          <div class="story-label">Story</div>
+          <div class="story-phone"><div class="story-inner qf03-img"><div class="story-bar"><div class="story-bar-fill"></div></div><div class="headline" style="font-size:10px;margin-bottom:8px">CARRO<br><span>ALIENADO?</span></div><div class="qf03-list" style="gap:3px"><div class="qf03-item" style="font-size:7px"><span class="ck" style="font-size:7px">✓</span>Quitamos no banco</div><div class="qf03-item" style="font-size:7px"><span class="ck" style="font-size:7px">✓</span>Você sai limpo</div></div></div></div>
+        </div>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da imagem</div><div class="acb-text">"Carro alienado com dívida em aberto? A gente compra."</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">Compramos veículos com financiamento em aberto em Blumenau e região.<br><br>✓ Negociamos a dívida com o banco<br>✓ Quitamos o financiamento<br>✓ Transferimos pra nosso nome<br>✓ Você recebe o valor e sai sem dívida<br><br><strong>Simples assim. Manda uma mensagem agora.</strong></div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#ef4444">Enviar mensagem</div></div>
+          <div class="acb-section"><div class="acb-label">Formato</div><div class="format-row"><span class="fmt">Feed</span><span class="fmt">Story</span></div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
 
-<div class="note" style="max-width:1100px;margin:32px auto 0">
-  <strong>Nota de produção:</strong> As prévias acima representam a direção visual e copy de cada criativo. As imagens/vídeos reais devem usar fotos dos carros da frota (Triad), documentos/processo de compra (Quitar) ou b-roll minimalista (Perpétuo). Nenhum dos criativos requer presença do Daniel em câmera para funcionar.
+<!-- PERPÉTUO -->
+<div class="section" id="perpetuo">
+  <div class="section-label"><div class="dot" style="background:#7c3aed"></div><span>Frente 03</span></div>
+  <div class="section-title">Perpétuo — Paternidade</div>
+  <div class="section-sub">@danielfraron7 · Low profile · Sem rosto · Público: homens empresários 30+ Classe A</div>
+  <div class="brand-strip">
+    <div class="brand-chip"><div class="bc-label">Paleta</div><div class="color-row"><div class="color-swatch" style="background:#7c3aed"></div><div class="color-swatch" style="background:#0a0814"></div><div class="color-swatch" style="background:#ffffff"></div><div class="color-swatch" style="background:#a78bfa"></div></div></div>
+    <div class="brand-chip"><div class="bc-label">Tom</div><div class="bc-val">Reflexivo · Premium · Direto</div></div>
+    <div class="brand-chip"><div class="bc-label">Produção</div><div class="bc-val" style="font-size:11px;color:#22c55e">Voz off + texto na tela<br><span style="color:var(--muted)">Sem aparecer em câmera</span></div></div>
+    <div class="brand-chip"><div class="bc-label">Objetivo</div><div class="bc-val" style="font-size:11px">Fase 1: audiência<br>Fase 2: conversão</div></div>
+  </div>
+  <div class="ads-grid">
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 01 <span class="tag" style="background:#7c3aed">#PP01</span> Provocação</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status" style="background:#0a0814;color:rgba(255,255,255,.5)"><span>9:41</span><div class="icons"><span style="font-size:9px;color:rgba(255,255,255,.5)">5G</span></div></div>
+            <div class="ig-account" style="background:#0a0814;border-color:#1a1040"><div class="ig-avatar" style="background:#7c3aed">D</div><div class="ig-name-wrap"><div class="ig-name" style="color:rgba(255,255,255,.9)">danielfraron7</div><div class="ig-sponsored" style="color:rgba(255,255,255,.3)">Patrocinado</div></div><div class="ig-more" style="color:rgba(255,255,255,.3)">···</div></div>
+            <div class="ad-img pp01-img">
+              <div class="headline">Você trabalha muito pra dar tudo pro seu filho.</div>
+              <div class="headline"><strong>E tá perdendo ele assim mesmo.</strong></div>
+            </div>
+            <div class="ig-actions" style="background:#0a0814;border-top:1px solid #1a1040"><div class="left"><span class="ig-icon" style="color:rgba(255,255,255,.5)">♡</span><span class="ig-icon" style="font-size:12px;color:rgba(255,255,255,.5)">💬</span><span class="ig-icon" style="color:rgba(255,255,255,.5)">↗</span></div><span class="ig-icon" style="color:rgba(255,255,255,.5)">🔖</span></div>
+            <div class="ig-cta-wrap" style="background:#0a0814"><div class="ig-cta" style="background:#7c3aed">Quero saber mais →</div></div>
+          </div>
+        </div>
+        <div class="story-wrap">
+          <div class="story-label">Reels (voz off)</div>
+          <div class="story-phone"><div class="story-inner pp01-img"><div class="story-bar"><div class="story-bar-fill"></div></div><div class="headline" style="font-size:9px;font-weight:300;color:rgba(255,255,255,.5)">Você trabalha muito<br>pra dar tudo pro seu filho.</div><div class="headline" style="font-size:11px;font-weight:900;color:white;margin-top:8px">E tá perdendo<br>ele assim mesmo.</div></div></div>
+        </div>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da tela</div><div class="acb-text">"Você trabalha muito pra dar tudo pro seu filho. E tá perdendo ele assim mesmo."</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">A maioria dos pais empresários sabe dar dinheiro. Poucos sabem dar presença do jeito certo.<br><br>Não é sobre tempo — é sobre método.<br><br>Criei dois filhos com uma abordagem diferente. Sem violência, sem gritos. Com resultado real.<br><br><strong>Se você quer ser a referência na vida do seu filho, começa por aqui.</strong></div></div>
+          <div class="acb-section"><div class="acb-label">Produção</div><div class="acb-text">Fundo escuro + texto aparecendo na tela + <strong>voz off do Daniel</strong>. Sem aparecer. 15–20s.</div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#7c3aed">Quero saber mais</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ad-unit">
+      <div class="ad-unit-label">Criativo 02 <span class="tag" style="background:#7c3aed">#PP02</span> Dor silenciosa</div>
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-camera"></div>
+          <div class="phone-inner">
+            <div class="ig-status" style="background:#0a0814;color:rgba(255,255,255,.5)"><span>9:41</span><div class="icons"><span style="font-size:9px;color:rgba(255,255,255,.5)">5G</span></div></div>
+            <div class="ig-account" style="background:#0a0814;border-color:#1a1040"><div class="ig-avatar" style="background:#7c3aed">D</div><div class="ig-name-wrap"><div class="ig-name" style="color:rgba(255,255,255,.9)">danielfraron7</div><div class="ig-sponsored" style="color:rgba(255,255,255,.3)">Patrocinado</div></div><div class="ig-more" style="color:rgba(255,255,255,.3)">···</div></div>
+            <div class="ad-img pp02-img">
+              <div class="pp02-q1">Seu filho vai te lembrar como</div>
+              <div class="pp02-ans1">PAI PRESENTE</div>
+              <div class="pp02-q2">ou como</div>
+              <div class="pp02-ans2">PAI AUSENTE?</div>
+            </div>
+            <div class="ig-actions" style="background:#0a0814;border-top:1px solid #1a1040"><div class="left"><span class="ig-icon" style="color:rgba(255,255,255,.5)">♡</span><span class="ig-icon" style="font-size:12px;color:rgba(255,255,255,.5)">💬</span><span class="ig-icon" style="color:rgba(255,255,255,.5)">↗</span></div><span class="ig-icon" style="color:rgba(255,255,255,.5)">🔖</span></div>
+            <div class="ig-cta-wrap" style="background:#0a0814"><div class="ig-cta" style="background:#7c3aed">Ver mais →</div></div>
+          </div>
+        </div>
+        <div class="story-wrap">
+          <div class="story-label">Story / Reels</div>
+          <div class="story-phone"><div class="story-inner pp02-img"><div class="story-bar"><div class="story-bar-fill"></div></div><div class="pp02-q1" style="font-size:8px">Seu filho vai te lembrar como</div><div class="pp02-ans1" style="font-size:12px">PAI PRESENTE</div><div class="pp02-q2" style="font-size:8px">ou como</div><div class="pp02-ans2" style="font-size:10px">PAI AUSENTE?</div></div></div>
+        </div>
+        <div class="ad-copy-block">
+          <div class="acb-section"><div class="acb-label">Texto da tela</div><div class="acb-text">"Seu filho vai te lembrar como pai presente — ou como pai de sucesso ausente?"</div></div>
+          <div class="acb-section"><div class="acb-label">Copy do anúncio</div><div class="acb-text">Essa pergunta me travou.<br><br>Eu tinha resultado nos negócios e estava falhando como pai.<br><br>Mudei a abordagem. Mudou tudo.<br><br>Hoje meu filho me tem como referência — não de medo, mas de respeito e admiração.<br><br><strong>Se você sente que está perdendo a conexão com seu filho, isso aqui é pra você.</strong></div></div>
+          <div class="acb-section"><div class="acb-label">Produção</div><div class="acb-text">Texto aparece na tela linha por linha + voz do Daniel lendo. Fundo escuro. Sem aparecer. 20s máx.</div></div>
+          <div class="acb-section"><div class="acb-label">CTA</div><div class="cta-pill" style="background:#7c3aed">Ver mais</div></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- REFERÊNCIAS -->
+<div class="ref-section" id="referencias">
+  <div class="section-label" style="margin-bottom:6px"><div class="dot" style="background:#64748b"></div><span>Pesquisa de mercado</span></div>
+  <div class="section-title" style="margin-bottom:4px">Referências por nicho</div>
+  <div class="section-sub" style="margin-bottom:36px">O que o mercado usa · O que funciona · O que evitar · Moodboard de visual</div>
+  <div class="ref-grid">
+
+    <div class="ref-card">
+      <div class="ref-card-header"><div class="dot" style="background:#f97316"></div><h3>Triad Capital — Locadora para app drivers</h3></div>
+      <div class="ref-card-body">
+        <div class="ref-item">
+          <div class="ref-item-label">Estilo visual do mercado</div>
+          <div class="ref-item-body">Locadoras para motoristas de app usam <strong>fundos escuros com foto real do carro</strong> — nunca imagem de banco. O carro precisa ser o produto principal da cena: limpo, filmado de baixo (valoriza), em ambiente urbano. Copy direta em letras grandes sobre a imagem. Vídeos curtos com o carro rodando + locução resoluta.</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Contas pra estudar</div>
+          <div class="ref-pills"><span class="ref-pill">@driveapplocadora</span><span class="ref-pill">@movefleet.br</span><span class="ref-pill">locadoras regionais SC/RS</span><span class="ref-pill">@mobilidade_app</span></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">O que funciona</div>
+          <div class="do-list">
+            <div class="do-item">Foto real dos carros disponíveis (quanto mais real, mais clique)</div>
+            <div class="do-item">Gatilho de escassez: "X vagas disponíveis"</div>
+            <div class="do-item">Reforçar ausência de CPF logo no início</div>
+            <div class="do-item">Depoimento curto de motorista (30s, pode ser WhatsApp audio)</div>
+            <div class="do-item">Mostrar app Uber/99 aberto dentro do carro</div>
+          </div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">O que evitar</div>
+          <div class="avoid-list">
+            <div class="avoid-item">Imagens de banco de imagem — parecem falsas</div>
+            <div class="avoid-item">Copy corporativa ou formal demais</div>
+            <div class="avoid-item">Mencionar preço sem contexto de valor</div>
+            <div class="avoid-item">Vídeos longos — esse público scroleia rápido</div>
+          </div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Moodboard</div>
+          <div class="moodboard">
+            <div class="mood-block" style="background:#0d0d0d;border:1px solid #333">Preto<br>base</div>
+            <div class="mood-block" style="background:#f97316">Laranja<br>ação</div>
+            <div class="mood-block" style="background:#22c55e">Verde<br>OK</div>
+            <div class="mood-block" style="background:#e2e8f0;color:#111">Branco<br>texto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-card-header"><div class="dot" style="background:#ef4444"></div><h3>Quitar Financiamento — Compra com dívida</h3></div>
+      <div class="ref-card-body">
+        <div class="ref-item">
+          <div class="ref-item-label">Estilo visual do mercado</div>
+          <div class="ref-item-body">Nicho de resolução de dívida usa <strong>dois estilos</strong>: (1) texto pesado sobre fundo escuro/vermelho — urgente e direto; (2) pessoa real com expressão de alívio — before/after emocional. O diferencial da Quitar (idoneidade real) precisa aparecer como <em>prova de processo</em>, não só promessa.</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Contas pra estudar</div>
+          <div class="ref-pills"><span class="ref-pill">@serasalimpanome</span><span class="ref-pill">negociadores de dívida automotiva SC</span><span class="ref-pill">@acordobrasil</span></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">O que funciona</div>
+          <div class="do-list">
+            <div class="do-item">Hook de medo (perder o carro + ficar devendo) — gatilho mais forte do nicho</div>
+            <div class="do-item">Diferencial de confiança no início (muita gente já foi passada pra trás)</div>
+            <div class="do-item">Passo a passo simples: compramos → quitamos → você sai limpo</div>
+            <div class="do-item">Depoimento real (mesmo anônimo: "morador de Blumenau, saiu sem dívida")</div>
+            <div class="do-item">CTA direto para WhatsApp — lead impulsivo não aguenta formulário</div>
+          </div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">O que evitar</div>
+          <div class="avoid-list">
+            <div class="avoid-item">Excesso de vermelho/CAPS LOCK — parece golpe</div>
+            <div class="avoid-item">Copy muito longa no criativo — perde no scroll</div>
+            <div class="avoid-item">Não mencionar que quitam de verdade no banco</div>
+            <div class="avoid-item">Segmentação ampla demais — geográfica é aliada aqui</div>
+          </div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Moodboard</div>
+          <div class="moodboard">
+            <div class="mood-block" style="background:#1a0000;border:1px solid #500">Vermelho<br>escuro</div>
+            <div class="mood-block" style="background:#ef4444">Vermelho<br>urgência</div>
+            <div class="mood-block" style="background:#22c55e">Verde<br>solução</div>
+            <div class="mood-block" style="background:#fff;color:#111">Branco<br>contraste</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-card">
+      <div class="ref-card-header"><div class="dot" style="background:#7c3aed"></div><h3>Perpétuo — Curso de Paternidade</h3></div>
+      <div class="ref-card-body">
+        <div class="ref-item">
+          <div class="ref-item-label">Estilo visual do mercado</div>
+          <div class="ref-item-body">Dev. pessoal para empresários usa <strong>texto editorial minimalista</strong> sobre fundo escuro ou b-roll emocional (silhueta pai e filho, pôr do sol, lifestyle). Copy introspectiva, não vendedora. O gancho provoca identidade — o pai precisa se ver naquela situação em 1 segundo.</div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Referências de estilo</div>
+          <div class="ref-pills"><span class="ref-pill">Paulo Vieira (comunicação)</span><span class="ref-pill">Leandro Ladeira (copy)</span><span class="ref-pill">Thiago Nigro (visual escuro premium)</span><span class="ref-pill">Pablo Marçal (energia)</span></div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">O que funciona</div>
+          <div class="do-list">
+            <div class="do-item">Frase única e forte que provoca identidade no 1º segundo</div>
+            <div class="do-item">Voz off + texto aparecendo na tela (não precisa aparecer o rosto)</div>
+            <div class="do-item">B-roll emocional: pai e filho, escritório, lifestyle empresário</div>
+            <div class="do-item">Produção simples mas coerente — fundo escuro, fonte bold</div>
+            <div class="do-item">CTA pra lista/direct — não pra compra direta na primeira interação</div>
+          </div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">O que evitar</div>
+          <div class="avoid-list">
+            <div class="avoid-item">Fotos de banco de imagem de família feliz — parece peça de banco</div>
+            <div class="avoid-item">Tom de "blog de paternidade" — público é empresário A, não pai médio</div>
+            <div class="avoid-item">Ir direto pra oferta sem audiência aquecida (produto sem vendas ainda)</div>
+            <div class="avoid-item">Copy longa no começo — o gancho precisa parar o scroll em 1s</div>
+          </div>
+        </div>
+        <div class="ref-item">
+          <div class="ref-item-label">Moodboard</div>
+          <div class="moodboard">
+            <div class="mood-block" style="background:#0a0814;border:1px solid #1a1040">Navy<br>base</div>
+            <div class="mood-block" style="background:#7c3aed">Roxo<br>marca</div>
+            <div class="mood-block" style="background:#a78bfa">Lilás<br>acento</div>
+            <div class="mood-block" style="background:#fff;color:#111">Branco<br>texto</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PRODUÇÃO -->
+<div class="checklist-section" id="producao">
+  <div class="section-label" style="margin-bottom:6px"><div class="dot" style="background:#64748b"></div><span>Para o gestor e criativo</span></div>
+  <div class="section-title" style="margin-bottom:4px">Checklist de produção</div>
+  <div class="section-sub" style="margin-bottom:32px">O que precisa estar pronto antes de subir os anúncios</div>
+  <div class="checklist-grid">
+    <div class="checklist-card">
+      <div class="checklist-card-header" style="border-left:3px solid #f97316">Triad Capital</div>
+      <div class="checklist-card-body">
+        <div class="check-item"><div class="check-box"></div>Foto real de cada carro disponível (fundo limpo ou garagem)</div>
+        <div class="check-item"><div class="check-box"></div>Vídeo 15s: carro + locução "sem CPF, sem burocracia"</div>
+        <div class="check-item"><div class="check-box"></div>Foto do carro reserva (diferencial principal)</div>
+        <div class="check-item"><div class="check-box"></div>WhatsApp configurado com mensagem de entrada automática</div>
+        <div class="check-item"><div class="check-box"></div>Definir número de WhatsApp de destino dos CTAs</div>
+        <div class="check-item"><div class="check-box"></div>Geolocalização: Blumenau + raio 30–50km</div>
+      </div>
+    </div>
+    <div class="checklist-card">
+      <div class="checklist-card-header" style="border-left:3px solid #ef4444">Quitar Financiamento</div>
+      <div class="checklist-card-body">
+        <div class="check-item"><div class="check-box"></div>Criativo QF01 — visual vermelho escuro + ícone de aviso</div>
+        <div class="check-item"><div class="check-box"></div>Criativo QF02 — layout split ✗ vs ✓ (Canva resolve)</div>
+        <div class="check-item"><div class="check-box"></div>Criativo QF03 — texto direto com checklist visual</div>
+        <div class="check-item"><div class="check-box"></div>WhatsApp Business com script de atendimento Quitar</div>
+        <div class="check-item"><div class="check-box"></div>Foto/print de contrato ou processo (prova de idoneidade)</div>
+        <div class="check-item"><div class="check-box"></div>Geolocalização: Blumenau + Vale + Litoral SC</div>
+      </div>
+    </div>
+    <div class="checklist-card">
+      <div class="checklist-card-header" style="border-left:3px solid #7c3aed">Perpétuo / Paternidade</div>
+      <div class="checklist-card-body">
+        <div class="check-item"><div class="check-box"></div>Gravar voz off dos 2 scripts (celular com qualidade OK)</div>
+        <div class="check-item"><div class="check-box"></div>Editar Reels: texto aparecendo linha por linha + voz</div>
+        <div class="check-item"><div class="check-box"></div>B-roll lifestyle (não precisa mostrar rosto do Daniel)</div>
+        <div class="check-item"><div class="check-box"></div>Definir destino do CTA: direct, link bio ou WhatsApp</div>
+        <div class="check-item"><div class="check-box"></div>Público: homens 30+ SC + interesse empreendedorismo/família</div>
+        <div class="check-item"><div class="check-box"></div>Fase 1 — 30 dias orgânico antes de pagar anúncio</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  <div><span style="color:var(--orange);font-weight:700">Cardo Marketing</span> · cardomarketing.com.br<br><span>Brief interno — Daniel Formehl Fraron · Junho 2026</span></div>
+  <div style="text-align:right">8 criativos · 3 frentes · R$2.500/mês<br><span style="color:#f97316">Victor · Agência Cardo</span></div>
 </div>
 
 </body>
