@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -9,18 +9,18 @@
 body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bottom:80px}
 
 /* PAGE HEADER */
-.ph{background:#060c1a;border-bottom:1px solid #1a2640;padding:20px 32px;display:flex;align-items:center;justify-content:space-between}
-.ph .logo{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f97316}
-.ph .title{font-size:16px;font-weight:800;color:#fff}
-.ph .sub{font-size:11px;color:#4a6080;margin-top:2px}
-.ph .hint{font-size:11px;color:#4a6080;text-align:right;line-height:1.6}
-.ph .hint strong{color:#94a3b8}
+.ph{background:#060c1a;border-bottom:2px solid #f97316;padding:20px 32px;display:flex;align-items:center;justify-content:space-between}
+.ph .logo{font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f97316}
+.ph .title{font-size:21px;font-weight:800;color:#fff}
+.ph .sub{font-size:14px;color:#fff;margin-top:2px;opacity:.75}
+.ph .hint{font-size:14px;color:#fff;text-align:right;line-height:1.6;opacity:.8}
+.ph .hint strong{color:#fff}
 
 /* SECTION HEADER */
 .sh{padding:40px 32px 16px;display:flex;align-items:center;gap:10px}
 .sh-dot{width:8px;height:8px;border-radius:50%}
-.sh h2{font-size:14px;font-weight:800;color:#fff}
-.sh span{font-size:11px;color:#4a6080;margin-left:4px}
+.sh h2{font-size:18px;font-weight:800;color:#fff}
+.sh span{font-size:14px;color:#fff;margin-left:4px;opacity:.7}
 
 /* CREATIVES GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(540px,1fr));gap:32px;padding:0 32px}
@@ -28,9 +28,9 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 /* CREATIVE CARD */
 .cc{background:#0f1520;border:1px solid #1a2640;border-radius:14px;overflow:hidden}
 .cc-label{padding:10px 16px;background:#0b1020;border-bottom:1px solid #1a2640;display:flex;align-items:center;justify-content:space-between}
-.cc-label .code{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#64748b}
-.cc-label .name{font-size:11px;font-weight:700;color:#94a3b8}
-.cc-label .fmt{font-size:9px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid #1e2d4a;color:#64748b}
+.cc-label .code{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#f97316}
+.cc-label .name{font-size:14px;font-weight:700;color:#fff}
+.cc-label .fmt{font-size:12px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid #1e2d4a;color:#fff}
 .cc-formats{display:flex;gap:12px;padding:0 16px 16px;align-items:flex-start}
 
 /* FEED FORMAT — 1:1 */
@@ -49,7 +49,7 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center
 }
-.fmt-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4a6080;margin-bottom:6px;text-align:center}
+.fmt-label{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:6px;text-align:center;opacity:.7}
 
 /* ── TC01 ── */
 .tc01{background:#0a0700}
@@ -190,39 +190,31 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 .pp02s .ans-yes{font-size:26px}
 .pp02s .ans-no{font-size:20px}
 
-/* NOTES */
-.notes{
-  background:#0f1520;border:1px solid #1a2640;border-radius:10px;
-  padding:16px 20px;margin:16px 32px 0;
-  font-size:12px;color:#64748b;line-height:1.7
-}
-.notes strong{color:#94a3b8}
+/* NOTES — hidden */
+.notes{display:none}
 
 /* REFS */
 .refs{padding:40px 32px 0}
-.refs h2{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
-.refs p{font-size:12px;color:#4a6080;margin-bottom:24px}
+.refs h2{font-size:21px;font-weight:800;color:#fff;margin-bottom:6px}
+.refs p{font-size:16px;color:#fff;margin-bottom:24px;opacity:.75}
 .refs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 .ref-card{background:#0f1520;border:1px solid #1a2640;border-radius:10px;padding:16px}
-.ref-card h3{font-size:12px;font-weight:700;color:#fff;margin-bottom:10px}
-.ref-tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid #1e2d4a;color:#8a9bb8;margin:2px}
-.ref-note{font-size:11px;color:#4a6080;margin-top:8px;line-height:1.6}
-.ref-section-title{font-size:12px;font-weight:800;color:#fff;margin:28px 0 14px;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+.ref-card h3{font-size:16px;font-weight:700;color:#fff;margin-bottom:10px}
+.ref-tag{display:inline-block;font-size:13px;font-weight:600;padding:3px 9px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid #1e2d4a;color:#fff;margin:2px}
+.ref-note{font-size:14px;color:#fff;margin-top:8px;line-height:1.65;opacity:.8}
+.ref-section-title{font-size:16px;font-weight:800;color:#fff;margin:28px 0 14px;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
 .ref-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:8px}
 .ref-img-card{background:#0f1520;border:1px solid #1a2640;border-radius:10px;overflow:hidden}
 .ref-img-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
-.ref-img-card .ri-body{padding:12px 14px}
-.ref-img-card .ri-label{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-bottom:5px}
-.ref-img-card .ri-title{font-size:12px;font-weight:700;color:#c0cfe0;margin-bottom:7px;line-height:1.4}
-.ref-img-card .ri-analysis{font-size:11px;color:#4a6080;line-height:1.65}
-.ref-img-card .ri-analysis strong{color:#8a9bb8}
-.ref-placeholder{width:100%;aspect-ratio:1/1;background:#080e1a;border-bottom:1px solid #1a2640;display:flex;align-items:center;justify-content:center;font-size:10px;color:#1e2d4a;font-style:italic;text-align:center;padding:10px}
+.ref-img-card .ri-body{padding:14px 16px}
+.ref-img-card .ri-label{font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px}
+.ref-img-card .ri-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.4}
+.ref-img-card .ri-analysis{font-size:14px;color:#fff;line-height:1.7;opacity:.8}
+.ref-img-card .ri-analysis strong{color:#fff;opacity:1}
+.ref-placeholder{width:100%;aspect-ratio:1/1;background:#080e1a;border-bottom:1px solid #1a2640;display:flex;align-items:center;justify-content:center;font-size:13px;color:#2a4060;font-style:italic;text-align:center;padding:10px}
 
-/* PRINT HINT */
-.print-hint{
-  text-align:center;padding:16px;
-  font-size:11px;color:#2a3a55;letter-spacing:.5px
-}
+/* PRINT HINT — hidden */
+.print-hint{display:none}
 
 @media print {
   body{background:#fff;padding:0}
@@ -531,15 +523,11 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 
 </div>
 
-<!-- NOTES -->
-<div class="notes">
-  <strong>Como usar essas artes:</strong> Cada criativo está no tamanho exato de produção. Para exportar: abra essa página no Chrome → pressione F11 (tela cheia) → screenshot cada feed (340×340px na tela = proporção 1:1 correta). Ou encaminhe essa página ao designer com as indicações de cor e tipografia em cada peça. Para produção final, replique no <strong>Canva Pro</strong> nas dimensões 1080×1080 (feed) e 1080×1920 (story) usando as cores e estrutura de cada arte abaixo.
-</div>
 
 <!-- REFERÊNCIAS REAIS -->
 <div class="refs">
   <h2>Referências de mercado</h2>
-  <p>Análise dos criativos coletados — o que aprender de cada um para Triad, Quitar e Perpétuo. Salve as imagens em <strong style="color:#94a3b8">refs/ref01.jpg</strong> até <strong style="color:#94a3b8">refs/ref09.jpg</strong> para exibi-las aqui.</p>
+  <p>Análise dos criativos coletados — o que aprender de cada um para Triad, Quitar e Perpétuo. Salve as imagens em <strong style="color:#fff">refs/ref01.jpg</strong> até <strong style="color:#fff">refs/ref09.jpg</strong> para exibi-las aqui.</p>
 
   <!-- TRIAD -->
   <div class="ref-section-title">
@@ -591,7 +579,7 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
       <img src="refs/ref07.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="CTF Tour">
       <div class="ref-placeholder" style="display:none">CTF Tour — Carros executivos<br>refs/ref07.jpg</div>
       <div class="ri-body">
-        <div class="ri-label" style="color:#94a3b8">Referência visual · locação</div>
+        <div class="ri-label" style="color:#fff">Referência visual · locação</div>
         <div class="ri-title">CTF Tour — "Locação de carros executivos"</div>
         <div class="ri-analysis">
           <strong>Segmento diferente, lição valiosa:</strong> Os carros são fotos reais com recorte de fundo limpo — placa visível, modelo identificável. Isso gera muito mais confiança que IA.<br><br>
@@ -691,17 +679,17 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="background:rgba(249,115,22,.07);border-radius:6px;padding:10px 12px">
           <div style="font-size:22px;font-weight:900;color:#f97316;line-height:1">+60%</div>
-          <div style="font-size:11px;color:#4a6080;margin-top:3px;line-height:1.5">dos motoristas de app têm CPF negativado — validação direta do diferencial "sem CPF" da Triad</div>
+          <div style="font-size:14px;color:#fff;margin-top:3px;line-height:1.5">dos motoristas de app têm CPF negativado — validação direta do diferencial "sem CPF" da Triad</div>
         </div>
         <div style="background:rgba(249,115,22,.07);border-radius:6px;padding:10px 12px">
           <div style="font-size:22px;font-weight:900;color:#f97316;line-height:1">2x</div>
-          <div style="font-size:11px;color:#4a6080;margin-top:3px;line-height:1.5">a taxa de inadimplência de autônomos vs CLT — esse público não consegue financiar mesmo querendo</div>
+          <div style="font-size:14px;color:#fff;margin-top:3px;line-height:1.5">a taxa de inadimplência de autônomos vs CLT — esse público não consegue financiar mesmo querendo</div>
         </div>
         <div style="background:rgba(249,115,22,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">Move Brasil (2026):</strong> programa do governo para financiar carro de app driver excluiu quem tem nome negativado. Criou demanda reprimida enorme exatamente para o que a Triad oferece.</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">Move Brasil (2026):</strong> programa do governo para financiar carro de app driver excluiu quem tem nome negativado. Criou demanda reprimida enorme exatamente para o que a Triad oferece.</div>
         </div>
         <div style="background:rgba(249,115,22,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">Renda média do motorista organizado:</strong> R$2.500–R$4.000/mês. Com carro bom e disponível, esse valor é atingível. Dia parado = prejuízo direto — daí o hook "carro parado = dia perdido".</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">Renda média do motorista organizado:</strong> R$2.500–R$4.000/mês. Com carro bom e disponível, esse valor é atingível. Dia parado = prejuízo direto — daí o hook "carro parado = dia perdido".</div>
         </div>
       </div>
     </div>
@@ -711,20 +699,20 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="background:rgba(239,68,68,.07);border-radius:6px;padding:10px 12px">
           <div style="font-size:22px;font-weight:900;color:#ef4444;line-height:1">74,6M</div>
-          <div style="font-size:11px;color:#4a6080;margin-top:3px;line-height:1.5">brasileiros inadimplentes em jan/2025 — o maior mercado de dívida da história recente</div>
+          <div style="font-size:14px;color:#fff;margin-top:3px;line-height:1.5">brasileiros inadimplentes em jan/2025 — o maior mercado de dívida da história recente</div>
         </div>
         <div style="background:rgba(239,68,68,.07);border-radius:6px;padding:10px 12px">
           <div style="font-size:22px;font-weight:900;color:#ef4444;line-height:1">+1,2pp</div>
-          <div style="font-size:11px;color:#4a6080;margin-top:3px;line-height:1.5">inadimplência veicular em 2025 — maior índice desde novembro de 2023. Mercado aquecendo</div>
+          <div style="font-size:14px;color:#fff;margin-top:3px;line-height:1.5">inadimplência veicular em 2025 — maior índice desde novembro de 2023. Mercado aquecendo</div>
         </div>
         <div style="background:rgba(239,68,68,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#ef4444">Dado legal crítico:</strong> O banco pode pedir busca e apreensão com <strong style="color:#ef4444">apenas 1 parcela atrasada</strong>. Após a apreensão, o devedor tem <strong style="color:#ef4444">5 dias</strong> para quitar tudo — depois o carro vai a leilão.</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#ef4444">Dado legal crítico:</strong> O banco pode pedir busca e apreensão com <strong style="color:#ef4444">apenas 1 parcela atrasada</strong>. Após a apreensão, o devedor tem <strong style="color:#ef4444">5 dias</strong> para quitar tudo — depois o carro vai a leilão.</div>
         </div>
         <div style="background:rgba(239,68,68,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">O pesadelo ignorado:</strong> Mesmo após o leilão, se o valor não cobrir a dívida total, <strong style="color:#ef4444">a pessoa ainda deve o saldo restante</strong>. Esse dado pouco conhecido é o maior gatilho de urgência do nicho.</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">O pesadelo ignorado:</strong> Mesmo após o leilão, se o valor não cobrir a dívida total, <strong style="color:#ef4444">a pessoa ainda deve o saldo restante</strong>. Esse dado pouco conhecido é o maior gatilho de urgência do nicho.</div>
         </div>
         <div style="background:rgba(239,68,68,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">Perfil do lead:</strong> 23–40 anos, classe B/C, perdeu emprego ou renda caiu. O carro é o único bem de valor e o financiamento está sufocando. Decisão impulsiva quando encontra confiança.</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">Perfil do lead:</strong> 23–40 anos, classe B/C, perdeu emprego ou renda caiu. O carro é o único bem de valor e o financiamento está sufocando. Decisão impulsiva quando encontra confiança.</div>
         </div>
       </div>
     </div>
@@ -733,26 +721,26 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
       <h3 style="color:#a78bfa;font-size:13px;margin-bottom:12px">Perpétuo · Dados do mercado</h3>
       <div style="display:flex;flex-direction:column;gap:10px">
         <div style="background:rgba(124,58,237,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">Nível de consciência:</strong> Esse público está no nível 2–3 de Schwartz. Sente a dor mas não nomeou. <strong>Não está pesquisando "curso de paternidade"</strong> — está perguntando "por que meu filho não me conta mais as coisas?"</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">Nível de consciência:</strong> Esse público está no nível 2–3 de Schwartz. Sente a dor mas não nomeou. <strong>Não está pesquisando "curso de paternidade"</strong> — está perguntando "por que meu filho não me conta mais as coisas?"</div>
         </div>
         <div style="background:rgba(124,58,237,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">Quem é ele:</strong> Empresário 35–50 anos, Classe A. Construiu resultado financeiro sacrificando presença. Agora percebe que o filho está crescendo sem ele. Não vai ao Google — a dor é silenciosa.</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">Quem é ele:</strong> Empresário 35–50 anos, Classe A. Construiu resultado financeiro sacrificando presença. Agora percebe que o filho está crescendo sem ele. Não vai ao Google — a dor é silenciosa.</div>
         </div>
         <div style="background:rgba(124,58,237,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">Tendência de mercado:</strong> Produtos de desenvolvimento pessoal masculino cresceram 340% no Brasil entre 2020–2024. Paternidade é subcategoria emergente com pouca concorrência direta de qualidade.</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">Tendência de mercado:</strong> Produtos de desenvolvimento pessoal masculino cresceram 340% no Brasil entre 2020–2024. Paternidade é subcategoria emergente com pouca concorrência direta de qualidade.</div>
         </div>
         <div style="background:rgba(124,58,237,.07);border-radius:6px;padding:10px 12px">
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.6"><strong style="color:#c0cfe0">Oportunidade:</strong> A maioria dos conteúdos de paternidade é teórica (livros, psicólogos). Daniel tem vivência real e resultado concreto — é o diferencial que o público cético de classe A valoriza mais que credencial.</div>
+          <div style="font-size:14px;color:#fff;line-height:1.6"><strong style="color:#fff">Oportunidade:</strong> A maioria dos conteúdos de paternidade é teórica (livros, psicólogos). Daniel tem vivência real e resultado concreto — é o diferencial que o público cético de classe A valoriza mais que credencial.</div>
         </div>
         <div style="background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);border-radius:6px;padding:12px">
           <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#7c3aed;margin-bottom:6px">Concorrente direto analisado</div>
           <div style="font-size:12px;font-weight:700;color:#c4b5fd;margin-bottom:6px">presencaquemarca.com.br/paimemoravel</div>
-          <div style="font-size:11px;color:#8a9bb8;line-height:1.7">
+          <div style="font-size:14px;color:#fff;line-height:1.7">
             Headline deles: <em style="color:#c4b5fd">"Daqui a 20 anos, o que seu filho vai lembrar sobre você?"</em> — mesma lógica do PP01. Valida o ângulo de legado.<br><br>
-            <strong style="color:#c0cfe0">Conceito forte que usam:</strong> "Síndrome do Pai Provedor™" — pai que dá tudo materialmente mas não está presente emocionalmente. Ótimo para Daniel usar como âncora narrativa.<br><br>
-            <strong style="color:#c0cfe0">Preço de mercado:</strong> R$97 (12x R$9,70). Referência de ticket para o produto do Daniel.<br><br>
+            <strong style="color:#fff">Conceito forte que usam:</strong> "Síndrome do Pai Provedor™" — pai que dá tudo materialmente mas não está presente emocionalmente. Ótimo para Daniel usar como âncora narrativa.<br><br>
+            <strong style="color:#fff">Preço de mercado:</strong> R$97 (12x R$9,70). Referência de ticket para o produto do Daniel.<br><br>
             <strong style="color:#22c55e">Ponto fraco deles:</strong> Zero depoimentos na página. Se Daniel tiver qualquer resultado real com filho ou enteada, isso sozinho já é diferencial de conversão enorme.<br><br>
-            <strong style="color:#c0cfe0">Posicionamento deles:</strong> Focado em "cristãos" — nicho dentro do nicho. Daniel pode ser mais amplo e pegar o mercado que eles excluem.
+            <strong style="color:#fff">Posicionamento deles:</strong> Focado em "cristãos" — nicho dentro do nicho. Daniel pode ser mais amplo e pegar o mercado que eles excluem.
           </div>
         </div>
       </div>
@@ -769,23 +757,23 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 
     <div class="ref-card" style="border-color:rgba(34,197,94,.2)">
       <h3 style="color:#22c55e;font-size:12px;margin-bottom:10px">Triad — gap da concorrência</h3>
-      <div class="ref-note" style="color:#4a6080">
-        Concorrentes como BV Rent a Car e Grava falam em "condições especiais para motorista de app" mas <strong style="color:#8a9bb8">nunca mencionam CPF</strong>. Isso significa que o lead com nome sujo lê o anúncio, chega no atendimento e descobre que não pode. Abandona com raiva e desconfiança.<br><br>
+      <div class="ref-note" style="color:#fff">
+        Concorrentes como BV Rent a Car e Grava falam em "condições especiais para motorista de app" mas <strong style="color:#fff">nunca mencionam CPF</strong>. Isso significa que o lead com nome sujo lê o anúncio, chega no atendimento e descobre que não pode. Abandona com raiva e desconfiança.<br><br>
         <strong style="color:#22c55e">Oportunidade:</strong> Ser o único que fala "sem CPF" no criativo filtra o lead já qualificado e quebra uma barreira que a concorrência deixou em aberto. O Daniel não precisa concorrer com a Movida em preço — precisa ser o único que diz sim pra quem todo mundo disse não.
       </div>
     </div>
 
     <div class="ref-card" style="border-color:rgba(34,197,94,.2)">
       <h3 style="color:#22c55e;font-size:12px;margin-bottom:10px">Quitar — gap da concorrência</h3>
-      <div class="ref-note" style="color:#4a6080">
-        A maioria dos anúncios do nicho (compra de carro financiado) <strong style="color:#8a9bb8">parece golpe</strong>: fundo vermelho, CAPS LOCK, promessas vagas sem processo. Isso condicionou o público a desconfiar — mesmo de quem é legítimo.<br><br>
-        <strong style="color:#22c55e">Oportunidade:</strong> Um criativo que <strong style="color:#8a9bb8">explica o processo em etapas</strong> (compro → nego com o banco → quito → transfero) quebra exatamente essa desconfiança. Ser transparente é o diferencial em um mercado cheio de obscuridade.
+      <div class="ref-note" style="color:#fff">
+        A maioria dos anúncios do nicho (compra de carro financiado) <strong style="color:#fff">parece golpe</strong>: fundo vermelho, CAPS LOCK, promessas vagas sem processo. Isso condicionou o público a desconfiar — mesmo de quem é legítimo.<br><br>
+        <strong style="color:#22c55e">Oportunidade:</strong> Um criativo que <strong style="color:#fff">explica o processo em etapas</strong> (compro → nego com o banco → quito → transfero) quebra exatamente essa desconfiança. Ser transparente é o diferencial em um mercado cheio de obscuridade.
       </div>
     </div>
 
     <div class="ref-card" style="border-color:rgba(34,197,94,.2)">
       <h3 style="color:#22c55e;font-size:12px;margin-bottom:10px">Perpétuo — gap da concorrência</h3>
-      <div class="ref-note" style="color:#4a6080">
+      <div class="ref-note" style="color:#fff">
         O concorrente mais próximo (Presença que Marca) já usa o mesmo ângulo de legado — mas está posicionado para cristãos e não tem nenhum depoimento.<br><br>
         <strong style="color:#22c55e">Oportunidade do Daniel:</strong> Público mais amplo (não-cristão) + resultado real documentado com filho/enteada + linguagem de empresário (não de coach) = posicionamento diferente no mesmo mercado. Falar de paternidade <em>sem parecer autoajuda</em> é o espaço que a concorrência deixou em aberto.
       </div>
@@ -795,7 +783,11 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 
 </div>
 
-<div class="print-hint">Cardo Marketing · Brief interno · Daniel Fraron · Junho 2026 · <a href="index.html" style="color:#2a4a70">← Voltar ao brief completo</a></div>
+<div style="padding:40px 32px;border-top:1px solid #1a2640;margin-top:40px;display:flex;align-items:center;justify-content:space-between">
+  <div style="font-size:14px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f97316">CARDO MARKETING</div>
+  <div style="font-size:13px;color:#fff;opacity:.4">Daniel Fraron · Junho 2026</div>
+</div>
 
 </body>
 </html>
+
