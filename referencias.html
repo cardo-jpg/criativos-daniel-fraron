@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referências de Mercado — Daniel Fraron | Cardo Marketing</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#060c1a;--navy2:#0b1428;--card:#111927;--card2:#0f1520;
+  --border:#1a2640;--border2:#1e2d4a;
+  --text:#dde6f0;--muted:#4a6080;--dim:#8a9bb8;--white:#fff;
+  --orange:#f97316;--red:#ef4444;--purple:#7c3aed;--green:#22c55e;
+  --yellow:#eab308
+}
+body{background:var(--navy);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;padding-bottom:100px}
+
+/* NAV */
+.topbar{background:var(--navy2);border-bottom:1px solid var(--border);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.topbar .logo{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--orange)}
+.topbar .title{font-size:15px;font-weight:800;color:var(--white)}
+.topbar .nav{display:flex;gap:6px}
+.topbar .nav a{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:16px;border:1px solid var(--border2);color:var(--muted);text-decoration:none}
+.topbar .nav a:hover{color:var(--white)}
+
+/* HERO */
+.hero{padding:48px 40px 32px;border-bottom:1px solid var(--border)}
+.hero-badge{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.hero h1{font-size:32px;font-weight:900;color:var(--white);margin-bottom:8px}
+.hero p{font-size:14px;color:var(--muted);max-width:600px;line-height:1.7}
+.stat-row{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 18px;min-width:160px}
+.stat .sv{font-size:26px;font-weight:900;color:var(--white);line-height:1}
+.stat .sl{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+.stat.orange .sv{color:var(--orange)}
+.stat.red .sv{color:var(--red)}
+.stat.purple .sv{color:var(--purple)}
+.stat.yellow .sv{color:var(--yellow)}
+
+/* SECTION */
+.section{padding:56px 40px;border-top:1px solid var(--border)}
+.section-tag{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.section-tag span{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.section h2{font-size:24px;font-weight:900;color:var(--white);margin-bottom:6px}
+.section .desc{font-size:13px;color:var(--muted);margin-bottom:36px;max-width:700px;line-height:1.7}
+
+/* GRID */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+
+/* CARD */
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.card-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.card-head h3{font-size:13px;font-weight:800;color:var(--white)}
+.card-head .tag{font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:8px;color:white;margin-left:auto}
+.card p{font-size:12px;color:var(--dim);line-height:1.75}
+.card p strong{color:var(--text);font-weight:700}
+.card p em{color:var(--muted);font-style:normal}
+
+/* AWARENESS SCALE */
+.awareness{display:flex;flex-direction:column;gap:0}
+.aw-step{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--border)}
+.aw-step:last-child{border-bottom:none}
+.aw-num{
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:900;flex-shrink:0;margin-top:1px
+}
+.aw-body .aw-title{font-size:12px;font-weight:800;color:var(--text);margin-bottom:3px}
+.aw-body .aw-desc{font-size:11px;color:var(--muted);line-height:1.6}
+.aw-active .aw-title::after{content:' ← ALVO';font-size:9px;font-weight:700;letter-spacing:1px;margin-left:6px;opacity:.6}
+
+/* HOOKS LIST */
+.hook-list{display:flex;flex-direction:column;gap:10px}
+.hook-item{
+  background:var(--card2);border:1px solid var(--border2);border-radius:8px;
+  padding:12px 14px;border-left:3px solid
+}
+.hook-item .hi-type{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.hook-item .hi-text{font-size:13px;color:var(--text);line-height:1.4;font-style:italic}
+.hook-item .hi-why{font-size:11px;color:var(--muted);margin-top:5px;line-height:1.5}
+
+/* FORMAT TABLE */
+.fmt-table{width:100%;border-collapse:collapse}
+.fmt-table th{padding:8px 12px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-align:left;border-bottom:1px solid var(--border);background:rgba(255,255,255,.02)}
+.fmt-table td{padding:10px 12px;font-size:12px;color:var(--dim);border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6}
+.fmt-table tr:last-child td{border-bottom:none}
+.fmt-table td:first-child{font-weight:700;color:var(--text);white-space:nowrap}
+.perf-bar{height:6px;border-radius:3px;margin-top:4px}
+
+/* DO / AVOID */
+.da-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.da-col{background:var(--card2);border-radius:10px;padding:14px}
+.da-col h4{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.da-col.do h4{color:rgba(34,197,94,.7)}
+.da-col.avoid h4{color:rgba(239,68,68,.6)}
+.da-item{display:flex;gap:8px;margin-bottom:8px;font-size:11px;color:var(--dim);line-height:1.5;align-items:flex-start}
+.da-item:last-child{margin-bottom:0}
+.da-col.do .da-item::before{content:'✓';color:var(--green);font-weight:900;flex-shrink:0;font-size:10px;margin-top:1px}
+.da-col.avoid .da-item::before{content:'✗';color:var(--red);font-weight:900;flex-shrink:0;font-size:10px;margin-top:1px}
+
+/* INSIGHT BOX */
+.insight{
+  background:rgba(234,179,8,.06);border:1px solid rgba(234,179,8,.2);
+  border-radius:10px;padding:14px 16px;margin-bottom:20px;
+  font-size:12px;color:var(--dim);line-height:1.7
+}
+.insight strong{color:var(--yellow)}
+.insight-red{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.2)}
+.insight-red strong{color:var(--red)}
+.insight-purple{background:rgba(124,58,237,.06);border-color:rgba(124,58,237,.2)}
+.insight-purple strong{color:var(--purple)}
+
+/* AD LIBRARY GUIDE */
+.step-list{display:flex;flex-direction:column;gap:0}
+.step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-num{
+  width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.05);
+  border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;color:var(--dim);flex-shrink:0
+}
+.step-body .step-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px}
+.step-body .step-desc{font-size:12px;color:var(--muted);line-height:1.6}
+.step-body .step-desc strong{color:var(--dim)}
+.step-body code{
+  display:inline-block;background:rgba(255,255,255,.06);
+  border:1px solid var(--border2);border-radius:4px;
+  padding:2px 8px;font-family:monospace;font-size:11px;color:var(--orange);margin:2px 2px 2px 0
+}
+
+/* CONCORRENTES */
+.conc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.conc-card{
+  background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px
+}
+.conc-card .handle{font-size:12px;font-weight:700;color:var(--white);margin-bottom:4px}
+.conc-card .plat{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.conc-card .obs{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* LEVEL BADGE */
+.lbadge{
+  display:inline-block;font-size:10px;font-weight:800;
+  padding:3px 10px;border-radius:10px;color:white;margin-bottom:14px
+}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:24px 0}
+
+/* COPY PATTERNS */
+.pattern{
+  background:var(--card2);border:1px solid var(--border2);border-radius:8px;padding:14px;margin-bottom:10px
+}
+.pattern .pt{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.pattern .ex{font-size:13px;color:var(--text);line-height:1.5;margin-bottom:6px}
+.pattern .why{font-size:11px;color:var(--muted);line-height:1.5}
+
+@media(max-width:700px){
+  .topbar,.hero,.section{padding-left:20px;padding-right:20px}
+  .da-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div>
+    <div class="logo">Cardo Marketing</div>
+    <div class="title">Referências de Mercado — Daniel Fraron</div>
+  </div>
+  <div class="nav">
+    <a href="index.html">Brief</a>
+    <a href="arte.html">Artes</a>
+    <a href="#triad">Triad</a>
+    <a href="#quitar">Quitar</a>
+    <a href="#perpetuo">Perpétuo</a>
+    <a href="#adlibrary">Ad Library</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Pesquisa de mercado · Junho 2026</div>
+  <h1>Referências aprofundadas por nicho</h1>
+  <p>Psicologia do público, nível de consciência, padrões de hook, formatos dominantes, erros da concorrência e guia de espionagem via Meta Ad Library.</p>
+  <div class="stat-row">
+    <div class="stat orange">
+      <div class="sv">+60%</div>
+      <div class="sl">dos motoristas de app têm CPF negativado</div>
+    </div>
+    <div class="stat red">
+      <div class="sv">+1,2pp</div>
+      <div class="sl">Inadimplência veicular em 2025 — maior desde nov/2023</div>
+    </div>
+    <div class="stat red">
+      <div class="sv">74,6M</div>
+      <div class="sl">brasileiros inadimplentes ativos em jan/2025</div>
+    </div>
+    <div class="stat yellow">
+      <div class="sv">5 dias</div>
+      <div class="sl">é tudo que o devedor tem após apreensão do carro</div>
+    </div>
+    <div class="stat purple">
+      <div class="sv">2x</div>
+      <div class="sl">a inadimplência de autônomos vs. CLT — média nacional</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     TRIAD CAPITAL
+     ═══════════════════════════════════ -->
+<div class="section" id="triad">
+  <div class="section-tag"><div class="dot" style="background:#f97316"></div><span>Frente 01</span></div>
+  <h2>Triad Capital — Locadora para motoristas de app</h2>
+  <div class="desc">@triadxcapital · Público: Uber/99/inDrive drivers 27+ · Classe B/C · Regiāo: Blumenau, Vale, Litoral SC</div>
+
+  <div class="insight">
+    <strong>Insight de mercado:</strong> O programa <strong>Move Brasil</strong> (2026) do governo federal foi criado para ajudar motoristas de app a financiarem seus próprios carros — mas na prática exclui quem tem nome negativado, que são mais de 60% desse público. Isso cria um <strong>vácuo enorme de demanda</strong> que o Daniel está posicionado para suprir: quem não consegue financiar pelo governo, aluga pela Triad.
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px">
+    <!-- Nível de Consciência -->
+    <div class="card">
+      <div class="card-head">
+        <h3>Nível de Consciência do Público</h3>
+        <span class="tag" style="background:#f97316">Schwartz Scale</span>
+      </div>
+      <div class="awareness">
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(255,255,255,.05);color:#4a6080">1</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#4a6080">Sem consciência</div>
+            <div class="aw-desc">Não sabe que precisa de carro para trabalhar, ou está tentando outro caminho</div>
+          </div>
+        </div>
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(249,115,22,.15);color:#f97316">2</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#f97316">Consciente do problema</div>
+            <div class="aw-desc">Quer trabalhar com Uber mas não tem carro. Sabe que precisa de um — não sabe como conseguir.</div>
+          </div>
+        </div>
+        <div class="aw-step aw-active">
+          <div class="aw-num" style="background:rgba(249,115,22,.25);color:#f97316;border:2px solid #f97316">3</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#f97316">Consciente da solução</div>
+            <div class="aw-desc">Sabe que existe aluguel de carro para app. Está comparando locadoras. CPF e preço são as objeções principais.</div>
+          </div>
+        </div>
+        <div class="aw-step aw-active">
+          <div class="aw-num" style="background:rgba(249,115,22,.25);color:#f97316;border:2px solid #f97316">4</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#f97316">Consciente do produto</div>
+            <div class="aw-desc">Já está na Triad ou outra locadora. Insatisfeito com carro parado, sem suporte ou sendo bloqueado por CPF. Pronto para trocar.</div>
+          </div>
+        </div>
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(255,255,255,.05);color:#4a6080">5</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#4a6080">Pronto para comprar</div>
+            <div class="aw-desc">Já tomou a decisão, só precisa do próximo passo (contato, confirmação de vaga)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Psicologia do público -->
+    <div class="card">
+      <div class="card-head"><h3>Psicologia do público</h3></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#f97316;margin-bottom:5px">Quem é ele</div>
+          <p>Homem ou mulher 27-50 anos. Buscando renda autônoma e flexível. Tem histórico de emprego informal, dívidas de consumo — o que resulta em CPF negativado. Já testou outras locadoras e foi rejeitado, ou está em uma e quer algo melhor.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#f97316;margin-bottom:5px">O que ele teme</div>
+          <p>Ser rejeitado de novo pelo CPF. Pegar um carro que vai para a oficina e perder dias de trabalho. Contratos cheios de letra pequena. Pagar caro sem ter suporte.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#f97316;margin-bottom:5px">O que ele quer ouvir</div>
+          <p><strong>"Sem CPF. Sem enrolação. Carro pronto. Comece essa semana."</strong> — simplicidade, ausência de barreiras e promessa de começo rápido são os gatilhos principais.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#f97316;margin-bottom:5px">Comportamento de compra</div>
+          <p>Decisão rápida, emocional, movida por necessidade. Comparação entre 2-3 opções no máximo. O primeiro a responder no WhatsApp geralmente fecha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOOKS -->
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Padrões de hook que funcionam nesse nicho</h3>
+  <div class="hook-list" style="margin-bottom:32px">
+    <div class="hook-item" style="border-color:#f97316">
+      <div class="hi-type">Hook de eliminação de barreira — MAIS FORTE</div>
+      <div class="hi-text">"Nome sujo? Aqui não importa."</div>
+      <div class="hi-why">Ataca diretamente a maior objeção antes mesmo de mostrar o produto. Quem tem CPF negativado está condicionado a ser rejeitado — quebrar isso no primeiro segundo gera clique imediato.</div>
+    </div>
+    <div class="hook-item" style="border-color:#f97316">
+      <div class="hi-type">Hook de problema específico</div>
+      <div class="hi-text">"Trabalha com Uber mas o carro te trava mais do que te rende?"</div>
+      <div class="hi-why">Fala com o motorista que já está no mercado mas insatisfeito. Audiência de nível 4 — já conhece o produto, só precisa de uma razão pra trocar.</div>
+    </div>
+    <div class="hook-item" style="border-color:#f97316">
+      <div class="hi-type">Hook de escassez + local</div>
+      <div class="hi-text">"5 carros disponíveis agora em Blumenau. Sem CPF."</div>
+      <div class="hi-why">Combinação de urgência (vagas limitadas), localização (gera relevância geográfica) e benefício principal (sem CPF). Três filtros em uma frase.</div>
+    </div>
+    <div class="hook-item" style="border-color:#f97316">
+      <div class="hi-type">Hook de diferencial operacional</div>
+      <div class="hi-text">"Carro na manutenção? Você tem substituto. Sem dia perdido."</div>
+      <div class="hi-why">Ataca a dor mais silenciosa do motorista de app: dia parado = dinheiro zero. Nenhuma locadora fala disso. Diferencial imediato.</div>
+    </div>
+  </div>
+
+  <!-- Formatos -->
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Formatos por performance estimada</h3>
+  <div class="card" style="margin-bottom:32px;padding:0;overflow:hidden">
+    <table class="fmt-table">
+      <tr><th>Formato</th><th>Por quê funciona</th><th>Performance estimada</th></tr>
+      <tr>
+        <td>Story / Reels 15s</td>
+        <td>Esse público consome rápido. Story com hook de CPF + carro + WhatsApp converte em segundos.</td>
+        <td><div style="color:#22c55e;font-size:11px;font-weight:700">ALTA</div><div class="perf-bar" style="background:linear-gradient(90deg,#22c55e,#16a34a);width:90%"></div></td>
+      </tr>
+      <tr>
+        <td>Feed estático 1:1</td>
+        <td>Foto real do carro com copy direta. Serve bem para escassez ("5 vagas"). Fica no feed, gera busca orgânica.</td>
+        <td><div style="color:#f97316;font-size:11px;font-weight:700">MÉDIA-ALTA</div><div class="perf-bar" style="background:linear-gradient(90deg,#f97316,#c2580d);width:75%"></div></td>
+      </tr>
+      <tr>
+        <td>Carrossel</td>
+        <td>"Por que alugar na Triad" em 5 slides — ótimo para nutrição de quem está comparando locadoras.</td>
+        <td><div style="color:#eab308;font-size:11px;font-weight:700">MÉDIA</div><div class="perf-bar" style="background:linear-gradient(90deg,#eab308,#a16207);width:55%"></div></td>
+      </tr>
+      <tr>
+        <td>Reels 30s+ (depoimento)</td>
+        <td>Motorista falando sobre a experiência. Alta confiança, mas exige produção e acordar com um cliente.</td>
+        <td><div style="color:#22c55e;font-size:11px;font-weight:700">MUITO ALTA</div><div class="perf-bar" style="background:linear-gradient(90deg,#22c55e,#16a34a);width:95%"></div></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- DO / AVOID -->
+  <div class="da-grid" style="margin-bottom:32px">
+    <div class="da-col do">
+      <h4>O que funciona</h4>
+      <div class="da-item">Foto real dos carros — o público identifica imediatamente imagem de banco</div>
+      <div class="da-item">Falar "sem CPF" no primeiro segundo do anúncio</div>
+      <div class="da-item">Mencionar a cidade (Blumenau) — gera relevância geográfica imediata</div>
+      <div class="da-item">CTA direto para WhatsApp — esse lead decide rápido e quer resposta agora</div>
+      <div class="da-item">Mostrar o app Uber aberto dentro do carro — contexto real</div>
+      <div class="da-item">Depoimento de motorista (mesmo áudio de WhatsApp serve)</div>
+    </div>
+    <div class="da-col avoid">
+      <h4>O que evitar</h4>
+      <div class="da-item">Imagens de banco de imagem — o público percebe instantaneamente</div>
+      <div class="da-item">Linguagem corporativa ("solicite sua proposta") — esse público quer informalidade</div>
+      <div class="da-item">Mencionar preço sem contexto — gera comparação imediata com concorrência</div>
+      <div class="da-item">Vídeo longo sem hook nos primeiros 2 segundos — perde o lead</div>
+      <div class="da-item">Não mencionar localização — esse público scroleia até encontrar alguém próximo</div>
+    </div>
+  </div>
+
+  <!-- Contas -->
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Contas para estudar no Instagram</h3>
+  <div class="conc-grid">
+    <div class="conc-card"><div class="handle">@clikcarrs</div><div class="plat">Instagram · SC</div><div class="obs">+400 carros no Sul do Brasil. Observar linguagem, formato dos stories, como comunicam diferenciais para app drivers.</div></div>
+    <div class="conc-card"><div class="handle">@acheilocadoradeveiculos</div><div class="plat">Instagram</div><div class="obs">Locadora ativa nas redes. Ver frequência de posts, tipos de criativo, como tratam objeção de CPF.</div></div>
+    <div class="conc-card"><div class="handle">motoristadeapp.movida.com.br</div><div class="plat">Movida · Nacional</div><div class="obs">Referência de como grandes players comunicam — o que o Daniel pode fazer diferente por ser local e sem burocracia.</div></div>
+    <div class="conc-card"><div class="handle">Buscar: "aluguel carro uber"</div><div class="plat">Meta Ad Library</div><div class="obs">Filtrar por Brasil. Ordenar por mais antigos ativos (anúncio antigo = está convertendo). Ver copy e visual dos que duram mais.</div></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     QUITAR FINANCIAMENTO
+     ═══════════════════════════════════ -->
+<div class="section" id="quitar">
+  <div class="section-tag"><div class="dot" style="background:#ef4444"></div><span>Frente 02</span></div>
+  <h2>Quitar Financiamento — Compra de veículos com dívida</h2>
+  <div class="desc">@quitarfinanciamentocarro · Público: 23–40 anos, ambos gêneros · Classe B/C · Comportamento: medo de perda, decisão impulsiva</div>
+
+  <div class="insight insight-red">
+    <strong>Dado crítico que deve entrar no criativo:</strong> Por lei, o banco pode pedir busca e apreensão do veículo após <strong>apenas 1 parcela atrasada</strong>. Após a apreensão, o devedor tem <strong>apenas 5 dias</strong> para quitar tudo — ou o carro vai a leilão. E mesmo com o leilão, se o valor não cobrir a dívida total, a pessoa <strong>continua devendo</strong>. Esse é o cenário de pesadelo que o público teme e que justifica ação imediata.
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px">
+    <div class="card">
+      <div class="card-head">
+        <h3>Nível de Consciência do Público</h3>
+        <span class="tag" style="background:#ef4444">Schwartz Scale</span>
+      </div>
+      <div class="awareness">
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(255,255,255,.05);color:#4a6080">1</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#4a6080">Sem consciência</div>
+            <div class="aw-desc">Está atrasado mas acredita que vai resolver logo — não percebe o risco real</div>
+          </div>
+        </div>
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(255,255,255,.05);color:#4a6080">2</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#4a6080">Consciente do problema</div>
+            <div class="aw-desc">Sabe que está inadimplente e que pode perder o carro. Ainda procrastinando.</div>
+          </div>
+        </div>
+        <div class="aw-step aw-active">
+          <div class="aw-num" style="background:rgba(239,68,68,.25);color:#ef4444;border:2px solid #ef4444">3</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#ef4444">Buscando saída ativamente</div>
+            <div class="aw-desc">Pesquisando opções. Medo do leilão e do nome sujo. Impulsivo — age quando encontra confiança.</div>
+          </div>
+        </div>
+        <div class="aw-step aw-active">
+          <div class="aw-num" style="background:rgba(239,68,68,.25);color:#ef4444;border:2px solid #ef4444">4</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#ef4444">Desconfiante da solução</div>
+            <div class="aw-desc">Já viu anúncios parecidos. Tem medo de golpe — de vender o carro e ainda ficar com a dívida. A confiança é o maior gargalo.</div>
+          </div>
+        </div>
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(255,255,255,.05);color:#4a6080">5</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#4a6080">Pronto para agir</div>
+            <div class="aw-desc">Quando encontra uma empresa que parece legítima e o atende rápido, fecha na hora</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Psicologia do público</h3></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#ef4444;margin-bottom:5px">Quem é ele</div>
+          <p>23-40 anos, ambos sexos. Financiou um carro (muitas vezes o único bem de valor), entrou em dificuldade financeira por renda instável, perda de emprego ou gastos inesperados. O carro é essencial para trabalho e o financiamento está comprometendo tudo.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#ef4444;margin-bottom:5px">Os 3 medos centrais</div>
+          <p><strong>1.</strong> Perder o carro e ainda ficar devendo.<br><strong>2.</strong> Ser enganado por quem promete ajudar.<br><strong>3.</strong> Ficar com o nome sujo para o resto da vida.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#ef4444;margin-bottom:5px">O que o diferencial do Daniel resolve</div>
+          <p>O medo número 2 — ser enganado — é o que <strong>paralisa</strong> o lead. O Daniel quita a dívida de verdade, transfere para o próprio nome e entrega o processo documentado. Isso quebra exatamente a objeção que impede a ação.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#ef4444;margin-bottom:5px">Comportamento de compra</div>
+          <p>Impulsivo, mas travado pelo medo. A conversão acontece quando <strong>urgência + confiança</strong> aparecem juntas. É por isso que WhatsApp direto funciona — o atendimento rápido e humano quebra a desconfiança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Padrões de hook que funcionam nesse nicho</h3>
+  <div class="hook-list" style="margin-bottom:32px">
+    <div class="hook-item" style="border-color:#ef4444">
+      <div class="hi-type">Hook de urgência legal — MAIS FORTE</div>
+      <div class="hi-text">"Você sabia que o banco pode pedir seu carro com apenas 1 parcela atrasada?"</div>
+      <div class="hi-why">Dado real, pouco conhecido. Quem não sabe disso é pego de surpresa — e age. Quem já sabe confirma o medo e também age. Funciona nos dois casos.</div>
+    </div>
+    <div class="hook-item" style="border-color:#ef4444">
+      <div class="hi-type">Hook de diferenciação — SEGUNDO MAIS FORTE</div>
+      <div class="hi-text">"Muita empresa 'compra seu carro' e some. Você fica sem o carro e ainda com a dívida."</div>
+      <div class="hi-why">Valida o medo que o lead já tem (foi golpado ou ouviu falar). Posiciona o Daniel como a alternativa legítima antes mesmo de apresentar a proposta.</div>
+    </div>
+    <div class="hook-item" style="border-color:#ef4444">
+      <div class="hi-type">Hook de resultado</div>
+      <div class="hi-text">"Nome limpo. Sem dívida. Sem carro. Mas também sem mais parcela te sufocando."</div>
+      <div class="hi-why">Vende o estado pós-venda, não o processo. Para quem está no desespero, visualizar o alívio é mais poderoso do que entender o processo.</div>
+    </div>
+    <div class="hook-item" style="border-color:#ef4444">
+      <div class="hi-type">Hook educacional</div>
+      <div class="hi-text">"O que acontece com seu carro financiado se você não pagar em 60 dias? [não é o que você pensa]"</div>
+      <div class="hi-why">Curiosity gap clássico. Gera clique por medo + curiosidade. Funciona muito bem em Reels com narração.</div>
+    </div>
+  </div>
+
+  <!-- Copy patterns -->
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Estruturas de copy dominantes no nicho</h3>
+  <div style="margin-bottom:32px">
+    <div class="pattern">
+      <div class="pt">Estrutura 1 — Problema → Agravamento → Solução</div>
+      <div class="ex">"Carro financiado com parcelas atrasadas? [problema] O banco pode agir hoje. [agravamento] A gente compra de você e quita no banco. [solução]"</div>
+      <div class="why">A sequência clássica de copywriting de resposta direta. Funciona porque ativa o medo antes de oferecer o alívio — a solução parece mais valiosa após o agravamento.</div>
+    </div>
+    <div class="pattern">
+      <div class="pt">Estrutura 2 — Contraste (eles vs nós)</div>
+      <div class="ex">"Empresa comum: pega seu carro, some, dívida fica com você. / Quitar: compramos, quitamos no banco, você sai com nome limpo."</div>
+      <div class="why">Posicionamento por contraste. Valida o medo de golpe e imediatamente oferece a alternativa. Visual split funciona muito bem.</div>
+    </div>
+    <div class="pattern">
+      <div class="pt">Estrutura 3 — Prova de processo</div>
+      <div class="ex">"Como a gente faz: 1. Compramos o carro com a dívida. 2. Negociamos diretamente com o banco. 3. Quitamos e transferimos para nosso nome. 4. Você sai sem nenhuma pendência."</div>
+      <div class="why">Transparência de processo quebra a desconfiança. Quem tem medo de golpe quer entender exatamente o que vai acontecer antes de entrar em contato.</div>
+    </div>
+  </div>
+
+  <div class="da-grid" style="margin-bottom:32px">
+    <div class="da-col do">
+      <h4>O que funciona</h4>
+      <div class="da-item">Urgência legal real ("1 parcela já autoriza apreensão") — dado verdadeiro que gera ação</div>
+      <div class="da-item">Contraste visual ✗ vs ✓ — separa o Daniel de golpistas imediatamente</div>
+      <div class="da-item">Processo explicado em etapas — quebra desconfiança</div>
+      <div class="da-item">CTA para WhatsApp — lead de medo precisa de contato humano rápido</div>
+      <div class="da-item">Segmentação geográfica fechada (Blumenau + Vale + Litoral) — lead que liga é o que está perto</div>
+      <div class="da-item">Depoimento anônimo real — "morador de Blumenau, saiu sem dívida" mesmo sem nome</div>
+    </div>
+    <div class="da-col avoid">
+      <h4>O que evitar</h4>
+      <div class="da-item">Excesso de vermelho + CAPS LOCK — paradoxalmente parece golpe (que é o que queremos afastar)</div>
+      <div class="da-item">Promessas sem processo — "resolvemos tudo" sem explicar como aumenta a desconfiança</div>
+      <div class="da-item">Copy muito longa no criativo visual — esse lead scroleia rápido e decide na urgência</div>
+      <div class="da-item">Formulário como destino do CTA — lead impulsivo abandona, precisa de WhatsApp</div>
+      <div class="da-item">Segmentação ampla — lead fora da área de atuação gera custo sem conversão</div>
+    </div>
+  </div>
+
+  <div class="conc-grid">
+    <div class="conc-card"><div class="handle">@serasalimpanome</div><div class="plat">Instagram · Nacional</div><div class="obs">Como uma marca grande comunica resolução de dívida. Observar tom (urgente mas não desesperado) e uso de prova social.</div></div>
+    <div class="conc-card"><div class="handle">Buscar: "compro carro financiado"</div><div class="plat">Meta Ad Library · Brasil</div><div class="obs">Ver quem está anunciando ativamente. Os anúncios mais antigos ativos são os que estão convertendo — analisar copy e visual desses.</div></div>
+    <div class="conc-card"><div class="handle">Buscar: "quitar financiamento carro"</div><div class="plat">Google Search</div><div class="obs">Ver que copy os concorrentes usam em texto de anúncio. O que aparece no top dos resultados pago é o que está funcionando.</div></div>
+    <div class="conc-card"><div class="handle">OLX / Mercado Livre</div><div class="plat">Marketplaces</div><div class="obs">Ver como anunciantes do nicho escrevem os anúncios, que objeções respondem, que termos usam para aparecer nas buscas.</div></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     PERPÉTUO
+     ═══════════════════════════════════ -->
+<div class="section" id="perpetuo">
+  <div class="section-tag"><div class="dot" style="background:#7c3aed"></div><span>Frente 03</span></div>
+  <h2>Perpétuo — Curso de Paternidade</h2>
+  <div class="desc">@danielfraron7 · Público: homens, empresários, 30+, Classe A · Produto ainda sem vendas — fase de construção de audiência</div>
+
+  <div class="insight insight-purple">
+    <strong>Contexto estratégico:</strong> O perpétuo é o produto mais distante de conversão — o Daniel ainda não vendeu nenhum. A estratégia correta não é ir direto pra oferta, mas <strong>construir autoridade e audiência por 30–60 dias antes de subir o anúncio de conversão</strong>. Os dois criativos produzidos são de topo de funil (geração de identidade), não de venda direta. O criativo de venda vem depois, quando houver prova social mínima.
+  </div>
+
+  <div class="grid-2" style="margin-bottom:32px">
+    <div class="card">
+      <div class="card-head">
+        <h3>Nível de Consciência do Público</h3>
+        <span class="tag" style="background:#7c3aed">Schwartz Scale</span>
+      </div>
+      <div class="awareness">
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(255,255,255,.05);color:#4a6080">1</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#4a6080">Sem consciência</div>
+            <div class="aw-desc">Acha que é um bom pai. Não percebe distanciamento. Não está procurando solução.</div>
+          </div>
+        </div>
+        <div class="aw-step aw-active">
+          <div class="aw-num" style="background:rgba(124,58,237,.25);color:#a78bfa;border:2px solid #7c3aed">2</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#a78bfa">Sente a dor mas não nomeou</div>
+            <div class="aw-desc">Percebe que algo não está certo com a relação com o filho, mas não sabe o que. Não está buscando "curso de paternidade".</div>
+          </div>
+        </div>
+        <div class="aw-step aw-active">
+          <div class="aw-num" style="background:rgba(124,58,237,.25);color:#a78bfa;border:2px solid #7c3aed">3</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#a78bfa">Consciente do problema</div>
+            <div class="aw-desc">Admite que precisa melhorar como pai. Sente culpa pela ausência ou por como reage aos filhos. Busca respostas, mas não necessariamente em cursos.</div>
+          </div>
+        </div>
+        <div class="aw-step">
+          <div class="aw-num" style="background:rgba(255,255,255,.05);color:#4a6080">4</div>
+          <div class="aw-body">
+            <div class="aw-title" style="color:#4a6080">Consciente da solução</div>
+            <div class="aw-desc">Pesquisa cursos, livros, conteúdo sobre paternidade. Aqui vai para conversão.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-head"><h3>Psicologia do público</h3></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#a78bfa;margin-bottom:5px">Quem é ele</div>
+          <p>Homem 30-50 anos, empresário ou gestor, Classe A. Construiu resultado financeiro, mas há uma voz interna que diz que está falhando em casa. Sacrificou presença por resultado. Já percebe que o filho está crescendo rápido demais.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#a78bfa;margin-bottom:5px">A dor que ele não fala</div>
+          <p>Ele não vai ao Google pesquisar "como ser um pai melhor". A dor é <strong>silenciosa e de identidade</strong> — ele se pergunta se está sendo o pai que sempre quis ter. O criativo precisa <em>nomear</em> essa dor para ele.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#a78bfa;margin-bottom:5px">O que funciona como gatilho</div>
+          <p>Frases que provocam <strong>autorreflexão</strong> sobre legado e relacionamento. Não vendas, não promessas de filho perfeito. O gatilho é a pergunta que ele nunca se fez em voz alta.</p>
+        </div>
+        <div>
+          <div style="font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#a78bfa;margin-bottom:5px">Por que o Daniel tem autoridade real</div>
+          <p>Vivência real com filho e enteada. Não é teoria — é prática testada. Para esse público que é cético com "experts", a autenticidade da experiência vale mais do que credenciais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Padrões de hook que funcionam nesse nicho</h3>
+  <div class="hook-list" style="margin-bottom:32px">
+    <div class="hook-item" style="border-color:#7c3aed">
+      <div class="hi-type">Hook de identidade — MAIS FORTE para topo de funil</div>
+      <div class="hi-text">"A maioria dos pais de sucesso está falhando em casa. E só percebe quando é tarde."</div>
+      <div class="hi-why">Ataca a contradição central desse público: sucesso externo + falha interna. Quem se vê nisso para no scroll imediatamente.</div>
+    </div>
+    <div class="hook-item" style="border-color:#7c3aed">
+      <div class="hi-type">Hook de legado</div>
+      <div class="hi-text">"Daqui a 20 anos, como seu filho vai te descrever para os filhos dele?"</div>
+      <div class="hi-why">Coloca o público na perspectiva do futuro. Empresários pensam em legado — esse frame ressoa profundamente com homens 35-50.</div>
+    </div>
+    <div class="hook-item" style="border-color:#7c3aed">
+      <div class="hi-type">Hook de insight contraintuitivo</div>
+      <div class="hi-text">"Você não precisa de mais tempo com seu filho. Precisa de método."</div>
+      <div class="hi-why">Quebra a crença mais comum ("não tenho tempo"). Libera a culpa e simultaneamente apresenta uma nova solução. Para empresário ocupado, é um alívio imediato.</div>
+    </div>
+    <div class="hook-item" style="border-color:#7c3aed">
+      <div class="hi-type">Hook de dor silenciosa</div>
+      <div class="hi-text">"Seu filho para de te contar as coisas gradualmente. Você percebeu?"</div>
+      <div class="hi-why">Nomeia uma experiência que o pai vive mas não tinha palavras para descrever. Quem sentiu isso lê a frase e fica parado.</div>
+    </div>
+  </div>
+
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Referências de estilo visual e comunicação</h3>
+  <div class="grid-3" style="margin-bottom:32px">
+    <div class="card">
+      <div class="card-head"><h3>Paulo Vieira</h3><span class="tag" style="background:#7c3aed">Comunicação</span></div>
+      <p>Observar: como transforma dor em identidade, como usa perguntas para provocar reflexão, como a câmera e o corte constroem urgência. <em>Não copiar o conteúdo — estudar a estrutura.</em></p>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>Thiago Nigro</h3><span class="tag" style="background:#7c3aed">Visual</span></div>
+      <p>Observar: estética escura premium, texto minimalista, ausência de "enfeites", como comunica sem precisar aparecer muito. O visual do Daniel precisa ter essa seriedade.</p>
+    </div>
+    <div class="card">
+      <div class="card-head"><h3>Dark Profile no IG</h3><span class="tag" style="background:#7c3aed">Formato</span></div>
+      <p>Perfis que vendem cursos sem mostrar o rosto: texto na tela + voz off. Pesquisar "dark profile instagram renda" para ver os formatos que mais engajam para produtos digitais de nicho.</p>
+    </div>
+  </div>
+
+  <div class="da-grid">
+    <div class="da-col do">
+      <h4>O que funciona</h4>
+      <div class="da-item">Frase única por frame — esse público não lê parágrafos em Reels</div>
+      <div class="da-item">Voz off do Daniel com texto aparecendo sincronizado — não precisa de rosto</div>
+      <div class="da-item">Fundo escuro + tipografia limpa — transmite seriedade e premium</div>
+      <div class="da-item">Gancho de autorreflexão nos primeiros 2 segundos — senão, swipe</div>
+      <div class="da-item">CTA para lista ou direct na primeira fase — não vender direto ainda</div>
+    </div>
+    <div class="da-col avoid">
+      <h4>O que evitar</h4>
+      <div class="da-item">Fotos de família feliz de banco de imagem — parece seguro de vida</div>
+      <div class="da-item">Tom de "autoajuda" fácil — esse público tem ceticismo alto com promessas</div>
+      <div class="da-item">Ir direto para a oferta sem audiência aquecida — produto sem prova social ainda</div>
+      <div class="da-item">Vídeo longo sem gancho no começo — empresário tem atenção curta e orgulho alto</div>
+      <div class="da-item">Produção excessiva — pode parecer artificial; o valor é na autenticidade</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     META AD LIBRARY GUIDE
+     ═══════════════════════════════════ -->
+<div class="section" id="adlibrary">
+  <div class="section-tag"><div class="dot" style="background:#64748b"></div><span>Ferramenta gratuita</span></div>
+  <h2>Como espionar a concorrência: Meta Ad Library</h2>
+  <div class="desc">Guia prático para encontrar os criativos mais eficazes de cada nicho — grátis, sem conta, em 5 minutos.</div>
+
+  <div class="grid-2" style="margin-bottom:32px">
+    <div class="card" style="padding:0;overflow:hidden">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--border)">
+        <div style="font-size:13px;font-weight:800;color:var(--white)">Passo a passo — Ad Library</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">facebook.com/ads/library</div>
+      </div>
+      <div style="padding:16px 20px">
+        <div class="step-list">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="step-title">Acesse a biblioteca</div>
+              <div class="step-desc">Vá em <strong>facebook.com/ads/library</strong> — não precisa de conta, é público.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="step-title">Configure os filtros</div>
+              <div class="step-desc">País: <strong>Brasil</strong> · Categoria: <strong>Todos os anúncios</strong> · Plataforma: <strong>Instagram</strong></div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="step-title">Busque por nicho</div>
+              <div class="step-desc">
+                Para Triad: <code>locadora uber</code> <code>aluguel carro app</code> <code>sem CPF motorista</code><br>
+                Para Quitar: <code>compro carro financiado</code> <code>quitar financiamento</code> <code>carro alienado</code><br>
+                Para Perpétuo: <code>curso paternidade</code> <code>pai empresário</code>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <div class="step-title">Identifique os que estão há mais tempo ativos</div>
+              <div class="step-desc">Clique em um anúncio e veja <strong>"Ativo desde:"</strong>. Anúncio rodando há 2-3+ meses = está convertendo. É o que você precisa estudar.</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <div class="step-title">Analise copy + visual</div>
+              <div class="step-desc">Copie o texto do anúncio. Veja o hook (primeiras palavras). Identifique o CTA. Documente o padrão visual (fundo, cor, tipografia).</div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+              <div class="step-title">Extensão CopycatAds (opcional)</div>
+              <div class="step-desc">Extensão gratuita do Chrome que automatiza a ordenação por anúncios mais escalados e permite download dos criativos em HD. Buscar <strong>"CopycatAds Chrome"</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="card">
+        <div class="card-head"><h3>O que procurar em cada anúncio</h3></div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:24px;height:24px;border-radius:50%;background:rgba(249,115,22,.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#f97316;flex-shrink:0">H</div>
+            <div><div style="font-size:12px;font-weight:700;color:var(--text)">Hook</div><div style="font-size:11px;color:var(--muted)">Primeira linha do texto ou primeiros 2 segundos do vídeo. É o que faz parar o scroll.</div></div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:24px;height:24px;border-radius:50%;background:rgba(34,197,94,.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#22c55e;flex-shrink:0">T</div>
+            <div><div style="font-size:12px;font-weight:700;color:var(--text)">Tom</div><div style="font-size:11px;color:var(--muted)">Urgente, informativo, emocional, direto? O tom revela o que está funcionando com esse público.</div></div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:24px;height:24px;border-radius:50%;background:rgba(124,58,237,.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#a78bfa;flex-shrink:0">V</div>
+            <div><div style="font-size:12px;font-weight:700;color:var(--text)">Visual</div><div style="font-size:11px;color:var(--muted)">Fundo, cor dominante, uso de rosto ou não, texto na imagem. Identifique padrões visuais dos que duram mais.</div></div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:24px;height:24px;border-radius:50%;background:rgba(239,68,68,.15);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;color:#ef4444;flex-shrink:0">C</div>
+            <div><div style="font-size:12px;font-weight:700;color:var(--text)">CTA</div><div style="font-size:11px;color:var(--muted)">WhatsApp, formulário, link? O destino do CTA revela onde a concorrência está convertendo.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Sinal de que um anúncio está convertendo</h3></div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:8px;font-size:12px;color:var(--dim)"><span style="color:#22c55e">✓</span>Está ativo há mais de 45 dias</div>
+          <div style="display:flex;gap:8px;font-size:12px;color:var(--dim)"><span style="color:#22c55e">✓</span>Tem múltiplas variações do mesmo criativo</div>
+          <div style="display:flex;gap:8px;font-size:12px;color:var(--dim)"><span style="color:#22c55e">✓</span>O anunciante tem outros anúncios ativos também</div>
+          <div style="display:flex;gap:8px;font-size:12px;color:var(--dim)"><span style="color:#22c55e">✓</span>O hook é direto e específico (não genérico)</div>
+          <div style="display:flex;gap:8px;font-size:12px;color:var(--dim)"><span style="color:#22c55e">✓</span>O CTA é WhatsApp (nicho de serviço local = funciona)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Termos por nicho -->
+  <h3 style="font-size:14px;font-weight:800;color:var(--white);margin-bottom:16px">Termos de busca por nicho — Ad Library + Google</h3>
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-head"><div class="dot" style="background:#f97316"></div><h3>Triad Capital</h3></div>
+      <p style="margin-bottom:10px">Buscar na Ad Library:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);color:#f97316">aluguel carro uber</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);color:#f97316">locadora motorista app</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);color:#f97316">sem consulta cpf carro</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);color:#f97316">carro para uber blumenau</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);color:#f97316">nome sujo motorista</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="dot" style="background:#ef4444"></div><h3>Quitar Financiamento</h3></div>
+      <p style="margin-bottom:10px">Buscar na Ad Library:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#ef4444">compro carro financiado</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#ef4444">quitar financiamento</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#ef4444">carro alienado dívida</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#ef4444">parcelas atrasadas veículo</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#ef4444">busca apreensão carro</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head"><div class="dot" style="background:#7c3aed"></div><h3>Perpétuo / Paternidade</h3></div>
+      <p style="margin-bottom:10px">Buscar na Ad Library:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:5px">
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:#a78bfa">curso paternidade</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:#a78bfa">pai empresário filho</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:#a78bfa">relação pai filho</span>
+        <span style="font-size:10px;padding:3px 8px;border-radius:8px;background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);color:#a78bfa">ser pai presente</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding:30px 40px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted)">
+  <div><span style="color:var(--orange);font-weight:700">Cardo Marketing</span> · Referências de Mercado · Daniel Fraron · Junho 2026</div>
+  <div><a href="index.html" style="color:#2a4a70;text-decoration:none">← Brief</a> &nbsp;·&nbsp; <a href="arte.html" style="color:#2a4a70;text-decoration:none">Artes →</a></div>
+</div>
+
+</body>
+</html>
