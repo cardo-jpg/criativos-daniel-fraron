@@ -207,6 +207,16 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 .ref-card h3{font-size:12px;font-weight:700;color:#fff;margin-bottom:10px}
 .ref-tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid #1e2d4a;color:#8a9bb8;margin:2px}
 .ref-note{font-size:11px;color:#4a6080;margin-top:8px;line-height:1.6}
+.ref-section-title{font-size:12px;font-weight:800;color:#fff;margin:28px 0 14px;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+.ref-img-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-bottom:8px}
+.ref-img-card{background:#0f1520;border:1px solid #1a2640;border-radius:10px;overflow:hidden}
+.ref-img-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.ref-img-card .ri-body{padding:12px 14px}
+.ref-img-card .ri-label{font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#4a6080;margin-bottom:5px}
+.ref-img-card .ri-title{font-size:12px;font-weight:700;color:#c0cfe0;margin-bottom:7px;line-height:1.4}
+.ref-img-card .ri-analysis{font-size:11px;color:#4a6080;line-height:1.65}
+.ref-img-card .ri-analysis strong{color:#8a9bb8}
+.ref-placeholder{width:100%;aspect-ratio:1/1;background:#080e1a;border-bottom:1px solid #1a2640;display:flex;align-items:center;justify-content:center;font-size:10px;color:#1e2d4a;font-style:italic;text-align:center;padding:10px}
 
 /* PRINT HINT */
 .print-hint{
@@ -529,51 +539,163 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 <!-- REFERÊNCIAS REAIS -->
 <div class="refs">
   <h2>Referências de mercado</h2>
-  <p>Contas reais para estudar antes de produzir — observe criativos, formato, copy e estética de cada nicho</p>
-  <div class="refs-grid">
+  <p>Análise dos criativos coletados — o que aprender de cada um para Triad, Quitar e Perpétuo. Salve as imagens em <strong style="color:#94a3b8">refs/ref01.jpg</strong> até <strong style="color:#94a3b8">refs/ref09.jpg</strong> para exibi-las aqui.</p>
 
-    <div class="ref-card">
-      <h3 style="color:#f97316">Triad Capital — Locadora para app</h3>
-      <div>
-        <span class="ref-tag">@acheilocadoradeveiculos</span>
-        <span class="ref-tag">@clikcarrs</span>
-        <span class="ref-tag">@movefleet.br</span>
-        <span class="ref-tag">@alugueldecarroappteresina</span>
+  <!-- TRIAD -->
+  <div class="ref-section-title">
+    <div style="width:8px;height:8px;border-radius:50%;background:#f97316;flex-shrink:0"></div>
+    Triad Capital — Locadora para app
+  </div>
+  <div class="ref-img-grid">
+
+    <div class="ref-img-card">
+      <img src="refs/ref06.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="BV Rent a Car">
+      <div class="ref-placeholder" style="display:none">BV Rent a Car<br>refs/ref06.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#f97316">Concorrente direto · motorista de app</div>
+        <div class="ri-title">BV Rent a Car — "Você motorista de aplicativo tem condições especiais"</div>
+        <div class="ri-analysis">
+          <strong>O que funciona:</strong> Segmentação no headline — "motorista de aplicativo" faz o público se sentir chamado pelo nome. Mostrar 4 modelos (Peugeot 208, Polo, Argo, Cronos) comunica variedade.<br><br>
+          <strong>Onde o Daniel vira o jogo:</strong> BV não fala de CPF em nenhum momento. "Sem consulta ao CPF" no headline da Triad bate direto onde a BV não chega — e é a dor número 1 desse público.
+        </div>
       </div>
-      <div class="ref-note">O que observar: como mostram os carros, como comunicam o diferencial de CPF, que linguagem usam com motoristas de app, formatos que mais engajam.</div>
     </div>
 
-    <div class="ref-card">
-      <h3 style="color:#ef4444">Quitar Financiamento</h3>
-      <div>
-        <span class="ref-tag">@serasalimpanome</span>
-        <span class="ref-tag">@quitarfinanciamentocarro</span>
-        <span class="ref-tag">Buscar: "compro carro financiado" no IG</span>
+    <div class="ref-img-card">
+      <img src="refs/ref05.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Grava Aluguel">
+      <div class="ref-placeholder" style="display:none">Grava Aluguel de Veículos<br>refs/ref05.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#f97316">Concorrente · formato story</div>
+        <div class="ri-title">Grava Aluguel — "Aluguel sem caução, km livre"</div>
+        <div class="ri-analysis">
+          <strong>O que funciona:</strong> Duas objeções eliminadas de uma vez no headline: "sem caução" + "km livre". O carro em destaque no formato story toma toda a tela. Número de WhatsApp visível gera contato direto.<br><br>
+          <strong>Cuidado:</strong> Foto de IA é detectada facilmente pelo público. Daniel tem frota real — foto real dos carros converte muito mais que render de IA.
+        </div>
       </div>
-      <div class="ref-note">O que observar: como criam urgência sem parecer golpe, uso de depoimentos, split design ✗ vs ✓, como falam sobre o processo de quitação.</div>
     </div>
 
-    <div class="ref-card">
-      <h3 style="color:#a78bfa">Perpétuo — Paternidade</h3>
-      <div>
-        <span class="ref-tag">@paulo.vieira.oficial</span>
-        <span class="ref-tag">@thiago.nigro</span>
-        <span class="ref-tag">@leandroladeira</span>
-        <span class="ref-tag">Dark profile paternidade</span>
+    <div class="ref-img-card">
+      <img src="refs/ref09.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Movida Story">
+      <div class="ref-placeholder" style="display:none">Movida — Story<br>refs/ref09.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#f97316">Grande concorrente · story</div>
+        <div class="ri-title">Movida — "Economia é na movida · 10% OFF"</div>
+        <div class="ri-analysis">
+          <strong>O que aprender:</strong> Fundo monocromático forte (laranja), carro centralizado, texto grande e limpo — formato que funciona muito no story. A Movida compete em preço, o Daniel compete em <em>acesso</em>.<br><br>
+          <strong>Como diferenciar:</strong> Nunca entrar em guerra de desconto com Movida. O gancho da Triad é "você consegue mesmo sem CPF" — e a Movida não tem resposta pra isso.
+        </div>
       </div>
-      <div class="ref-note">O que observar: uso de fundo escuro, texto aparecendo na tela linha por linha, ausência de rosto na maioria dos criativos, tom introspectivo que provoca identidade.</div>
     </div>
 
-    <div class="ref-card">
-      <h3 style="color:#94a3b8">Como pesquisar mais referências</h3>
-      <div>
-        <span class="ref-tag">Meta Ad Library</span>
-        <span class="ref-tag">facebook.com/ads/library</span>
+    <div class="ref-img-card">
+      <img src="refs/ref07.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="CTF Tour">
+      <div class="ref-placeholder" style="display:none">CTF Tour — Carros executivos<br>refs/ref07.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#94a3b8">Referência visual · locação</div>
+        <div class="ri-title">CTF Tour — "Locação de carros executivos"</div>
+        <div class="ri-analysis">
+          <strong>Segmento diferente, lição valiosa:</strong> Os carros são fotos reais com recorte de fundo limpo — placa visível, modelo identificável. Isso gera muito mais confiança que IA.<br><br>
+          <strong>Aplicar na Triad:</strong> Fotografar cada carro da frota real com fundo neutro ou no estacionamento. Um carrossel "Conheça nossa frota" com fotos assim converte bem na fase de consideração.
+        </div>
       </div>
-      <div class="ref-note">Na <strong>Biblioteca de Anúncios da Meta</strong> (gratuita) você vê os anúncios ativos de qualquer concorrente. Busque: "locadora Uber", "quitar financiamento", "curso paternidade" e filtre por Brasil. É a melhor fonte de referência real de mercado.</div>
     </div>
 
   </div>
+
+  <!-- QUITAR -->
+  <div class="ref-section-title">
+    <div style="width:8px;height:8px;border-radius:50%;background:#ef4444;flex-shrink:0"></div>
+    Quitar Financiamento
+  </div>
+  <div class="ref-img-grid">
+
+    <div class="ref-img-card">
+      <img src="refs/ref02.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Delta Assessoria">
+      <div class="ref-placeholder" style="display:none">Delta Assessoria<br>refs/ref02.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#ef4444">Concorrente direto · antes/depois</div>
+        <div class="ri-title">Delta Assessoria — "Está pagando alto em suas parcelas? R$1.279 → R$559"</div>
+        <div class="ri-analysis">
+          <strong>O que funciona muito bem:</strong> Números específicos (não "até 50% off" — são valores reais, R$1.279,90 e R$559,25). Especificidade cria credibilidade. Vermelho para o problema, verde para a solução — padrão visual imediato.<br><br>
+          <strong>Diferença do Daniel:</strong> Delta revisa parcelas, o Quitar <em>elimina a dívida</em> — é mais definitivo. O criativo QF02 (✗ vs ✓) já aplica esse contraste. Pode adicionar um número real de caso se o Daniel tiver.
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-img-card">
+      <img src="refs/ref01.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Blog Juros Abusivos">
+      <div class="ref-placeholder" style="display:none">Blog Juros Abusivos — Native Ad<br>refs/ref01.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#ef4444">Formato nativo · conteúdo editorial</div>
+        <div class="ri-title">Blog Juros Abusivos — "Nova medida aprovada para quem financiou um veículo"</div>
+        <div class="ri-analysis">
+          <strong>Por que funciona:</strong> Native advertising — parece artigo de notícia, não anúncio. "Nova medida aprovada" soa como urgência legislativa. Quem tem financiamento clica por medo de perder algo.<br><br>
+          <strong>Adaptar sem clickbait:</strong> Um reels do Daniel explicando o que acontece legalmente após 1 parcela atrasada tem o mesmo efeito educacional — com a vantagem de construir autoridade real em vez de parecer enganoso.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- REFERÊNCIAS TÉCNICAS -->
+  <div class="ref-section-title">
+    <div style="width:8px;height:8px;border-radius:50%;background:#64748b;flex-shrink:0"></div>
+    Fora do nicho — mas com lições técnicas importantes
+  </div>
+  <div class="ref-img-grid">
+
+    <div class="ref-img-card">
+      <img src="refs/ref03.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Creditas Meme">
+      <div class="ref-placeholder" style="display:none">Creditas — Meme pop art<br>refs/ref03.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#22c55e">Formato meme · Creditas</div>
+        <div class="ri-title">Creditas — "Tô precisando de grana... / Usa o cheque especial / Tá é doida kk"</div>
+        <div class="ri-analysis">
+          <strong>Por que é um bom criativo:</strong> Usa humor + meme reconhecível para falar de dívida (assunto pesado) de forma leve. A mulher que sugere cheque especial é "expulsa do carro" — metáfora perfeita de rejeição ao produto ruim. Alto compartilhamento orgânico.<br><br>
+          <strong>Aplicar no Daniel:</strong> Para Quitar, um meme simples: "Vendeu o carro mas a dívida ficou? / [personagem chocado]" custa quase zero e pode viralizar. Quebra o padrão de criativos sérios do nicho.
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-img-card">
+      <img src="refs/ref04.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="LU Bank">
+      <div class="ref-placeholder" style="display:none">LU Bank — Crédito CLT<br>refs/ref04.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#eab308">Design denso · LU Bank</div>
+        <div class="ri-title">LU Bank — "Crédito para CLT" · roxo/amarelo · cheio de informação</div>
+        <div class="ri-analysis">
+          <strong>O que funciona:</strong> Segmentação explícita ("para CLT") + lista de benefícios com ícones + prova social ("50 mil clientes") + CTA WhatsApp. Fórmula completa em um frame.<br><br>
+          <strong>O que evitar:</strong> Esse volume de informação só funciona no feed — em story fica ilegível. Para Triad e Quitar, os criativos precisam ser muito mais limpos. Use a estrutura (segmentação + benefícios + CTA) mas com menos elementos visuais.
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-img-card">
+      <img src="refs/ref08.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Ferrari Portofino">
+      <div class="ref-placeholder" style="display:none">Ferrari Portofino — Minimalismo<br>refs/ref08.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#a78bfa">Minimalismo premium · Perpétuo</div>
+        <div class="ri-title">Ferrari Portofino — produto como protagonista, zero ruído visual</div>
+        <div class="ri-analysis">
+          <strong>Por que é um bom criativo:</strong> Zero copy desnecessária. O carro fala por si. O contraste de peso tipográfico (FERRARI bold + PORTOFINO light) comunica premium sem esforço e se tornou linguagem padrão em marcas de luxo.<br><br>
+          <strong>Aplicar no Perpétuo:</strong> O Daniel não tem produto visual — mas tem frases poderosas. O PP01/PP02 já aplica esse princípio: uma frase, fundo escuro, peso tipográfico contrastante. É exatamente essa filosofia.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ref-card" style="margin-top:8px">
+    <h3 style="color:#94a3b8">Buscar mais referências — Meta Ad Library (gratuito)</h3>
+    <div>
+      <span class="ref-tag">facebook.com/ads/library</span>
+      <span class="ref-tag">Triad: "locadora uber" · "sem CPF motorista"</span>
+      <span class="ref-tag">Quitar: "compro carro financiado" · "carro alienado"</span>
+      <span class="ref-tag">Ordenar: mais antigos ativos = convertendo</span>
+    </div>
+    <div class="ref-note">Anúncio rodando há mais de 45 dias = está convertendo. Filtre por Brasil, copie o hook dos mais antigos ativos e analise a estrutura visual.</div>
+  </div>
+
 </div>
 
 <div class="print-hint">Cardo Marketing · Brief interno · Daniel Fraron · Junho 2026 · <a href="index.html" style="color:#2a4a70">← Voltar ao brief completo</a></div>
