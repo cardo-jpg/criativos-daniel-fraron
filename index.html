@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criativos — Daniel Fraron | Cardo Marketing</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0a0f1e;
+    --navy2: #0f1628;
+    --card-bg: #141c30;
+    --border: #1e2d50;
+    --accent-triad: #f97316;
+    --accent-quitar: #ef4444;
+    --accent-perpetuo: #8b5cf6;
+    --text: #e2e8f0;
+    --text-muted: #64748b;
+    --text-dim: #94a3b8;
+    --white: #ffffff;
+  }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .header .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .header p {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  /* SECTION */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .section-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .section-header .meta {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: auto;
+  }
+
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    gap: 24px;
+  }
+
+  /* AD CARD */
+  .ad-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* VISUAL */
+  .ad-visual {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .ad-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+  }
+
+  /* triad */
+  .triad .ad-visual { background: linear-gradient(135deg, #1a0a00, #2d1500); }
+  .triad .ad-visual::before { background: radial-gradient(circle at 70% 30%, #f97316, transparent 60%); opacity: 0.3; }
+  .triad .section-dot, .triad-tag { background: var(--accent-triad); }
+  .triad .hook-tag { background: rgba(249,115,22,0.15); color: var(--accent-triad); border-color: rgba(249,115,22,0.3); }
+  .triad .cta-btn { background: var(--accent-triad); }
+  .triad .label { color: var(--accent-triad); }
+
+  /* quitar */
+  .quitar .ad-visual { background: linear-gradient(135deg, #1a0000, #2d0505); }
+  .quitar .ad-visual::before { background: radial-gradient(circle at 30% 70%, #ef4444, transparent 60%); opacity: 0.3; }
+  .quitar .section-dot, .quitar-tag { background: var(--accent-quitar); }
+  .quitar .hook-tag { background: rgba(239,68,68,0.15); color: var(--accent-quitar); border-color: rgba(239,68,68,0.3); }
+  .quitar .cta-btn { background: var(--accent-quitar); }
+  .quitar .label { color: var(--accent-quitar); }
+
+  /* perpetuo */
+  .perpetuo .ad-visual { background: linear-gradient(135deg, #0d0a1a, #1a1030); }
+  .perpetuo .ad-visual::before { background: radial-gradient(circle at 50% 40%, #8b5cf6, transparent 60%); opacity: 0.3; }
+  .perpetuo .section-dot, .perpetuo-tag { background: var(--accent-perpetuo); }
+  .perpetuo .hook-tag { background: rgba(139,92,246,0.15); color: var(--accent-perpetuo); border-color: rgba(139,92,246,0.3); }
+  .perpetuo .cta-btn { background: var(--accent-perpetuo); }
+  .perpetuo .label { color: var(--accent-perpetuo); }
+
+  /* account bar */
+  .account-bar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .account-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+  }
+  .account-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+  }
+  .account-badge {
+    font-size: 9px;
+    color: rgba(255,255,255,0.5);
+  }
+  .sponsored {
+    margin-left: auto;
+    font-size: 9px;
+    color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.08);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* hook text on visual */
+  .visual-hook {
+    font-size: 17px;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.3;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.8);
+    position: relative;
+    z-index: 1;
+    max-width: 240px;
+  }
+  .visual-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ad body */
+  .ad-body {
+    padding: 20px;
+  }
+  .ad-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .ad-number {
+    font-size: 10px;
+    color: var(--text-muted);
+    float: right;
+  }
+
+  .hook-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+    margin-bottom: 12px;
+  }
+
+  .copy-block {
+    margin-bottom: 16px;
+  }
+  .copy-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .copy-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-dim);
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+  }
+  .copy-text strong {
+    color: var(--text);
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 11px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    margin-top: 4px;
+  }
+
+  /* COPY SECTION (full copy below cards) */
+  .full-copy {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .full-copy-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .full-copy-header h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .full-copy-header p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-left: auto;
+  }
+  .copy-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .copy-table th {
+    background: rgba(255,255,255,0.03);
+    padding: 10px 16px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .copy-table td {
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .copy-table tr:last-child td { border-bottom: none; }
+  .copy-table td:first-child {
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    width: 130px;
+  }
+  .tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 4px;
+    color: white;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* FORMAT PILLS */
+  .format-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .pill {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  /* divider */
+  .divider { height: 1px; background: var(--border); margin: 0; }
+
+  /* NOTE */
+  .note {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    background: rgba(249,115,22,0.05);
+    border: 1px solid rgba(249,115,22,0.2);
+    border-radius: 10px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .note strong { color: #f97316; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="badge">Cardo Marketing · Cliente Daniel Fraron</div>
+  <h1>Prévias de Criativos</h1>
+  <p>Triad Capital · Quitar Financiamento · Perpétuo (Paternidade)</p>
+</div>
+
+<!-- ============================================================ -->
+<!--  TRIAD CAPITAL                                               -->
+<!-- ============================================================ -->
+<div class="section triad">
+  <div class="section-header">
+    <div class="section-dot" style="background:#f97316"></div>
+    <h2>Triad Capital — Aluguel para motorista de app</h2>
+    <div class="meta">@triadxcapital · R$20/dia · Blumenau + Vale + Litoral</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- AD 1 -->
+    <div class="ad-card triad">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#f97316">TC</div>
+          <div>
+            <div class="account-name">triadxcapital</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"Carro parado = dia perdido.<br>Aqui você tem substituto."</div>
+        <div class="visual-sub">Triad Capital · Blumenau</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 01 <span class="ad-number">#TC01</span></div>
+        <div class="hook-tag">Carro reserva incluso</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            Trabalha com Uber mas quando o carro vai pra manutenção você fica parado?<br><br>
+            Na <strong>Triad Capital</strong> você tem carro reserva. Sem dia perdido. Sem desculpa.<br><br>
+            Contrato flexível, suporte completo e <strong>sem consulta de CPF</strong>.<br><br>
+            Carros disponíveis agora em Blumenau e região.
+          </div>
+        </div>
+        <button class="cta-btn">Quero saber mais</button>
+      </div>
+    </div>
+
+    <!-- AD 2 -->
+    <div class="ad-card triad">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#f97316">TC</div>
+          <div>
+            <div class="account-name">triadxcapital</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"Nome sujo?<br>Aqui você ainda pode trabalhar."</div>
+        <div class="visual-sub">Sem consulta de CPF · Pré-pago</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 02 <span class="ad-number">#TC02</span></div>
+        <div class="hook-tag">Sem barreira de crédito</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            A maioria das locadoras consulta seu CPF e te manda embora.<br><br>
+            A <strong>Triad Capital</strong> não. Cobramos de forma pré-paga e sem burocracia.<br><br>
+            Se você quer trabalhar com Uber e não encontra locadora, a gente tem vaga. <strong>Sem análise de crédito. Sem enrolação.</strong><br><br>
+            Blumenau e região.
+          </div>
+        </div>
+        <button class="cta-btn">Falar com a Triad</button>
+      </div>
+    </div>
+
+    <!-- AD 3 -->
+    <div class="ad-card triad">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#f97316">TC</div>
+          <div>
+            <div class="account-name">triadxcapital</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"5 carros disponíveis hoje em Blumenau."</div>
+        <div class="visual-sub">Vagas limitadas · Começe essa semana</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 03 <span class="ad-number">#TC03</span></div>
+        <div class="hook-tag">Escassez + local</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            Se você trabalha com aplicativo ou quer começar, <strong>temos vagas abertas agora</strong>.<br><br>
+            ✓ Contrato flexível<br>
+            ✓ Manutenção inclusa<br>
+            ✓ Carro reserva se parar<br>
+            ✓ Sem consulta de CPF<br><br>
+            Fale com a gente e comece <strong>essa semana</strong>.
+          </div>
+        </div>
+        <button class="cta-btn">Garantir minha vaga</button>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</div><!-- /section triad -->
+
+
+<!-- ============================================================ -->
+<!--  QUITAR FINANCIAMENTO                                        -->
+<!-- ============================================================ -->
+<div class="section quitar">
+  <div class="section-header">
+    <div class="section-dot" style="background:#ef4444"></div>
+    <h2>Quitar Financiamento — Compra de veículos com dívida</h2>
+    <div class="meta">@quitarfinanciamentocarro · SC · WhatsApp direto</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- AD 1 -->
+    <div class="ad-card quitar">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#ef4444">QF</div>
+          <div>
+            <div class="account-name">quitarfinanciamentocarro</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"Parcelas atrasadas? O banco pode tomar seu carro e você ainda ficar com a dívida."</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 01 <span class="ad-number">#QF01</span></div>
+        <div class="hook-tag">Medo de perda + saída real</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            Muita gente perde o carro financiado e ainda continua devendo pro banco.<br><br>
+            Se você está com parcelas atrasadas e com medo de perder o veículo, <strong>a gente compra de você</strong>.<br><br>
+            Quitamos a dívida diretamente com o banco. <strong>Você sai com o nome limpo.</strong><br><br>
+            Nada de golpe. Transferido pro nosso nome. Feito do jeito certo.<br><br>
+            Atendemos em Blumenau e região do Vale e Litoral.
+          </div>
+        </div>
+        <button class="cta-btn">Quero resolver agora</button>
+      </div>
+    </div>
+
+    <!-- AD 2 -->
+    <div class="ad-card quitar">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#ef4444">QF</div>
+          <div>
+            <div class="account-name">quitarfinanciamentocarro</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"Cuidado com quem 'compra seu carro financiado' sem quitar a dívida."</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 02 <span class="ad-number">#QF02</span></div>
+        <div class="hook-tag">Contraste · Confiança</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            Tem empresa que compra seu carro e some. <strong>Você fica sem o carro e ainda com a dívida.</strong><br><br>
+            Não é assim que trabalhamos.<br><br>
+            Compramos → negociamos com o banco → quitamos a dívida → transferimos pro nosso nome.<br><br>
+            Processo 100% correto e documentado.<br><br>
+            Se seu carro está alienado e você precisa de uma saída real, fale com a gente agora.
+          </div>
+        </div>
+        <button class="cta-btn">Falar com a equipe</button>
+      </div>
+    </div>
+
+    <!-- AD 3 -->
+    <div class="ad-card quitar">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#ef4444">QF</div>
+          <div>
+            <div class="account-name">quitarfinanciamentocarro</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"Carro alienado com dívida em aberto? A gente compra."</div>
+        <div class="visual-sub">Blumenau · Vale · Litoral SC</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 03 <span class="ad-number">#QF03</span></div>
+        <div class="hook-tag">Direto ao ponto</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            Compramos veículos com financiamento em aberto em Blumenau e região.<br><br>
+            ✓ Negociamos a dívida com o banco<br>
+            ✓ Quitamos o financiamento<br>
+            ✓ Transferimos pra nosso nome<br>
+            ✓ Você recebe o valor e sai sem dívida<br><br>
+            <strong>Simples assim. Manda uma mensagem agora.</strong>
+          </div>
+        </div>
+        <button class="cta-btn">Enviar mensagem</button>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</div><!-- /section quitar -->
+
+
+<!-- ============================================================ -->
+<!--  PERPÉTUO — PATERNIDADE                                     -->
+<!-- ============================================================ -->
+<div class="section perpetuo">
+  <div class="section-header">
+    <div class="section-dot" style="background:#8b5cf6"></div>
+    <h2>Perpétuo — Paternidade</h2>
+    <div class="meta">@danielfraron7 · Low profile · Construção de audiência</div>
+  </div>
+
+  <div class="grid">
+
+    <!-- AD 1 -->
+    <div class="ad-card perpetuo">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#8b5cf6">D</div>
+          <div>
+            <div class="account-name">danielfraron7</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"Você trabalha muito pra dar tudo pro seu filho. E tá perdendo ele assim mesmo."</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 01 <span class="ad-number">#PP01</span></div>
+        <div class="hook-tag">Provocação de identidade</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            A maioria dos pais empresários sabe dar dinheiro. Poucos sabem dar presença do jeito certo.<br><br>
+            Não é sobre tempo — é sobre método.<br><br>
+            Criei dois filhos com uma abordagem diferente. Sem violência, sem gritos. Com resultado real.<br><br>
+            <strong>Se você quer ser a referência na vida do seu filho, começa por aqui.</strong>
+          </div>
+        </div>
+        <button class="cta-btn">Quero saber mais</button>
+      </div>
+    </div>
+
+    <!-- AD 2 -->
+    <div class="ad-card perpetuo">
+      <div class="ad-visual">
+        <div class="account-bar">
+          <div class="account-avatar" style="background:#8b5cf6">D</div>
+          <div>
+            <div class="account-name">danielfraron7</div>
+            <div class="account-badge">Patrocinado</div>
+          </div>
+          <div class="sponsored">Anúncio</div>
+        </div>
+        <div class="visual-hook">"Seu filho vai te lembrar como pai presente ou como pai de sucesso ausente?"</div>
+      </div>
+      <div class="ad-body">
+        <div class="ad-label label">Criativo 02 <span class="ad-number">#PP02</span></div>
+        <div class="hook-tag">Dor silenciosa do empresário</div>
+        <div class="copy-block">
+          <div class="copy-label">Texto do anúncio</div>
+          <div class="copy-text">
+            Essa pergunta me travou.<br><br>
+            Eu tinha resultado nos negócios e estava falhando como pai.<br><br>
+            Mudei a abordagem. Mudou tudo.<br><br>
+            Hoje meu filho me tem como referência — não de medo, mas de respeito e admiração.<br><br>
+            <strong>Se você sente que está perdendo a conexão com seu filho, isso aqui é pra você.</strong>
+          </div>
+        </div>
+        <button class="cta-btn">Ver mais</button>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</div><!-- /section perpetuo -->
+
+
+<!-- ============================================================ -->
+<!--  TABELA COMPLETA DE COPIES                                  -->
+<!-- ============================================================ -->
+<div class="full-copy">
+  <div class="full-copy-header">
+    <div class="section-dot" style="background:#f97316;width:8px;height:8px;border-radius:50%;flex-shrink:0"></div>
+    <h3>Copy completa — Triad Capital</h3>
+    <p>Para o gestor de tráfego</p>
+  </div>
+  <table class="copy-table">
+    <tr>
+      <th>Campo</th>
+      <th>#TC01 — Carro reserva</th>
+      <th>#TC02 — Nome sujo</th>
+      <th>#TC03 — 5 vagas</th>
+    </tr>
+    <tr>
+      <td>Texto imagem</td>
+      <td>Carro parado = dia perdido. Aqui você tem substituto.</td>
+      <td>Nome sujo? Aqui você ainda pode trabalhar.</td>
+      <td>5 carros disponíveis hoje em Blumenau.</td>
+    </tr>
+    <tr>
+      <td>Headline</td>
+      <td>Carro reserva incluso na Triad Capital</td>
+      <td>Sem consulta de CPF. Sem burocracia.</td>
+      <td>Vagas abertas para motoristas de app</td>
+    </tr>
+    <tr>
+      <td>Texto principal</td>
+      <td>Trabalha com Uber mas quando o carro vai pra manutenção você fica parado? Na Triad Capital você tem carro reserva. Sem dia perdido. Sem desculpa. Contrato flexível, suporte completo e sem consulta de CPF. Carros disponíveis agora em Blumenau e região.</td>
+      <td>A maioria das locadoras consulta seu CPF e te manda embora. A Triad Capital não. Cobramos de forma pré-paga e sem burocracia. Se você quer trabalhar com Uber e não encontra locadora, a gente tem vaga. Sem análise de crédito. Sem enrolação. Blumenau e região.</td>
+      <td>Se você trabalha com aplicativo ou quer começar, temos vagas abertas agora. ✓ Contrato flexível ✓ Manutenção inclusa ✓ Carro reserva se parar ✓ Sem consulta de CPF. Fale com a gente e comece essa semana.</td>
+    </tr>
+    <tr>
+      <td>CTA</td>
+      <td>Quero saber mais</td>
+      <td>Falar com a Triad</td>
+      <td>Garantir minha vaga</td>
+    </tr>
+    <tr>
+      <td>Formato</td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Reels 15s</span><span class="pill">Feed Quadrado</span>
+        </div>
+      </td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Story</span><span class="pill">Feed Quadrado</span>
+        </div>
+      </td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Story</span><span class="pill">Carrossel</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Destino CTA</td>
+      <td colspan="3" style="color:#64748b;font-style:italic">WhatsApp direto → Daniel atende o comercial</td>
+    </tr>
+  </table>
+</div>
+
+<div class="full-copy" style="margin-top:24px">
+  <div class="full-copy-header">
+    <div class="section-dot" style="background:#ef4444;width:8px;height:8px;border-radius:50%;flex-shrink:0"></div>
+    <h3>Copy completa — Quitar Financiamento</h3>
+    <p>Para o gestor de tráfego</p>
+  </div>
+  <table class="copy-table">
+    <tr>
+      <th>Campo</th>
+      <th>#QF01 — Medo + alívio</th>
+      <th>#QF02 — Contraste/confiança</th>
+      <th>#QF03 — Direto ao ponto</th>
+    </tr>
+    <tr>
+      <td>Texto imagem</td>
+      <td>Parcelas atrasadas? O banco pode tomar seu carro e você ainda ficar com a dívida.</td>
+      <td>Cuidado com quem "compra seu carro financiado" sem quitar a dívida.</td>
+      <td>Carro alienado com dívida em aberto? A gente compra.</td>
+    </tr>
+    <tr>
+      <td>Headline</td>
+      <td>A gente compra e quita. Você sai com o nome limpo.</td>
+      <td>Processo 100% correto. Sem golpe.</td>
+      <td>Compra de veículos financiados em Blumenau</td>
+    </tr>
+    <tr>
+      <td>Texto principal</td>
+      <td>Muita gente perde o carro financiado e ainda continua devendo pro banco. Se você está com parcelas atrasadas e com medo de perder o veículo, a gente compra de você. Quitamos a dívida diretamente com o banco. Você sai com o nome limpo. Nada de golpe. Transferido pro nosso nome. Feito do jeito certo. Atendemos em Blumenau e região do Vale e Litoral.</td>
+      <td>Tem empresa que compra seu carro e some. Você fica sem o carro e ainda com a dívida. Não é assim que trabalhamos. Compramos → negociamos com o banco → quitamos a dívida → transferimos pro nosso nome. Processo 100% correto e documentado. Se seu carro está alienado e você precisa de uma saída real, fale com a gente agora.</td>
+      <td>Compramos veículos com financiamento em aberto em Blumenau e região. ✓ Negociamos a dívida com o banco ✓ Quitamos o financiamento ✓ Transferimos pra nosso nome ✓ Você recebe o valor e sai sem dívida. Simples assim. Manda uma mensagem agora.</td>
+    </tr>
+    <tr>
+      <td>CTA</td>
+      <td>Quero resolver agora</td>
+      <td>Falar com a equipe</td>
+      <td>Enviar mensagem</td>
+    </tr>
+    <tr>
+      <td>Formato</td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Story vertical</span><span class="pill">Reels 20s</span>
+        </div>
+      </td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Feed Quadrado</span><span class="pill">Story</span>
+        </div>
+      </td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Feed</span><span class="pill">Story</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Destino CTA</td>
+      <td colspan="3" style="color:#64748b;font-style:italic">WhatsApp direto → conversão rápida (comportamento impulsivo)</td>
+    </tr>
+  </table>
+</div>
+
+<div class="full-copy" style="margin-top:24px">
+  <div class="full-copy-header">
+    <div class="section-dot" style="background:#8b5cf6;width:8px;height:8px;border-radius:50%;flex-shrink:0"></div>
+    <h3>Copy completa — Perpétuo / Paternidade</h3>
+    <p>Para o gestor de tráfego</p>
+  </div>
+  <table class="copy-table">
+    <tr>
+      <th>Campo</th>
+      <th>#PP01 — Identidade</th>
+      <th>#PP02 — Dor silenciosa</th>
+    </tr>
+    <tr>
+      <td>Texto imagem</td>
+      <td>Você trabalha muito pra dar tudo pro seu filho. E tá perdendo ele assim mesmo.</td>
+      <td>Seu filho vai te lembrar como pai presente ou como pai de sucesso ausente?</td>
+    </tr>
+    <tr>
+      <td>Headline</td>
+      <td>Ser pai não é instinto. É método.</td>
+      <td>O método que mudou minha relação com meu filho.</td>
+    </tr>
+    <tr>
+      <td>Texto principal</td>
+      <td>A maioria dos pais empresários sabe dar dinheiro. Poucos sabem dar presença do jeito certo. Não é sobre tempo — é sobre método. Criei dois filhos com uma abordagem diferente. Sem violência, sem gritos. Com resultado real. Se você quer ser a referência na vida do seu filho, começa por aqui.</td>
+      <td>Essa pergunta me travou. Eu tinha resultado nos negócios e estava falhando como pai. Mudei a abordagem. Mudou tudo. Hoje meu filho me tem como referência — não de medo, mas de respeito e admiração. Se você sente que está perdendo a conexão com seu filho, isso aqui é pra você.</td>
+    </tr>
+    <tr>
+      <td>CTA</td>
+      <td>Quero saber mais</td>
+      <td>Ver mais</td>
+    </tr>
+    <tr>
+      <td>Formato</td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Reels (voz off)</span><span class="pill">Story texto</span>
+        </div>
+      </td>
+      <td>
+        <div class="format-pills">
+          <span class="pill">Feed</span><span class="pill">Story texto</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Produção</td>
+      <td colspan="2" style="color:#64748b;font-style:italic">Low profile: texto na tela + voz do Daniel. Sem necessidade de aparecer no vídeo. Fundo simples ou b-roll de lifestyle.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="note" style="max-width:1100px;margin:32px auto 0">
+  <strong>Nota de produção:</strong> As prévias acima representam a direção visual e copy de cada criativo. As imagens/vídeos reais devem usar fotos dos carros da frota (Triad), documentos/processo de compra (Quitar) ou b-roll minimalista (Perpétuo). Nenhum dos criativos requer presença do Daniel em câmera para funcionar.
+</div>
+
+</body>
+</html>
