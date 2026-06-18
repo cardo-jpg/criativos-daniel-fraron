@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arte Final — Daniel Fraron | Cardo Marketing</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bottom:80px}
+
+/* PAGE HEADER */
+.ph{background:#060c1a;border-bottom:1px solid #1a2640;padding:20px 32px;display:flex;align-items:center;justify-content:space-between}
+.ph .logo{font-size:11px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:#f97316}
+.ph .title{font-size:16px;font-weight:800;color:#fff}
+.ph .sub{font-size:11px;color:#4a6080;margin-top:2px}
+.ph .hint{font-size:11px;color:#4a6080;text-align:right;line-height:1.6}
+.ph .hint strong{color:#94a3b8}
+
+/* SECTION HEADER */
+.sh{padding:40px 32px 16px;display:flex;align-items:center;gap:10px}
+.sh-dot{width:8px;height:8px;border-radius:50%}
+.sh h2{font-size:14px;font-weight:800;color:#fff}
+.sh span{font-size:11px;color:#4a6080;margin-left:4px}
+
+/* CREATIVES GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(540px,1fr));gap:32px;padding:0 32px}
+
+/* CREATIVE CARD */
+.cc{background:#0f1520;border:1px solid #1a2640;border-radius:14px;overflow:hidden}
+.cc-label{padding:10px 16px;background:#0b1020;border-bottom:1px solid #1a2640;display:flex;align-items:center;justify-content:space-between}
+.cc-label .code{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#64748b}
+.cc-label .name{font-size:11px;font-weight:700;color:#94a3b8}
+.cc-label .fmt{font-size:9px;padding:2px 8px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid #1e2d4a;color:#64748b}
+.cc-formats{display:flex;gap:12px;padding:0 16px 16px;align-items:flex-start}
+
+/* FEED FORMAT — 1:1 */
+.feed{
+  width:340px;height:340px;flex-shrink:0;
+  position:relative;overflow:hidden;
+  border-radius:8px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center
+}
+/* STORY FORMAT — 9:16 */
+.story{
+  width:191px;height:340px;flex-shrink:0;
+  position:relative;overflow:hidden;
+  border-radius:8px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center
+}
+.fmt-label{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#4a6080;margin-bottom:6px;text-align:center}
+
+/* ── TC01 ── */
+.tc01{background:#0a0700}
+.tc01 .stripe{
+  position:absolute;width:200%;height:40%;
+  background:linear-gradient(90deg,transparent,rgba(249,115,22,.22),transparent);
+  top:28%;left:-50%;transform:rotate(-8deg)
+}
+.tc01 .main-text{position:relative;z-index:2}
+.tc01 .l1{font-size:52px;font-weight:900;color:#f97316;line-height:.9;letter-spacing:-2px;text-shadow:0 0 60px rgba(249,115,22,.5)}
+.tc01 .eq{font-size:22px;font-weight:900;color:rgba(255,255,255,.4);margin:6px 0;letter-spacing:2px}
+.tc01 .l2{font-size:36px;font-weight:900;color:#ffffff;line-height:1;letter-spacing:-1px}
+.tc01 .bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(34,197,94,.18);border-top:1px solid rgba(34,197,94,.3);
+  padding:10px 16px;display:flex;align-items:center;gap:8px;justify-content:center
+}
+.tc01 .bottom span{font-size:12px;font-weight:700;color:#4ade80;letter-spacing:.3px}
+.tc01 .brand{position:absolute;top:14px;right:14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(249,115,22,.7)}
+
+/* TC01 story */
+.tc01s .l1{font-size:38px}
+.tc01s .l2{font-size:26px}
+.tc01s .bottom span{font-size:10px}
+
+/* ── TC02 ── */
+.tc02{background:#080808}
+.tc02 .above{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#555;margin-bottom:16px;position:relative;z-index:2}
+.tc02 .cpf-wrap{position:relative;z-index:2;margin-bottom:12px;display:inline-block}
+.tc02 .cpf{font-size:54px;font-weight:900;color:rgba(255,255,255,.1);letter-spacing:12px}
+.tc02 .slash{
+  position:absolute;top:50%;left:-8%;width:116%;height:5px;
+  background:linear-gradient(90deg,transparent,#ef4444,#ef4444,transparent);
+  transform:translateY(-50%) rotate(-10deg);border-radius:3px
+}
+.tc02 .below{font-size:42px;font-weight:900;color:#fff;letter-spacing:-1px;position:relative;z-index:2}
+.tc02 .bsub{font-size:12px;color:#444;margin-top:8px;letter-spacing:1px;position:relative;z-index:2}
+.tc02 .brand{position:absolute;bottom:14px;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(249,115,22,.6);z-index:2}
+.tc02s .cpf{font-size:38px;letter-spacing:8px}
+.tc02s .below{font-size:30px}
+
+/* ── TC03 ── */
+.tc03{background:#090800}
+.tc03 .cars-row{display:flex;gap:10px;margin-bottom:20px;position:relative;z-index:2}
+.css-car{width:54px;height:30px;position:relative;display:inline-block}
+.css-car .body{position:absolute;bottom:7px;left:0;right:0;height:13px;background:#f97316;border-radius:2px}
+.css-car .roof{position:absolute;bottom:18px;left:9px;right:9px;height:12px;background:#f97316;border-radius:3px 3px 0 0}
+.css-car .wl,.css-car .wr{position:absolute;bottom:0;width:12px;height:12px;border-radius:50%;background:#090800;border:2.5px solid #f97316}
+.css-car .wl{left:5px}
+.css-car .wr{right:5px}
+.tc03 .num{font-size:80px;font-weight:900;color:#fff;line-height:.9;letter-spacing:-4px;position:relative;z-index:2}
+.tc03 .num span{color:#f97316}
+.tc03 .vagas{font-size:18px;font-weight:700;color:#f97316;letter-spacing:3px;text-transform:uppercase;position:relative;z-index:2;margin-top:4px}
+.tc03 .city{position:absolute;bottom:14px;font-size:10px;color:#333;letter-spacing:2px;text-transform:uppercase}
+.tc03 .brand{position:absolute;top:14px;right:14px;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(249,115,22,.5)}
+.tc03s .num{font-size:56px}
+.tc03s .cars-row{gap:7px}
+.tc03s .css-car{width:38px;height:22px}
+.tc03s .css-car .body{height:9px;bottom:5px}
+.tc03s .css-car .roof{left:6px;right:6px;height:9px;bottom:13px}
+.tc03s .css-car .wl,.tc03s .css-car .wr{width:9px;height:9px;border-width:2px}
+.tc03s .css-car .wl{left:4px}
+.tc03s .css-car .wr{right:4px}
+
+/* ── QF01 ── */
+.qf01{background:radial-gradient(ellipse at 50% 30%,#2a0000,#0d0000)}
+.qf01 .warn-circle{
+  width:56px;height:56px;border-radius:50%;
+  border:3px solid rgba(239,68,68,.5);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:900;color:#ef4444;
+  margin:0 auto 16px;position:relative;z-index:2;
+  box-shadow:0 0 30px rgba(239,68,68,.2)
+}
+.qf01 .q{font-size:30px;font-weight:900;color:#fff;line-height:1.1;position:relative;z-index:2;max-width:280px}
+.qf01 .danger{font-size:13px;font-weight:700;color:rgba(239,68,68,.8);margin-top:8px;position:relative;z-index:2}
+.qf01 .divider{width:50px;height:2px;background:rgba(239,68,68,.4);margin:14px auto;position:relative;z-index:2}
+.qf01 .sol{font-size:14px;font-weight:700;color:rgba(255,255,255,.75);position:relative;z-index:2;max-width:260px}
+.qf01 .sol strong{color:#fff}
+.qf01 .sol-green{font-size:14px;font-weight:800;color:#4ade80;margin-top:4px;position:relative;z-index:2}
+.qf01 .brand{position:absolute;bottom:14px;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(239,68,68,.4);z-index:2}
+.qf01s .q{font-size:22px}
+.qf01s .warn-circle{width:42px;height:42px;font-size:22px}
+
+/* ── QF02 ── */
+.qf02{background:#090909;display:flex;flex-direction:row !important;padding:0 !important;align-items:stretch}
+.qf02-l,.qf02-r{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 16px;text-align:center;position:relative}
+.qf02-l{background:#120000}
+.qf02-r{background:#001208}
+.qf02-divider{position:absolute;top:0;bottom:0;left:0;width:1px;background:rgba(255,255,255,.06)}
+.qf02 .icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:900;margin:0 auto 12px}
+.qf02-l .icon{background:rgba(239,68,68,.2);color:#ef4444}
+.qf02-r .icon{background:rgba(34,197,94,.15);color:#22c55e}
+.qf02-l .who{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(239,68,68,.6);margin-bottom:6px}
+.qf02-r .who{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:rgba(34,197,94,.7);margin-bottom:6px}
+.qf02 .desc{font-size:12px;color:rgba(255,255,255,.45);line-height:1.5}
+.qf02-l .desc strong{color:rgba(239,68,68,.8)}
+.qf02-r .desc strong{color:rgba(34,197,94,.9)}
+.qf02 .top-banner{
+  position:absolute;top:0;left:0;right:0;
+  background:rgba(0,0,0,.6);
+  padding:8px 14px;
+  font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,.3);text-align:center;border-bottom:1px solid rgba(255,255,255,.05)
+}
+
+/* ── QF03 ── */
+.qf03{background:#0d0000}
+.qf03 .hl{font-size:38px;font-weight:900;color:#fff;line-height:1;letter-spacing:-1px;position:relative;z-index:2;margin-bottom:4px}
+.qf03 .hl span{color:#ef4444}
+.qf03 .checks{display:flex;flex-direction:column;gap:8px;margin-top:20px;text-align:left;position:relative;z-index:2}
+.qf03 .ci{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:rgba(255,255,255,.7)}
+.qf03 .ci .ck{color:#22c55e;font-size:16px;font-weight:900;flex-shrink:0;line-height:1.2}
+.qf03 .city{margin-top:18px;font-size:10px;color:#333;letter-spacing:2px;text-transform:uppercase;position:relative;z-index:2}
+.qf03 .brand{position:absolute;bottom:14px;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:rgba(239,68,68,.4);z-index:2}
+.qf03s .hl{font-size:26px}
+.qf03s .ci{font-size:11px}
+
+/* ── PP01 ── */
+.pp01{background:linear-gradient(160deg,#080612,#110b24,#0d0920)}
+.pp01::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(109,40,217,.3),transparent 65%)}
+.pp01 .text-wrap{position:relative;z-index:2;padding:0 30px;max-width:480px}
+.pp01 .p1{font-size:18px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.5;margin-bottom:8px}
+.pp01 .p2{font-size:28px;font-weight:900;color:#fff;line-height:1.2;letter-spacing:-0.5px}
+.pp01 .brand{position:absolute;bottom:16px;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(167,139,250,.6);z-index:2}
+.pp01s .p1{font-size:14px}
+.pp01s .p2{font-size:22px}
+
+/* ── PP02 ── */
+.pp02{background:linear-gradient(160deg,#06040f,#0d0820,#0a0618)}
+.pp02::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 40% 55%,rgba(109,40,217,.25),transparent 65%)}
+.pp02 .text-wrap{position:relative;z-index:2;padding:0 30px;max-width:480px}
+.pp02 .q{font-size:14px;font-weight:300;color:rgba(255,255,255,.35);margin-bottom:6px}
+.pp02 .ans-yes{font-size:36px;font-weight:900;color:#a78bfa;line-height:1;letter-spacing:-1px;margin-bottom:16px}
+.pp02 .ou{font-size:14px;font-weight:300;color:rgba(255,255,255,.3);margin-bottom:6px}
+.pp02 .ans-no{font-size:28px;font-weight:900;color:rgba(255,255,255,.25);letter-spacing:-0.5px;text-decoration:line-through;text-decoration-color:rgba(255,255,255,.15)}
+.pp02 .brand{position:absolute;bottom:16px;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(167,139,250,.5);z-index:2}
+.pp02s .ans-yes{font-size:26px}
+.pp02s .ans-no{font-size:20px}
+
+/* NOTES */
+.notes{
+  background:#0f1520;border:1px solid #1a2640;border-radius:10px;
+  padding:16px 20px;margin:16px 32px 0;
+  font-size:12px;color:#64748b;line-height:1.7
+}
+.notes strong{color:#94a3b8}
+
+/* REFS */
+.refs{padding:40px 32px 0}
+.refs h2{font-size:16px;font-weight:800;color:#fff;margin-bottom:4px}
+.refs p{font-size:12px;color:#4a6080;margin-bottom:24px}
+.refs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.ref-card{background:#0f1520;border:1px solid #1a2640;border-radius:10px;padding:16px}
+.ref-card h3{font-size:12px;font-weight:700;color:#fff;margin-bottom:10px}
+.ref-tag{display:inline-block;font-size:10px;font-weight:600;padding:3px 9px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid #1e2d4a;color:#8a9bb8;margin:2px}
+.ref-note{font-size:11px;color:#4a6080;margin-top:8px;line-height:1.6}
+
+/* PRINT HINT */
+.print-hint{
+  text-align:center;padding:16px;
+  font-size:11px;color:#2a3a55;letter-spacing:.5px
+}
+
+@media print {
+  body{background:#fff;padding:0}
+  .ph,.notes,.refs,.print-hint{display:none}
+  .grid{grid-template-columns:1fr 1fr;gap:12px;padding:8px}
+  .cc-label{display:none}
+  .feed{width:100%;height:auto;aspect-ratio:1/1}
+}
+</style>
+</head>
+<body>
+
+<div class="ph">
+  <div>
+    <div class="logo">Cardo Marketing</div>
+    <div class="title">Arte Final — 8 Criativos</div>
+    <div class="sub">Daniel Formehl Fraron · Triad Invest Capital</div>
+  </div>
+  <div class="hint">
+    <strong>Como usar:</strong> Screenshot cada arte em tela cheia<br>
+    Ou encaminhe ao designer com as dimensões ao lado<br>
+    Feed: 1080×1080px · Story: 1080×1920px
+  </div>
+</div>
+
+<!-- ═══════════ TRIAD CAPITAL ═══════════ -->
+<div class="sh"><div class="sh-dot" style="background:#f97316"></div><h2>Triad Capital</h2><span>@triadxcapital · R$20/dia</span></div>
+<div class="grid">
+
+  <!-- TC01 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#f97316">#TC01</div><div class="name">Carro reserva</div><div class="fmt">Feed + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed tc01">
+          <div class="stripe"></div>
+          <div class="brand">triadxcapital</div>
+          <div class="main-text">
+            <div class="l1">CARRO<br>PARADO</div>
+            <div class="eq">= = =</div>
+            <div class="l2">DIA<br>PERDIDO</div>
+          </div>
+          <div class="bottom"><span>✓ &nbsp;Na Triad você tem carro substituto</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Story 9:16</div>
+        <div class="story tc01 tc01s">
+          <div class="stripe"></div>
+          <div class="main-text">
+            <div class="l1">CARRO<br>PARADO</div>
+            <div class="eq" style="font-size:16px">= = =</div>
+            <div class="l2">DIA<br>PERDIDO</div>
+          </div>
+          <div class="bottom"><span style="font-size:9px">✓ Carro substituto incluso</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TC02 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#f97316">#TC02</div><div class="name">Nome sujo</div><div class="fmt">Feed + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed tc02">
+          <div class="above">Locadoras te recusam?</div>
+          <div class="cpf-wrap">
+            <div class="cpf">CPF</div>
+            <div class="slash"></div>
+          </div>
+          <div class="below">AQUI NÃO.</div>
+          <div class="bsub">Pré-pago &nbsp;·&nbsp; Sem análise de crédito</div>
+          <div class="brand">triadxcapital</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Story 9:16</div>
+        <div class="story tc02 tc02s">
+          <div class="above" style="font-size:9px">Locadoras te recusam?</div>
+          <div class="cpf-wrap">
+            <div class="cpf" style="font-size:36px;letter-spacing:8px">CPF</div>
+            <div class="slash"></div>
+          </div>
+          <div class="below" style="font-size:30px">AQUI NÃO.</div>
+          <div class="bsub" style="font-size:10px">Pré-pago · Sem análise</div>
+          <div class="brand">triadxcapital</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TC03 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#f97316">#TC03</div><div class="name">5 vagas abertas</div><div class="fmt">Feed + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed tc03">
+          <div class="brand">triadxcapital</div>
+          <div class="cars-row">
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+          </div>
+          <div class="num"><span>5</span> VAGAS</div>
+          <div class="vagas">ABERTAS AGORA</div>
+          <div class="city">Blumenau &nbsp;·&nbsp; Vale &nbsp;·&nbsp; Litoral</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Story 9:16</div>
+        <div class="story tc03 tc03s">
+          <div class="cars-row">
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+            <div class="css-car"><div class="body"></div><div class="roof"></div><div class="wl"></div><div class="wr"></div></div>
+          </div>
+          <div class="num" style="font-size:56px"><span>5</span></div>
+          <div class="vagas" style="font-size:13px">VAGAS ABERTAS</div>
+          <div class="city" style="font-size:8px">Blumenau · Vale · Litoral</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ QUITAR ═══════════ -->
+<div class="sh"><div class="sh-dot" style="background:#ef4444"></div><h2>Quitar Financiamento</h2><span>@quitarfinanciamentocarro</span></div>
+<div class="grid">
+
+  <!-- QF01 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#ef4444">#QF01</div><div class="name">Medo + alívio</div><div class="fmt">Story / Reels</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed qf01">
+          <div class="warn-circle">!</div>
+          <div class="q">PARCELAS<br>ATRASADAS?</div>
+          <div class="danger">O banco pode agir antes do que você pensa.</div>
+          <div class="divider"></div>
+          <div class="sol"><strong>A gente compra.</strong> Quitamos a dívida<br>diretamente com o banco.</div>
+          <div class="sol-green">Você sai com o nome limpo. ✓</div>
+          <div class="brand">quitarfinanciamentocarro</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Story 9:16</div>
+        <div class="story qf01 qf01s">
+          <div class="warn-circle" style="width:36px;height:36px;font-size:18px;margin-bottom:10px">!</div>
+          <div class="q" style="font-size:22px">PARCELAS<br>ATRASADAS?</div>
+          <div class="danger" style="font-size:10px;margin-top:6px">O banco pode agir hoje.</div>
+          <div class="divider"></div>
+          <div class="sol" style="font-size:11px"><strong>A gente compra e quita.</strong></div>
+          <div class="sol-green" style="font-size:11px">Nome limpo. ✓</div>
+          <div class="brand">quitarfinanciamentocarro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QF02 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#ef4444">#QF02</div><div class="name">Contraste — ✗ vs ✓</div><div class="fmt">Feed</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed qf02">
+          <div class="top-banner">Nem toda empresa faz do jeito certo.</div>
+          <div class="qf02-l">
+            <div class="icon">✗</div>
+            <div class="who">Empresa comum</div>
+            <div class="desc">Compra seu carro.<br>Some.<br><strong>Dívida continua no seu nome.</strong></div>
+          </div>
+          <div class="qf02-r">
+            <div class="qf02-divider"></div>
+            <div class="icon">✓</div>
+            <div class="who">Quitar</div>
+            <div class="desc">Compra.<br>Negocia com o banco.<br><strong>Você sai com o nome limpo.</strong></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Story 9:16</div>
+        <div class="story qf02">
+          <div class="top-banner" style="font-size:7px">Nem toda empresa faz do jeito certo.</div>
+          <div class="qf02-l">
+            <div class="icon" style="width:32px;height:32px;font-size:16px">✗</div>
+            <div class="who" style="font-size:8px">EMPRESA COMUM</div>
+            <div class="desc" style="font-size:9px">Some com seu carro.<br><strong>Dívida fica com você.</strong></div>
+          </div>
+          <div class="qf02-r">
+            <div class="qf02-divider"></div>
+            <div class="icon" style="width:32px;height:32px;font-size:16px">✓</div>
+            <div class="who" style="font-size:8px">QUITAR</div>
+            <div class="desc" style="font-size:9px">Quita no banco.<br><strong>Você sai limpo.</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QF03 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#ef4444">#QF03</div><div class="name">Direto ao ponto</div><div class="fmt">Feed + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed qf03">
+          <div class="hl">CARRO <span>ALIENADO</span><br>COM DÍVIDA?</div>
+          <div class="checks">
+            <div class="ci"><span class="ck">✓</span><span>Negociamos a dívida com o banco</span></div>
+            <div class="ci"><span class="ck">✓</span><span>Quitamos o financiamento</span></div>
+            <div class="ci"><span class="ck">✓</span><span>Transferimos pro nosso nome</span></div>
+            <div class="ci"><span class="ck">✓</span><span>Você sai sem dívida</span></div>
+          </div>
+          <div class="city">Blumenau &nbsp;·&nbsp; Vale &nbsp;·&nbsp; Litoral SC</div>
+          <div class="brand">quitarfinanciamentocarro</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Story 9:16</div>
+        <div class="story qf03 qf03s">
+          <div class="hl" style="font-size:22px">CARRO<br><span>ALIENADO?</span></div>
+          <div class="checks" style="margin-top:12px">
+            <div class="ci" style="font-size:10px"><span class="ck" style="font-size:12px">✓</span><span>Negociamos no banco</span></div>
+            <div class="ci" style="font-size:10px"><span class="ck" style="font-size:12px">✓</span><span>Quitamos</span></div>
+            <div class="ci" style="font-size:10px"><span class="ck" style="font-size:12px">✓</span><span>Você sai limpo</span></div>
+          </div>
+          <div class="city" style="font-size:8px;margin-top:10px">Blumenau · Vale · Litoral</div>
+          <div class="brand">quitarfinanciamentocarro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══════════ PERPÉTUO ═══════════ -->
+<div class="sh"><div class="sh-dot" style="background:#7c3aed"></div><h2>Perpétuo — Paternidade</h2><span>@danielfraron7 · Voz off + texto</span></div>
+<div class="grid">
+
+  <!-- PP01 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#a78bfa">#PP01</div><div class="name">Provocação de identidade</div><div class="fmt">Reels + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed pp01">
+          <div class="text-wrap">
+            <div class="p1">Você trabalha muito<br>pra dar tudo pro seu filho.</div>
+            <div class="p2">E tá perdendo<br>ele assim mesmo.</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Reels / Story</div>
+        <div class="story pp01 pp01s">
+          <div class="text-wrap" style="padding:0 14px">
+            <div class="p1" style="font-size:13px">Você trabalha muito<br>pra dar tudo pro seu filho.</div>
+            <div class="p2" style="font-size:19px;margin-top:10px">E tá perdendo<br>ele assim mesmo.</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PP02 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#a78bfa">#PP02</div><div class="name">Dor silenciosa</div><div class="fmt">Reels + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed pp02">
+          <div class="text-wrap">
+            <div class="q">Seu filho vai te lembrar como</div>
+            <div class="ans-yes">PAI<br>PRESENTE</div>
+            <div class="ou">ou como</div>
+            <div class="ans-no">PAI AUSENTE?</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Reels / Story</div>
+        <div class="story pp02 pp02s">
+          <div class="text-wrap" style="padding:0 12px">
+            <div class="q" style="font-size:11px">Seu filho vai te lembrar como</div>
+            <div class="ans-yes" style="font-size:24px;margin:4px 0 10px">PAI PRESENTE</div>
+            <div class="ou" style="font-size:11px">ou como</div>
+            <div class="ans-no" style="font-size:18px;margin-top:4px">PAI AUSENTE?</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- NOTES -->
+<div class="notes">
+  <strong>Como usar essas artes:</strong> Cada criativo está no tamanho exato de produção. Para exportar: abra essa página no Chrome → pressione F11 (tela cheia) → screenshot cada feed (340×340px na tela = proporção 1:1 correta). Ou encaminhe essa página ao designer com as indicações de cor e tipografia em cada peça. Para produção final, replique no <strong>Canva Pro</strong> nas dimensões 1080×1080 (feed) e 1080×1920 (story) usando as cores e estrutura de cada arte abaixo.
+</div>
+
+<!-- REFERÊNCIAS REAIS -->
+<div class="refs">
+  <h2>Referências de mercado</h2>
+  <p>Contas reais para estudar antes de produzir — observe criativos, formato, copy e estética de cada nicho</p>
+  <div class="refs-grid">
+
+    <div class="ref-card">
+      <h3 style="color:#f97316">Triad Capital — Locadora para app</h3>
+      <div>
+        <span class="ref-tag">@acheilocadoradeveiculos</span>
+        <span class="ref-tag">@clikcarrs</span>
+        <span class="ref-tag">@movefleet.br</span>
+        <span class="ref-tag">@alugueldecarroappteresina</span>
+      </div>
+      <div class="ref-note">O que observar: como mostram os carros, como comunicam o diferencial de CPF, que linguagem usam com motoristas de app, formatos que mais engajam.</div>
+    </div>
+
+    <div class="ref-card">
+      <h3 style="color:#ef4444">Quitar Financiamento</h3>
+      <div>
+        <span class="ref-tag">@serasalimpanome</span>
+        <span class="ref-tag">@quitarfinanciamentocarro</span>
+        <span class="ref-tag">Buscar: "compro carro financiado" no IG</span>
+      </div>
+      <div class="ref-note">O que observar: como criam urgência sem parecer golpe, uso de depoimentos, split design ✗ vs ✓, como falam sobre o processo de quitação.</div>
+    </div>
+
+    <div class="ref-card">
+      <h3 style="color:#a78bfa">Perpétuo — Paternidade</h3>
+      <div>
+        <span class="ref-tag">@paulo.vieira.oficial</span>
+        <span class="ref-tag">@thiago.nigro</span>
+        <span class="ref-tag">@leandroladeira</span>
+        <span class="ref-tag">Dark profile paternidade</span>
+      </div>
+      <div class="ref-note">O que observar: uso de fundo escuro, texto aparecendo na tela linha por linha, ausência de rosto na maioria dos criativos, tom introspectivo que provoca identidade.</div>
+    </div>
+
+    <div class="ref-card">
+      <h3 style="color:#94a3b8">Como pesquisar mais referências</h3>
+      <div>
+        <span class="ref-tag">Meta Ad Library</span>
+        <span class="ref-tag">facebook.com/ads/library</span>
+      </div>
+      <div class="ref-note">Na <strong>Biblioteca de Anúncios da Meta</strong> (gratuita) você vê os anúncios ativos de qualquer concorrente. Busque: "locadora Uber", "quitar financiamento", "curso paternidade" e filtre por Brasil. É a melhor fonte de referência real de mercado.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="print-hint">Cardo Marketing · Brief interno · Daniel Fraron · Junho 2026 · <a href="index.html" style="color:#2a4a70">← Voltar ao brief completo</a></div>
+
+</body>
+</html>
