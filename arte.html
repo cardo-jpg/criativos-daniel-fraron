@@ -190,6 +190,31 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
 .pp02s .ans-yes{font-size:26px}
 .pp02s .ans-no{font-size:20px}
 
+/* ── PP03 ── */
+.pp03{background:linear-gradient(160deg,#040210,#0b0720,#070414)}
+.pp03::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 65%,rgba(124,58,237,.22),transparent 60%)}
+.pp03 .text-wrap{position:relative;z-index:2;padding:0 32px;max-width:480px}
+.pp03 .l1{font-size:15px;font-weight:300;color:rgba(255,255,255,.35);letter-spacing:.5px;margin-bottom:14px;line-height:1.5}
+.pp03 .l2{font-size:32px;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px}
+.pp03 .l3{font-size:22px;font-weight:700;color:#a78bfa;letter-spacing:-0.3px;line-height:1.2}
+.pp03 .brand{position:absolute;bottom:16px;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(167,139,250,.5);z-index:2}
+.pp03s .l1{font-size:12px}
+.pp03s .l2{font-size:22px}
+.pp03s .l3{font-size:17px}
+
+/* ── PP04 ── */
+.pp04{background:linear-gradient(160deg,#030110,#08051c,#060218)}
+.pp04::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,rgba(109,40,217,.2),transparent 60%)}
+.pp04 .text-wrap{position:relative;z-index:2;padding:0 28px;max-width:480px}
+.pp04 .pre{font-size:13px;font-weight:400;color:rgba(255,255,255,.28);letter-spacing:.5px;margin-bottom:16px;line-height:1.5}
+.pp04 .main{font-size:28px;font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px}
+.pp04 .main em{font-style:normal;color:#a78bfa}
+.pp04 .sub{font-size:16px;font-weight:400;color:rgba(255,255,255,.4);line-height:1.5}
+.pp04 .brand{position:absolute;bottom:16px;font-size:10px;font-weight:700;letter-spacing:1px;color:rgba(167,139,250,.5);z-index:2}
+.pp04s .pre{font-size:10px}
+.pp04s .main{font-size:19px}
+.pp04s .sub{font-size:12px}
+
 /* NOTES — hidden */
 .notes{display:none}
 
@@ -521,6 +546,64 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
     </div>
   </div>
 
+  <!-- PP03 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#a78bfa">#PP03</div><div class="name">O Pai Provedor</div><div class="fmt">Reels + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed pp03">
+          <div class="text-wrap">
+            <div class="l1">Você provê tudo pro seu filho.</div>
+            <div class="l2">Mas ele não precisa de mais dinheiro.</div>
+            <div class="l3">Ele precisa de você.</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Reels / Story</div>
+        <div class="story pp03 pp03s">
+          <div class="text-wrap" style="padding:0 14px">
+            <div class="l1">Você provê tudo pro seu filho.</div>
+            <div class="l2">Mas ele não precisa de mais dinheiro.</div>
+            <div class="l3">Ele precisa de você.</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PP04 -->
+  <div class="cc">
+    <div class="cc-label"><div class="code" style="color:#a78bfa">#PP04</div><div class="name">Insight provocador</div><div class="fmt">Reels + Story</div></div>
+    <div class="cc-formats">
+      <div>
+        <div class="fmt-label">Feed 1:1</div>
+        <div class="feed pp04">
+          <div class="text-wrap">
+            <div class="pre">A maioria dos homens de sucesso</div>
+            <div class="main">está falhando <em>em casa.</em></div>
+            <div class="sub">E só descobre quando o filho para de contar as coisas.</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+      <div>
+        <div class="fmt-label">Reels / Story</div>
+        <div class="story pp04 pp04s">
+          <div class="text-wrap" style="padding:0 12px">
+            <div class="pre">A maioria dos homens de sucesso</div>
+            <div class="main">está falhando <em>em casa.</em></div>
+            <div class="sub">E só descobre quando o filho para de contar as coisas.</div>
+          </div>
+          <div class="brand">@danielfraron7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 
@@ -611,14 +694,46 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
     </div>
 
     <div class="ref-img-card">
-      <img src="refs/ref01.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Blog Juros Abusivos">
+      <img src="refs/ref01.jpg" style="object-position: top" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Blog Juros Abusivos">
       <div class="ref-placeholder" style="display:none">Blog Juros Abusivos — Native Ad<br>refs/ref01.jpg</div>
       <div class="ri-body">
         <div class="ri-label" style="color:#ef4444">Formato nativo · conteúdo editorial</div>
         <div class="ri-title">Blog Juros Abusivos — "Nova medida aprovada para quem financiou um veículo"</div>
         <div class="ri-analysis">
-          <strong>Por que funciona:</strong> Native advertising — parece artigo de notícia, não anúncio. "Nova medida aprovada" soa como urgência legislativa. Quem tem financiamento clica por medo de perder algo.<br><br>
-          <strong>Adaptar sem clickbait:</strong> Um reels do Daniel explicando o que acontece legalmente após 1 parcela atrasada tem o mesmo efeito educacional — com a vantagem de construir autoridade real em vez de parecer enganoso.
+          <strong>Por que funciona:</strong> Native advertising — parece artigo de notícia, não anúncio. "Nova medida aprovada" soa urgência legislativa. Quem tem financiamento clica por medo de perder algo.<br><br>
+          <strong>Adaptar sem clickbait:</strong> Um reels do Daniel explicando o que acontece legalmente após 1 parcela atrasada tem o mesmo efeito educacional — com mais autoridade e sem risco de parecer enganoso.
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-img-card">
+      <img src="refs/ref03.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Creditas Meme">
+      <div class="ref-placeholder" style="display:none">Creditas — Meme<br>refs/ref03.jpg</div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#22c55e">Formato meme · humor que converte</div>
+        <div class="ri-title">Creditas — "Tô precisando de grana... / Usa o cheque especial / Tá é doida kk"</div>
+        <div class="ri-analysis">
+          <strong>Por que funciona:</strong> Humor + meme reconhecível para falar de dívida de forma leve. A solução ruim é descreditada antes de qualquer oferta. Alto compartilhamento orgânico — aparece no story de amigos sem parecer anúncio.<br><br>
+          <strong>Aplicar no Quitar:</strong> <em>"Vendeu o carro mas a dívida ficou com você? / [choque]"</em> — mesma lógica, custo zero, quebra o padrão sério do nicho.
+        </div>
+      </div>
+    </div>
+
+    <div class="ref-img-card" style="border-color:rgba(239,68,68,.25)">
+      <div style="width:100%;aspect-ratio:1/1;background:radial-gradient(ellipse at 50% 40%,#1a0000,#070000);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center">
+        <div style="font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(239,68,68,.5);margin-bottom:10px">Dado legal crítico</div>
+        <div style="font-size:72px;font-weight:900;color:#ef4444;line-height:1;letter-spacing:-4px;text-shadow:0 0 40px rgba(239,68,68,.4)">1</div>
+        <div style="font-size:13px;font-weight:700;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;margin:8px 0">parcela atrasada</div>
+        <div style="width:36px;height:2px;background:rgba(239,68,68,.4);margin:12px auto"></div>
+        <div style="font-size:17px;font-weight:900;color:#fff;line-height:1.25">Banco pode pedir<br>busca e apreensão.</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.3);margin-top:10px;line-height:1.4">5 dias para quitar<br>ou vai a leilão</div>
+      </div>
+      <div class="ri-body">
+        <div class="ri-label" style="color:#ef4444">Dado real · o hook mais forte do nicho</div>
+        <div class="ri-title">O dado legal que a concorrência subutiliza — e que converte mais que qualquer desconto</div>
+        <div class="ri-analysis">
+          <strong>Por que usar:</strong> A maioria dos concorrentes usa urgência genérica. O dado real (1 parcela = risco imediato) é concreto e verificável — ativa medo legítimo sem sensacionalismo.<br><br>
+          <strong>Hook direto:</strong> "Você sabia que o banco pode buscar seu carro com apenas 1 parcela atrasada?" — esse número sozinho para o scroll e justifica o contato imediato com o Quitar.
         </div>
       </div>
     </div>
@@ -644,22 +759,6 @@ body{background:#0a0f1a;font-family:'Segoe UI',system-ui,sans-serif;padding-bott
         <div class="ri-analysis">
           <strong>O problema:</strong> Ícones demais, textos demais, gradientes neon, selos, badges de confiança — o olho não sabe onde pousar. Em story fica completamente ilegível. Esse estilo grita "anúncio barato" para o público Classe A/B do Perpétuo e afasta leads de Quitar que já desconfiam do mercado.<br><br>
           <strong>Regra para Daniel:</strong> Se você precisa de mais de 3 elementos por frame, é porque a copy não está boa o suficiente. Simplifique o visual, fortaleça a frase.
-        </div>
-      </div>
-    </div>
-
-    <div class="ref-img-card" style="border-color:rgba(239,68,68,.3)">
-      <div style="position:relative">
-        <img src="refs/ref03.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" alt="Creditas Meme">
-        <div class="ref-placeholder" style="display:none">Creditas — Meme<br>refs/ref03.jpg</div>
-        <div style="position:absolute;top:8px;left:8px;background:#22c55e;color:white;font-size:9px;font-weight:900;letter-spacing:1.5px;padding:3px 8px;border-radius:6px;text-transform:uppercase">Referência de humor</div>
-      </div>
-      <div class="ri-body">
-        <div class="ri-label" style="color:#22c55e">Exceção · Creditas — formato meme</div>
-        <div class="ri-title">Creditas — humor que funciona: "cheque especial" como vilão</div>
-        <div class="ri-analysis">
-          <strong>Por que é diferente:</strong> Apesar do visual "colorido", o meme funciona porque tem narrativa clara em 2 frames e usa humor para descreditar a solução ruim (cheque especial) antes de oferecer a solução certa. Alto compartilhamento orgânico.<br><br>
-          <strong>Aplicar no Quitar:</strong> Meme com carro: <em>"Vendeu o carro mas a dívida ficou com você? / [choque]"</em> — segue a mesma lógica. Custa quase zero e quebra o padrão sério do nicho.
         </div>
       </div>
     </div>
